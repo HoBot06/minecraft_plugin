@@ -1,0 +1,11 @@
+name: Christmas_Nightmare
+main: com.ho_bot.CNM.Main
+version: 1.0
+api-version: 1.18
+depend: [NickAPI]
+
+commands:
+  cnm:
+        description: 크리스마스
+  all:
+        description: 전체 채팅

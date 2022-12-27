@@ -1,38 +1,22 @@
-// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
-// Jad home page: http://www.kpdus.com/jad.html
-// Decompiler options: packimports(3) 
-// Source File Name:   JobSelect.java
-
 package com.ho_bot.CNM.Gui;
 
-import com.ho_bot.CNM.Job.Dealer.*;
-import com.ho_bot.CNM.Job.Support.*;
-import com.ho_bot.CNM.Job.Tank.*;
-import com.ho_bot.CNM.Tools.JobSelectTool;
-import com.ho_bot.CNM.Var.ItemVar;
-import org.bukkit.*;
 import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.inventory.*;
-import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.Inventory;
 
 public class JobSelect
 {
-
-    public JobSelect()
+	public static void JobSelectGui(Player player)
     {
-    }
-
-    public static void JobSelectGui(Player player)
-    {
-        Inventory inv = Bukkit.createInventory(null, 54, "\uB2A5\uB825\uC120\uD0DD");
+        Inventory inv = Bukkit.createInventory(null, 54, WordVar.JobSelectGuiName);
         ItemStack glass = new ItemStack(Material.BLACK_STAINED_GLASS_PANE);
         glass.getItemMeta().setDisplayName("");
-        for(int i = 0; i < 9; i++)
+        for(int i = 0; i < 9; i++) {
             inv.setItem(i, new ItemStack(glass));
+        }
 
-        for(int i = 45; i < 54; i++)
+        for(int i = 45; i < 54; i++) {
             inv.setItem(i, new ItemStack(glass));
+        }
 
         inv.setItem(10, ItemVar.BigGuyGuiItem(player));
         inv.setItem(19, ItemVar.EgisGuiItem(player));

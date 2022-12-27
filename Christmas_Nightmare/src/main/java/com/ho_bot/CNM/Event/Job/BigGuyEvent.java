@@ -1,4 +1,4 @@
-package com.ho_bot.Event.Job;
+package com.ho_bot.CNM.Event.Job;
 
 import java.util.List;
 import java.util.Map.Entry;

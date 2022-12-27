@@ -8,11 +8,12 @@ package com.ho_bot.CNM.Event;
 import com.ho_bot.CNM.Gui.JobSelect;
 import com.ho_bot.CNM.Job.Job;
 import com.ho_bot.CNM.Main;
+import com.ho_bot.CNM.Event.Job.BigGuyEvent;
 import com.ho_bot.CNM.NPC.JobSelectNPC;
 import com.ho_bot.CNM.Utility.DamageUtil;
 import com.ho_bot.CNM.Var.*;
 import com.ho_bot.CNM.mat.MatGiveEvent;
-import com.ho_bot.Event.Job.BigGuyEvent;
+
 import java.util.*;
 import org.bukkit.*;
 import org.bukkit.block.Block;

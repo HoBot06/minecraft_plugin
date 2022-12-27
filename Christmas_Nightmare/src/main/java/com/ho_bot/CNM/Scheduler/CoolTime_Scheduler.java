@@ -13,12 +13,9 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public class CoolTime_Scheduler extends BukkitRunnable
 {
-
-    public CoolTime_Scheduler()
-    {
-    }
-
-    public void run()
+	public static HashMap<String, Integer> COOL = new HashMap<String, Integer>();
+	
+	public void run()
     {
         for(Iterator iterator = Bukkit.getOnlinePlayers().iterator(); iterator.hasNext();)
         {
@@ -37,7 +34,4 @@ public class CoolTime_Scheduler extends BukkitRunnable
         }
 
     }
-
-    public static HashMap COOL = new HashMap();
-
 }

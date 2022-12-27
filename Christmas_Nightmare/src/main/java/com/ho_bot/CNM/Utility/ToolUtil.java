@@ -1,34 +1,37 @@
-// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
-// Jad home page: http://www.kpdus.com/jad.html
-// Decompiler options: packimports(3) 
-// Source File Name:   ToolUtil.java
-
 package com.ho_bot.CNM.Utility;
 
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Location;
+
 import com.ho_bot.CNM.Main;
-import org.bukkit.*;
-import org.bukkit.configuration.file.FileConfiguration;
+import com.ho_bot.CNM.Var.WordVar;
 
 public class ToolUtil
 {
 
-    public ToolUtil()
+	public boolean CheckInLocation(Location PlayerLoc, Location Loc1, Location Loc2)
     {
-    }
-
-    public boolean CheckInLocation(Location PlayerLoc, Location Loc1, Location Loc2)
-    {
-        Boolean IsIn = Boolean.valueOf(false);
-        if(Math.max(Loc1.getX(), Loc2.getX()) >= PlayerLoc.getX() && PlayerLoc.getX() >= Math.min(Loc1.getX(), Loc2.getX()) && Math.max(Loc1.getY(), Loc2.getY()) >= PlayerLoc.getY() && PlayerLoc.getY() >= Math.min(Loc1.getY(), Loc2.getY()) && Math.max(Loc1.getZ(), Loc2.getZ()) >= PlayerLoc.getZ() && PlayerLoc.getZ() >= Math.min(Loc1.getZ(), Loc2.getZ()))
-            IsIn = Boolean.valueOf(true);
-        return IsIn.booleanValue();
+        Boolean IsIn = false;
+        if(Math.max(Loc1.getX(), Loc2.getX()) >= PlayerLoc.getX() && PlayerLoc.getX() >= Math.min(Loc1.getX(), Loc2.getX()) && 
+        		Math.max(Loc1.getY(), Loc2.getY()) >= PlayerLoc.getY() && PlayerLoc.getY() >= Math.min(Loc1.getY(), Loc2.getY()) && 
+        		Math.max(Loc1.getZ(), Loc2.getZ()) >= PlayerLoc.getZ() && PlayerLoc.getZ() >= Math.min(Loc1.getZ(), Loc2.getZ())) {
+        	IsIn = true;
+        }
+        return IsIn;
     }
 
     public Location[] ReturnCapLoc(String CapName)
     {
         Location LocList[] = new Location[2];
-        Location loc1 = new Location(Bukkit.getWorld(((Main)Main.getPlugin(com/ho_bot/CNM/Main)).getConfig().getString((new StringBuilder(String.valueOf(CapName))).append(".W1").toString())), ((Main)Main.getPlugin(com/ho_bot/CNM/Main)).getConfig().getDouble((new StringBuilder(String.valueOf(CapName))).append(".X1").toString()), ((Main)Main.getPlugin(com/ho_bot/CNM/Main)).getConfig().getDouble((new StringBuilder(String.valueOf(CapName))).append(".Y1").toString()), ((Main)Main.getPlugin(com/ho_bot/CNM/Main)).getConfig().getDouble((new StringBuilder(String.valueOf(CapName))).append(".Z1").toString()));
-        Location loc2 = new Location(Bukkit.getWorld(((Main)Main.getPlugin(com/ho_bot/CNM/Main)).getConfig().getString((new StringBuilder(String.valueOf(CapName))).append(".W2").toString())), ((Main)Main.getPlugin(com/ho_bot/CNM/Main)).getConfig().getDouble((new StringBuilder(String.valueOf(CapName))).append(".X2").toString()), ((Main)Main.getPlugin(com/ho_bot/CNM/Main)).getConfig().getDouble((new StringBuilder(String.valueOf(CapName))).append(".Y2").toString()), ((Main)Main.getPlugin(com/ho_bot/CNM/Main)).getConfig().getDouble((new StringBuilder(String.valueOf(CapName))).append(".Z2").toString()));
+        Location loc1 = new Location(Bukkit.getWorld(Main.getPlugin(Main.class).getConfig().getString(CapName+".W1")),
+        		Main.getPlugin(Main.class).getConfig().getDouble(CapName + ".X1"),
+        		Main.getPlugin(Main.class).getConfig().getDouble(CapName + ".Y1"),
+        		Main.getPlugin(Main.class).getConfig().getDouble(CapName + ".Z1"));
+        Location loc2 = new Location(Bukkit.getWorld(Main.getPlugin(Main.class).getConfig().getString(CapName+".W2")),
+        		Main.getPlugin(Main.class).getConfig().getDouble(CapName + ".X2"),
+        		Main.getPlugin(Main.class).getConfig().getDouble(CapName + ".Y2"),
+        		Main.getPlugin(Main.class).getConfig().getDouble(CapName + ".Z2"));
         LocList[0] = loc1;
         LocList[1] = loc2;
         return LocList;
@@ -36,9 +39,9 @@ public class ToolUtil
 
     public ChatColor CapTeamChatColor(String team)
     {
-        if(team.equals("\uC0B0\uD0C0"))
+        if(team.equals(WordVar.Santa))
             return ChatColor.RED;
-        if(team.equals("\uD06C\uB78C\uD478\uC2A4"))
+        if(team.equals(WordVar.Krampus))
             return ChatColor.BLUE;
         else
             return ChatColor.WHITE;

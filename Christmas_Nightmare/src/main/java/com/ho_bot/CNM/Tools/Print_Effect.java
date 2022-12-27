@@ -1,28 +1,19 @@
-// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
-// Jad home page: http://www.kpdus.com/jad.html
-// Decompiler options: packimports(3) 
-// Source File Name:   Print_Effect.java
-
 package com.ho_bot.CNM.Tools;
 
-import org.bukkit.*;
+import org.bukkit.Location;
+import org.bukkit.Particle;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
 public class Print_Effect
 {
-
-    public Print_Effect()
-    {
-    }
-
-    public static void CircleParticle(Particle particle, Location loc, int radius, int count, double offsetX, double offsetY, 
-            double offsetZ, double speed)
+    public static void CircleParticle(Particle particle, Location loc, int radius, int count, double offsetX, double offsetY, double offsetZ, double speed)
     {
         for(int d = 0; d <= 100; d++)
         {
-            float x = (float)radius * (float)Math.sin(d);
-            float z = (float)radius * (float)Math.cos(d);
-            loc.getWorld().spawnParticle(particle, new Location(loc.getWorld(), loc.getX() + (double)x, loc.getY(), loc.getZ() + (double)z), count, offsetX, offsetY, offsetZ, speed);
+            float x = radius * (float)Math.sin(d);
+            float z = radius * (float)Math.cos(d);
+            loc.getWorld().spawnParticle(particle, new Location(loc.getWorld(), loc.getX() + x, loc.getY(), loc.getZ() + z), count, offsetX, offsetY, offsetZ, speed);
         }
 
     }

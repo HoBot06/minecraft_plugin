@@ -1,7 +1,27 @@
 package com.ho_bot.CNM.Gui;
 
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+
+import com.ho_bot.CNM.Job.Dealer.Bomber;
+import com.ho_bot.CNM.Job.Dealer.Faster;
+import com.ho_bot.CNM.Job.Dealer.Kratos;
+import com.ho_bot.CNM.Job.Dealer.Saluran;
+import com.ho_bot.CNM.Job.Support.Paladin;
+import com.ho_bot.CNM.Job.Support.Pemanah;
+import com.ho_bot.CNM.Job.Support.Zouk;
+import com.ho_bot.CNM.Job.Tank.BigGuy;
+import com.ho_bot.CNM.Job.Tank.Cruise;
+import com.ho_bot.CNM.Job.Tank.Egis;
+import com.ho_bot.CNM.Job.Tank.Patai;
+import com.ho_bot.CNM.Tools.JobSelectTool;
+import com.ho_bot.CNM.Var.ItemVar;
+import com.ho_bot.CNM.Var.WordVar;
 
 public class JobSelect
 {
@@ -35,76 +55,47 @@ public class JobSelect
     public static void JobSelectEvent(InventoryClickEvent event)
     {
         Player player = (Player)event.getWhoClicked();
-        if(event.getView().getTitle().equalsIgnoreCase("\uB2A5\uB825\uC120\uD0DD"))
+        if(event.getView().getTitle().equalsIgnoreCase(WordVar.JobSelectGuiName))
         {
             event.setCancelled(true);
-            if(event.getCurrentItem() == null || event.getCurrentItem().getType() == Material.AIR || !event.getCurrentItem().hasItemMeta())
-                return;
-            String s;
-            switch((s = ChatColor.stripColor(event.getCurrentItem().getItemMeta().getDisplayName())).hashCode())
-            {
-            default:
-                break;
-
-            case 1548288: 
-                if(s.equals("\uBD04\uBC84"))
-                    JobSelectTool.JobSelTool(player, new Bomber(player.getName()));
-                break;
-
-            case 1648368: 
-                if(s.equals("\uC8FC\uD06C"))
-                    JobSelectTool.JobSelTool(player, new Zouk(player.getName()));
-                break;
-
-            case 48225401: 
-                if(s.equals("\uBE45\uAC00\uC774"))
-                    JobSelectTool.JobSelTool(player, new BigGuy(player.getName()));
-                break;
-
-            case 48922444: 
-                if(s.equals("\uC0B4\uB8E8\uB780"))
-                    JobSelectTool.JobSelTool(player, new Saluran(player.getName()));
-                break;
-
-            case 50097220: 
-                if(s.equals("\uC5D0\uAE30\uC2A4"))
-                    JobSelectTool.JobSelTool(player, new Egis(player.getName()));
-                break;
-
-            case 52792360: 
-                if(s.equals("\uD06C\uB8E8\uC2A4"))
-                    JobSelectTool.JobSelTool(player, new Cruise(player.getName()));
-                break;
-
-            case 53431088: 
-                if(s.equals("\uD314\uB77C\uB518"))
-                    JobSelectTool.JobSelTool(player, new Paladin(player.getName()));
-                break;
-
-            case 53581960: 
-                if(s.equals("\uD398\uBAA8\uB098"))
-                    JobSelectTool.JobSelTool(player, new Pemanah(player.getName()));
-                break;
-
-            case 53628608: 
-                if(s.equals("\uD30C\uD0C0\uC774"))
-                    JobSelectTool.JobSelTool(player, new Patai(player.getName()));
-                break;
-
-            case 53654060: 
-                if(s.equals("\uD398\uC2A4\uD2B8"))
-                    JobSelectTool.JobSelTool(player, new Faster(player.getName()));
-                break;
-
-            case 1636382100: 
-                if(s.equals("\uD06C\uB77C\uD1A0\uC2A4"))
-                    JobSelectTool.JobSelTool(player, new Kratos(player.getName()));
-                break;
+            if(event.getCurrentItem() == null || event.getCurrentItem().getType() == Material.AIR || !event.getCurrentItem().hasItemMeta()) {
+            	return;
             }
-            return;
-        } else
-        {
-            return;
+            switch(ChatColor.stripColor(event.getCurrentItem().getItemMeta().getDisplayName())) {
+            case "봄버" :
+            	JobSelectTool.JobSelTool(player, new Bomber(player.getName()));
+            	break;
+            case "주크" :
+            	JobSelectTool.JobSelTool(player, new Zouk(player.getName()));
+            	break;
+            case "빅가이" :
+            	JobSelectTool.JobSelTool(player, new BigGuy(player.getName()));
+            	break;
+            case "살루란" :
+            	JobSelectTool.JobSelTool(player, new Saluran(player.getName()));
+            	break;
+            case "에기스" :
+            	JobSelectTool.JobSelTool(player, new Egis(player.getName()));
+            	break;
+            case "크루스" :
+            	JobSelectTool.JobSelTool(player, new Cruise(player.getName()));
+            	break;
+            case "팔라딘" :
+            	JobSelectTool.JobSelTool(player, new Paladin(player.getName()));
+            	break;
+            case "페모나" :
+            	JobSelectTool.JobSelTool(player, new Pemanah(player.getName()));
+            	break;
+            case "파타이" :
+            	JobSelectTool.JobSelTool(player, new Patai(player.getName()));
+            	break;
+            case "페스트" :
+            	JobSelectTool.JobSelTool(player, new Faster(player.getName()));
+            	break;
+            case "크라토스" :
+            	JobSelectTool.JobSelTool(player, new Kratos(player.getName()));
+            	break;
+            }
         }
     }
 }

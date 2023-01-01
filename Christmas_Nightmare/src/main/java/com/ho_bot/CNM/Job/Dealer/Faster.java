@@ -1,28 +1,34 @@
-// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
-// Jad home page: http://www.kpdus.com/jad.html
-// Decompiler options: packimports(3) 
-// Source File Name:   Faster.java
-
 package com.ho_bot.CNM.Job.Dealer;
 
-import com.ho_bot.CNM.Job.Job;
-import com.ho_bot.CNM.Tools.*;
-import com.ho_bot.CNM.Utility.CoolTimeUtil;
-import com.ho_bot.CNM.Utility.ShootUtility;
-import com.ho_bot.CNM.Var.ItemVar;
-import com.ho_bot.CNM.Var.JobVar;
-import org.bukkit.*;
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.Particle;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.util.Vector;
 
+import com.ho_bot.CNM.Job.Job;
+import com.ho_bot.CNM.Tools.EventFilter;
+import com.ho_bot.CNM.Tools.P_Inv;
+import com.ho_bot.CNM.Tools.Skill;
+import com.ho_bot.CNM.Utility.CoolTimeUtil;
+import com.ho_bot.CNM.Utility.ShootUtility;
+import com.ho_bot.CNM.Var.ItemVar;
+import com.ho_bot.CNM.Var.JobVar;
+
 public class Faster extends Job
 {
+	private final int coolTime = 5;
+    private final int power = 5;
+    private static final String des[] = JobVar.Faster_Des;
 
     public Faster(String playerName)
     {
-        super(playerName, "\uD398\uC2A4\uD2B8", 7, des, ItemVar.FasterJobItem(Bukkit.getPlayer(playerName))[0], ItemVar.FasterJobItem(Bukkit.getPlayer(playerName))[1], ItemVar.FasterJobItem(Bukkit.getPlayer(playerName))[2], ItemVar.FasterJobItem(Bukkit.getPlayer(playerName))[3], ItemVar.FasterJobItem(Bukkit.getPlayer(playerName))[4]);
-        cool = 5;
+        super(playerName, "�佺Ʈ", 7, des, ItemVar.FasterJobItem(Bukkit.getPlayer(playerName))[0], 
+        		ItemVar.FasterJobItem(Bukkit.getPlayer(playerName))[1], ItemVar.FasterJobItem(Bukkit.getPlayer(playerName))[2], 
+        		ItemVar.FasterJobItem(Bukkit.getPlayer(playerName))[3], ItemVar.FasterJobItem(Bukkit.getPlayer(playerName))[4]);
+        this.cool=coolTime;
     }
 
     public void T_Active(PlayerInteractEvent event)
@@ -31,13 +37,11 @@ public class Faster extends Job
         if(P_Inv.InHandItemCheck(player, Material.BLAZE_ROD))
             switch(EventFilter.PlayerInteract(event))
             {
-            case 0: // '\0'
-            case 1: // '\001'
+            case 0: case 1:
                 leftAction(player);
                 break;
 
-            case 2: // '\002'
-            case 3: // '\003'
+            case 2: case 3:
                 rightAction(player);
                 break;
             }
@@ -52,19 +56,10 @@ public class Faster extends Job
     {
         if(CoolTimeUtil.Check(player))
         {
-            Skill.Use(player, 5);
+            Skill.Use(player, coolTime);
             Vector vec = player.getLocation().getDirection();
             vec.setY(0);
-            player.setVelocity(vec.multiply(5));
+            player.setVelocity(vec.multiply(power));
         }
-    }
-
-    private final int coolTime = 5;
-    private final int power = 5;
-    private static final String des[];
-
-    static 
-    {
-        des = JobVar.Faster_Des;
     }
 }

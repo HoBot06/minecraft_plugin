@@ -31,7 +31,7 @@ public class Main extends JavaPlugin
 
     public void onEnable()
     {
-        Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "Christmas_Nightmare v1.0 Online");
+        Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "Christmas_Nightmare Online");
         
         CNM_Event.setPlugin(this);
         CNM_Event nswevent = new CNM_Event();

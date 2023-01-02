@@ -49,14 +49,14 @@ public class Main extends JavaPlugin
             alpl.setPlayerListName(alpl.getName());
         }
 
-        EtcVar.TeamPoint.put("»êÅ¸", 0);
-        EtcVar.TeamPoint.put("Å©¶÷Çª½º", 0);
+        EtcVar.TeamPoint.put("ì‚°íƒ€", 0);
+        EtcVar.TeamPoint.put("Å©ï¿½ï¿½Çªï¿½ï¿½", 0);
         for(String CapName : EtcVar.CapNameList)
         {
             if(getConfig().get(CapName) != null) {
                 EtcVar.Capture.put(CapName, TU.ReturnCapLoc(CapName));
             }
-            BossBar bossbar = Bukkit.createBossBar(CapName + "°ÅÁ¡", BarColor.WHITE, BarStyle.SOLID, new BarFlag[0]);
+            BossBar bossbar = Bukkit.createBossBar(CapName + "ï¿½ï¿½ï¿½ï¿½", BarColor.WHITE, BarStyle.SOLID, new BarFlag[0]);
             bossbar.setProgress(0);
             EtcVar.CaptureBossbar.put(CapName, bossbar);
             ArrayList<UUID> plist = new ArrayList<UUID>();

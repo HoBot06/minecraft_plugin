@@ -31,7 +31,7 @@ public class Main extends JavaPlugin
 
     public void onEnable()
     {
-        Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "Christmas_Nightmare v1.0 Online");
+        Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "Christmas_Nightmare 테스트 v1.0 Online");
         
         CNM_Event.setPlugin(this);
         CNM_Event nswevent = new CNM_Event();
@@ -49,14 +49,14 @@ public class Main extends JavaPlugin
             alpl.setPlayerListName(alpl.getName());
         }
 
-        EtcVar.TeamPoint.put("산타", 0);
-        EtcVar.TeamPoint.put("ũ��Ǫ��", 0);
+        EtcVar.TeamPoint.put(WordVar.Santa, 0);
+        EtcVar.TeamPoint.put(WordVar.Krampus, 0);
         for(String CapName : EtcVar.CapNameList)
         {
             if(getConfig().get(CapName) != null) {
                 EtcVar.Capture.put(CapName, TU.ReturnCapLoc(CapName));
             }
-            BossBar bossbar = Bukkit.createBossBar(CapName + "����", BarColor.WHITE, BarStyle.SOLID, new BarFlag[0]);
+            BossBar bossbar = Bukkit.createBossBar(CapName + "거점", BarColor.WHITE, BarStyle.SOLID, new BarFlag[0]);
             bossbar.setProgress(0);
             EtcVar.CaptureBossbar.put(CapName, bossbar);
             ArrayList<UUID> plist = new ArrayList<UUID>();

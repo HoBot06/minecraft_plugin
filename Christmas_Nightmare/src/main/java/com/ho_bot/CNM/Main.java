@@ -31,7 +31,7 @@ public class Main extends JavaPlugin
 
     public void onEnable()
     {
-        Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "Christmas_Nightmare ÌÖåÏä§Ìä∏ v1.0 Online");
+        Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "Christmas_Nightmare v1.0 Online");
         
         CNM_Event.setPlugin(this);
         CNM_Event nswevent = new CNM_Event();
@@ -56,7 +56,7 @@ public class Main extends JavaPlugin
             if(getConfig().get(CapName) != null) {
                 EtcVar.Capture.put(CapName, TU.ReturnCapLoc(CapName));
             }
-            BossBar bossbar = Bukkit.createBossBar(CapName + "Í±∞Ï†ê", BarColor.WHITE, BarStyle.SOLID, new BarFlag[0]);
+            BossBar bossbar = Bukkit.createBossBar(CapName + "∞≈¡°", BarColor.WHITE, BarStyle.SOLID, new BarFlag[0]);
             bossbar.setProgress(0);
             EtcVar.CaptureBossbar.put(CapName, bossbar);
             ArrayList<UUID> plist = new ArrayList<UUID>();

@@ -69,6 +69,7 @@ public class Main extends JavaPlugin
         Point_Scheduler PS = new Point_Scheduler();
         CoolTime_Scheduler CTS = new CoolTime_Scheduler();
         AllSkillTimer AST = new AllSkillTimer();
+        
         CS.runTaskTimer(getPlugin(Main.class), 0L, 1L);
         AS.runTaskTimer(getPlugin(Main.class), 0L, 1L);
         PS.runTaskTimer(getPlugin(Main.class), 0L, 20L);

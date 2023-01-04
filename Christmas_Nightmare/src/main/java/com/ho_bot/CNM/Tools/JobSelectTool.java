@@ -3,12 +3,14 @@ package com.ho_bot.CNM.Tools;
 import java.util.HashMap;
 import java.util.UUID;
 
+import org.bukkit.Color;
 import org.bukkit.entity.Player;
 
 import com.ho_bot.CNM.Gui.JobSelect;
 import com.ho_bot.CNM.Job.Job;
 import com.ho_bot.CNM.Var.JobVar;
 import com.ho_bot.CNM.Var.TeamVar;
+import com.ho_bot.CNM.Var.WordVar;
 
 public class JobSelectTool
 {
@@ -53,5 +55,15 @@ public class JobSelectTool
         player.getInventory().setChestplate(job.chestplate);
         player.getInventory().setLeggings(job.leggings);
         player.getInventory().setBoots(job.boots);
+    }
+    
+    public static Color JobArmorColor(Player player) {
+    	if(TeamVar.Player_Team.get(player.getUniqueId())==WordVar.Santa) {
+    		return Color.RED;
+    	}
+    	if(TeamVar.Player_Team.get(player.getUniqueId())==WordVar.Krampus) {
+    		return Color.BLUE;
+    	}
+		return null;
     }
 }

@@ -16,7 +16,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.LeatherArmorMeta;
 
+import com.ho_bot.CNM.Tools.JobSelectTool;
 import com.ho_bot.CNM.Utility.MsgUtil;
 
 public class ItemVar
@@ -440,11 +442,14 @@ public class ItemVar
         Weapon_M.setDisplayName(WordVar.XM + "빅가이");
         Weapon.setItemMeta(Weapon_M);
         
-        ItemStack Helmet = new ItemStack(Material.DIAMOND_HELMET);
+        ItemStack Helmet = new ItemStack(Material.LEATHER_HELMET);
+        LeatherArmorMeta LAM_H = (LeatherArmorMeta) Helmet.getItemMeta();
+        LAM_H.setColor(JobSelectTool.JobArmorColor(player));
+        Helmet.setItemMeta(LAM_H);
         ItemMeta Helmet_M = Helmet.getItemMeta();
-        AttributeModifier Helmet_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 1, Operation.ADD_NUMBER, EquipmentSlot.HEAD);
-        Helmet_M.addAttributeModifier(Attribute.GENERIC_KNOCKBACK_RESISTANCE, Helmet_A);
-        Helmet_M.setDisplayName(WordVar.XM + "투구");
+        AttributeModifier Helmet_A = new AttributeModifier(UUID.randomUUID(), "generic.armor", 0, Operation.ADD_NUMBER, EquipmentSlot.HEAD);
+        Helmet_M.addAttributeModifier(Attribute.GENERIC_ARMOR, Helmet_A);
+        Helmet_M.setDisplayName(WordVar.XM + "투구123");
         Helmet.setItemMeta(Helmet_M);
         
         ItemStack Chestplate = new ItemStack(Material.DIAMOND_CHESTPLATE);
@@ -456,8 +461,8 @@ public class ItemVar
         
         ItemStack Leggings = new ItemStack(Material.DIAMOND_LEGGINGS);
         ItemMeta Leggings_M = Leggings.getItemMeta();
-        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.armor", 10, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
-        Leggings_M.addAttributeModifier(Attribute.GENERIC_ARMOR, Leggings_A);
+        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 1, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
+        Leggings_M.addAttributeModifier(Attribute.GENERIC_KNOCKBACK_RESISTANCE, Leggings_A);
         Leggings_M.setDisplayName(WordVar.XM + "하의");
         Leggings.setItemMeta(Leggings_M);
         

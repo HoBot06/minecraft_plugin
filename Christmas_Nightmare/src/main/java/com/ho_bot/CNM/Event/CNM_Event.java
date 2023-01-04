@@ -5,6 +5,7 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -50,6 +51,7 @@ public class CNM_Event implements Listener
     }
 
     @SuppressWarnings("deprecation")
+    @EventHandler
 	public void onChat(PlayerChatEvent event)
     {
         Player player = event.getPlayer();
@@ -66,6 +68,7 @@ public class CNM_Event implements Listener
         }
     }
 
+    @EventHandler
     public void onJoin(PlayerJoinEvent event)
     {
         Player player = event.getPlayer();
@@ -77,6 +80,7 @@ public class CNM_Event implements Listener
         }
     }
 
+    @EventHandler
     public void onLeave(PlayerQuitEvent event)
     {
     	for(String CapName : EtcVar.CapNameList) {
@@ -84,6 +88,7 @@ public class CNM_Event implements Listener
     	}
     }
 
+    @EventHandler
     public void PlayerInteractEvent(PlayerInteractEvent event)
     {
         Action action = event.getAction();
@@ -118,6 +123,7 @@ public class CNM_Event implements Listener
         }
     }
 
+    @EventHandler
     public void PlayerInteractEntityEvent(PlayerInteractEntityEvent event)
     {
         Entity entity = event.getRightClicked();
@@ -133,6 +139,7 @@ public class CNM_Event implements Listener
         }
     }
 
+    @EventHandler
     public void InventoryClickEvent(InventoryClickEvent event)
     {
         JobSelect.JobSelectEvent(event);
@@ -143,16 +150,19 @@ public class CNM_Event implements Listener
         }
     }
 
+    @EventHandler
     public void onShear(PlayerShearEntityEvent event)
     {
         MGE.WoolEvent(event);
     }
 
+    @EventHandler
     public void onEntityDrop(EntityDropItemEvent event)
     {
         MGE.WoolEvent(event);
     }
 
+    @EventHandler
     public void onBreak(BlockBreakEvent event)
     {
         MGE.TreeEvent(event);
@@ -160,6 +170,7 @@ public class CNM_Event implements Listener
         MGE.SnowEvent(event);
     }
 
+    @EventHandler
     public void onDamageEntity(EntityDamageEvent event)
     {
         if(event.getEntity() instanceof Player) {
@@ -169,6 +180,7 @@ public class CNM_Event implements Listener
         }
     }
 
+    @EventHandler
     public void onDamage(EntityDamageByEntityEvent event)
     {
         DamageUtil.PlayerDamageEntity(event);
@@ -191,6 +203,7 @@ public class CNM_Event implements Listener
         }
     }
 
+    @EventHandler
     public void onMove(PlayerMoveEvent event)
     {
         Player player = event.getPlayer();
@@ -200,6 +213,7 @@ public class CNM_Event implements Listener
         }
     }
 
+    @EventHandler
     public void onShoot(ProjectileLaunchEvent event)
     {
         if(event.getEntity().getShooter() instanceof Player)
@@ -212,6 +226,7 @@ public class CNM_Event implements Listener
         }
     }
 
+    @EventHandler
     public void onShootHit(ProjectileHitEvent event)
     {
         if(event.getEntity().getShooter() instanceof Player)

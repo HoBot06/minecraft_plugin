@@ -88,6 +88,12 @@ public class CNM_Command implements CommandExecutor
                             RU.RoleSet(player, player, args[2]);
                         }
                     }
+                    if(args[0].equalsIgnoreCase("test")) {
+                    	player.sendMessage(player.getHealth() + " : " + player.getMaxHealth() + " : " + player.getHealthScale());
+                    	for(int count=0; count < 6; count++) {
+                    		player.sendMessage(EtcVar.Armor_int[count] + "");
+                    	}
+                    }
                 }
                 catch(Exception e)
                 {

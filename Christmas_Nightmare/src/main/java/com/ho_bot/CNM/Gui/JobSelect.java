@@ -52,7 +52,8 @@ public class JobSelect
         player.openInventory(inv);
     }
 
-    public static void JobSelectEvent(InventoryClickEvent event)
+    @SuppressWarnings("deprecation")
+	public static void JobSelectEvent(InventoryClickEvent event)
     {
         Player player = (Player)event.getWhoClicked();
         if(event.getView().getTitle().equalsIgnoreCase(WordVar.JobSelectGuiName))
@@ -61,6 +62,7 @@ public class JobSelect
             if(event.getCurrentItem() == null || event.getCurrentItem().getType() == Material.AIR || !event.getCurrentItem().hasItemMeta()) {
             	return;
             }
+            player.setMaxHealth(20d);
             switch(ChatColor.stripColor(event.getCurrentItem().getItemMeta().getDisplayName())) {
             case "º½¹ö" :
             	JobSelectTool.JobSelTool(player, new Bomber(player.getName()));
@@ -96,6 +98,7 @@ public class JobSelect
             	JobSelectTool.JobSelTool(player, new Kratos(player.getName()));
             	break;
             }
+            player.setHealthScale(20d);
         }
     }
 }

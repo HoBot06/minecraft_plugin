@@ -443,13 +443,12 @@ public class ItemVar
         Weapon.setItemMeta(Weapon_M);
         
         ItemStack Helmet = new ItemStack(Material.LEATHER_HELMET);
-        LeatherArmorMeta LAM_H = (LeatherArmorMeta) Helmet.getItemMeta();
-        LAM_H.setColor(JobSelectTool.JobArmorColor(player));
-        Helmet.setItemMeta(LAM_H);
-        ItemMeta Helmet_M = Helmet.getItemMeta();
+        LeatherArmorMeta Helmet_M = (LeatherArmorMeta) Helmet.getItemMeta();
+        Helmet_M.setColor(JobSelectTool.JobArmorColor(player));
         AttributeModifier Helmet_A = new AttributeModifier(UUID.randomUUID(), "generic.armor", 0, Operation.ADD_NUMBER, EquipmentSlot.HEAD);
         Helmet_M.addAttributeModifier(Attribute.GENERIC_ARMOR, Helmet_A);
-        Helmet_M.setDisplayName(WordVar.XM + "≈ı±∏123");
+        Helmet_M.setDisplayName(WordVar.XM + "≈ı±∏");
+        Helmet_M.setUnbreakable(true);
         Helmet.setItemMeta(Helmet_M);
         
         ItemStack Chestplate = new ItemStack(Material.DIAMOND_CHESTPLATE);
@@ -457,6 +456,7 @@ public class ItemVar
         AttributeModifier Chestplate_A = new AttributeModifier(UUID.randomUUID(), "generic.max_health", 20, Operation.ADD_NUMBER, EquipmentSlot.CHEST);
         Chestplate_M.addAttributeModifier(Attribute.GENERIC_MAX_HEALTH, Chestplate_A);
         Chestplate_M.setDisplayName(WordVar.XM + "∞©ø ");
+        Chestplate_M.setUnbreakable(true);
         Chestplate.setItemMeta(Chestplate_M);
         
         ItemStack Leggings = new ItemStack(Material.DIAMOND_LEGGINGS);
@@ -464,6 +464,7 @@ public class ItemVar
         AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 1, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
         Leggings_M.addAttributeModifier(Attribute.GENERIC_KNOCKBACK_RESISTANCE, Leggings_A);
         Leggings_M.setDisplayName(WordVar.XM + "«œ¿«");
+        Leggings_M.setUnbreakable(true);
         Leggings.setItemMeta(Leggings_M);
         
         ItemStack Boots = new ItemStack(Material.DIAMOND_BOOTS);
@@ -471,6 +472,7 @@ public class ItemVar
         AttributeModifier Boots_A = new AttributeModifier(UUID.randomUUID(), "generic.movement_speed", 0.1, Operation.ADD_NUMBER, EquipmentSlot.FEET);
         Boots_M.addAttributeModifier(Attribute.GENERIC_MOVEMENT_SPEED, Boots_A);
         Boots_M.setDisplayName(WordVar.XM + "Ω≈πﬂ");
+        Boots_M.setUnbreakable(true);
         Boots.setItemMeta(Boots_M);
         
         ItemStack itemlist[] = { Weapon, Helmet, Chestplate, Leggings, Boots };
@@ -486,11 +488,13 @@ public class ItemVar
         Weapon_M.setDisplayName(WordVar.XM + "≈©∑ÁΩ∫");
         Weapon.setItemMeta(Weapon_M);
         
-        ItemStack Helmet = new ItemStack(Material.DIAMOND_HELMET);
-        ItemMeta Helmet_M = Helmet.getItemMeta();
-        AttributeModifier Helmet_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 1, Operation.ADD_NUMBER, EquipmentSlot.HEAD);
-        Helmet_M.addAttributeModifier(Attribute.GENERIC_KNOCKBACK_RESISTANCE, Helmet_A);
+        ItemStack Helmet = new ItemStack(Material.LEATHER_HELMET);
+        LeatherArmorMeta Helmet_M = (LeatherArmorMeta) Helmet.getItemMeta();
+        Helmet_M.setColor(JobSelectTool.JobArmorColor(player));
+        AttributeModifier Helmet_A = new AttributeModifier(UUID.randomUUID(), "generic.armor", 0, Operation.ADD_NUMBER, EquipmentSlot.HEAD);
+        Helmet_M.addAttributeModifier(Attribute.GENERIC_ARMOR, Helmet_A);
         Helmet_M.setDisplayName(WordVar.XM + "≈ı±∏");
+        Helmet_M.setUnbreakable(true);
         Helmet.setItemMeta(Helmet_M);
         
         ItemStack Chestplate = new ItemStack(Material.DIAMOND_CHESTPLATE);
@@ -498,13 +502,15 @@ public class ItemVar
         AttributeModifier Chestplate_A = new AttributeModifier(UUID.randomUUID(), "generic.max_health", 20, Operation.ADD_NUMBER, EquipmentSlot.CHEST);
         Chestplate_M.addAttributeModifier(Attribute.GENERIC_MAX_HEALTH, Chestplate_A);
         Chestplate_M.setDisplayName(WordVar.XM + "∞©ø ");
+        Chestplate_M.setUnbreakable(true);
         Chestplate.setItemMeta(Chestplate_M);
         
         ItemStack Leggings = new ItemStack(Material.DIAMOND_LEGGINGS);
         ItemMeta Leggings_M = Leggings.getItemMeta();
-        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.armor", 10, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
-        Leggings_M.addAttributeModifier(Attribute.GENERIC_ARMOR, Leggings_A);
+        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 1, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
+        Leggings_M.addAttributeModifier(Attribute.GENERIC_KNOCKBACK_RESISTANCE, Leggings_A);
         Leggings_M.setDisplayName(WordVar.XM + "«œ¿«");
+        Leggings_M.setUnbreakable(true);
         Leggings.setItemMeta(Leggings_M);
         
         ItemStack Boots = new ItemStack(Material.DIAMOND_BOOTS);
@@ -512,6 +518,7 @@ public class ItemVar
         AttributeModifier Boots_A = new AttributeModifier(UUID.randomUUID(), "generic.movement_speed", 0.1, Operation.ADD_NUMBER, EquipmentSlot.FEET);
         Boots_M.addAttributeModifier(Attribute.GENERIC_MOVEMENT_SPEED, Boots_A);
         Boots_M.setDisplayName(WordVar.XM + "Ω≈πﬂ");
+        Boots_M.setUnbreakable(true);
         Boots.setItemMeta(Boots_M);
         
         ItemStack itemlist[] = { Weapon, Helmet, Chestplate, Leggings, Boots };
@@ -527,11 +534,13 @@ public class ItemVar
         Weapon_M.setDisplayName(WordVar.XM + "ø°±‚Ω∫");
         Weapon.setItemMeta(Weapon_M);
         
-        ItemStack Helmet = new ItemStack(Material.DIAMOND_HELMET);
-        ItemMeta Helmet_M = Helmet.getItemMeta();
-        AttributeModifier Helmet_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 1, Operation.ADD_NUMBER, EquipmentSlot.HEAD);
-        Helmet_M.addAttributeModifier(Attribute.GENERIC_KNOCKBACK_RESISTANCE, Helmet_A);
+        ItemStack Helmet = new ItemStack(Material.LEATHER_HELMET);
+        LeatherArmorMeta Helmet_M = (LeatherArmorMeta) Helmet.getItemMeta();
+        Helmet_M.setColor(JobSelectTool.JobArmorColor(player));
+        AttributeModifier Helmet_A = new AttributeModifier(UUID.randomUUID(), "generic.armor", 0, Operation.ADD_NUMBER, EquipmentSlot.HEAD);
+        Helmet_M.addAttributeModifier(Attribute.GENERIC_ARMOR, Helmet_A);
         Helmet_M.setDisplayName(WordVar.XM + "≈ı±∏");
+        Helmet_M.setUnbreakable(true);
         Helmet.setItemMeta(Helmet_M);
         
         ItemStack Chestplate = new ItemStack(Material.DIAMOND_CHESTPLATE);
@@ -539,13 +548,15 @@ public class ItemVar
         AttributeModifier Chestplate_A = new AttributeModifier(UUID.randomUUID(), "generic.max_health", 20, Operation.ADD_NUMBER, EquipmentSlot.CHEST);
         Chestplate_M.addAttributeModifier(Attribute.GENERIC_MAX_HEALTH, Chestplate_A);
         Chestplate_M.setDisplayName(WordVar.XM + "∞©ø ");
+        Chestplate_M.setUnbreakable(true);
         Chestplate.setItemMeta(Chestplate_M);
         
         ItemStack Leggings = new ItemStack(Material.DIAMOND_LEGGINGS);
         ItemMeta Leggings_M = Leggings.getItemMeta();
-        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.armor", 10, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
-        Leggings_M.addAttributeModifier(Attribute.GENERIC_ARMOR, Leggings_A);
+        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 1, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
+        Leggings_M.addAttributeModifier(Attribute.GENERIC_KNOCKBACK_RESISTANCE, Leggings_A);
         Leggings_M.setDisplayName(WordVar.XM + "«œ¿«");
+        Leggings_M.setUnbreakable(true);
         Leggings.setItemMeta(Leggings_M);
         
         ItemStack Boots = new ItemStack(Material.DIAMOND_BOOTS);
@@ -553,6 +564,7 @@ public class ItemVar
         AttributeModifier Boots_A = new AttributeModifier(UUID.randomUUID(), "generic.movement_speed", 0.1, Operation.ADD_NUMBER, EquipmentSlot.FEET);
         Boots_M.addAttributeModifier(Attribute.GENERIC_MOVEMENT_SPEED, Boots_A);
         Boots_M.setDisplayName(WordVar.XM + "Ω≈πﬂ");
+        Boots_M.setUnbreakable(true);
         Boots.setItemMeta(Boots_M);
         
         ItemStack itemlist[] = { Weapon, Helmet, Chestplate, Leggings, Boots };
@@ -568,11 +580,13 @@ public class ItemVar
         Weapon_M.setDisplayName(WordVar.XM + "∆ƒ≈∏¿Ã");
         Weapon.setItemMeta(Weapon_M);
         
-        ItemStack Helmet = new ItemStack(Material.DIAMOND_HELMET);
-        ItemMeta Helmet_M = Helmet.getItemMeta();
-        AttributeModifier Helmet_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 1, Operation.ADD_NUMBER, EquipmentSlot.HEAD);
-        Helmet_M.addAttributeModifier(Attribute.GENERIC_KNOCKBACK_RESISTANCE, Helmet_A);
+        ItemStack Helmet = new ItemStack(Material.LEATHER_HELMET);
+        LeatherArmorMeta Helmet_M = (LeatherArmorMeta) Helmet.getItemMeta();
+        Helmet_M.setColor(JobSelectTool.JobArmorColor(player));
+        AttributeModifier Helmet_A = new AttributeModifier(UUID.randomUUID(), "generic.armor", 0, Operation.ADD_NUMBER, EquipmentSlot.HEAD);
+        Helmet_M.addAttributeModifier(Attribute.GENERIC_ARMOR, Helmet_A);
         Helmet_M.setDisplayName(WordVar.XM + "≈ı±∏");
+        Helmet_M.setUnbreakable(true);
         Helmet.setItemMeta(Helmet_M);
         
         ItemStack Chestplate = new ItemStack(Material.DIAMOND_CHESTPLATE);
@@ -580,13 +594,15 @@ public class ItemVar
         AttributeModifier Chestplate_A = new AttributeModifier(UUID.randomUUID(), "generic.max_health", 20, Operation.ADD_NUMBER, EquipmentSlot.CHEST);
         Chestplate_M.addAttributeModifier(Attribute.GENERIC_MAX_HEALTH, Chestplate_A);
         Chestplate_M.setDisplayName(WordVar.XM + "∞©ø ");
+        Chestplate_M.setUnbreakable(true);
         Chestplate.setItemMeta(Chestplate_M);
         
         ItemStack Leggings = new ItemStack(Material.DIAMOND_LEGGINGS);
         ItemMeta Leggings_M = Leggings.getItemMeta();
-        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.armor", 10, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
-        Leggings_M.addAttributeModifier(Attribute.GENERIC_ARMOR, Leggings_A);
+        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 1, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
+        Leggings_M.addAttributeModifier(Attribute.GENERIC_KNOCKBACK_RESISTANCE, Leggings_A);
         Leggings_M.setDisplayName(WordVar.XM + "«œ¿«");
+        Leggings_M.setUnbreakable(true);
         Leggings.setItemMeta(Leggings_M);
         
         ItemStack Boots = new ItemStack(Material.DIAMOND_BOOTS);
@@ -594,6 +610,7 @@ public class ItemVar
         AttributeModifier Boots_A = new AttributeModifier(UUID.randomUUID(), "generic.movement_speed", 0.1, Operation.ADD_NUMBER, EquipmentSlot.FEET);
         Boots_M.addAttributeModifier(Attribute.GENERIC_MOVEMENT_SPEED, Boots_A);
         Boots_M.setDisplayName(WordVar.XM + "Ω≈πﬂ");
+        Boots_M.setUnbreakable(true);
         Boots.setItemMeta(Boots_M);
         
         ItemStack itemlist[] = { Weapon, Helmet, Chestplate, Leggings, Boots };
@@ -609,11 +626,13 @@ public class ItemVar
         Weapon_M.setDisplayName(WordVar.XM + "∫Ωπˆ");
         Weapon.setItemMeta(Weapon_M);
         
-        ItemStack Helmet = new ItemStack(Material.DIAMOND_HELMET);
-        ItemMeta Helmet_M = Helmet.getItemMeta();
-        AttributeModifier Helmet_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 1, Operation.ADD_NUMBER, EquipmentSlot.HEAD);
-        Helmet_M.addAttributeModifier(Attribute.GENERIC_KNOCKBACK_RESISTANCE, Helmet_A);
+        ItemStack Helmet = new ItemStack(Material.LEATHER_HELMET);
+        LeatherArmorMeta Helmet_M = (LeatherArmorMeta) Helmet.getItemMeta();
+        Helmet_M.setColor(JobSelectTool.JobArmorColor(player));
+        AttributeModifier Helmet_A = new AttributeModifier(UUID.randomUUID(), "generic.armor", 0, Operation.ADD_NUMBER, EquipmentSlot.HEAD);
+        Helmet_M.addAttributeModifier(Attribute.GENERIC_ARMOR, Helmet_A);
         Helmet_M.setDisplayName(WordVar.XM + "≈ı±∏");
+        Helmet_M.setUnbreakable(true);
         Helmet.setItemMeta(Helmet_M);
         
         ItemStack Chestplate = new ItemStack(Material.DIAMOND_CHESTPLATE);
@@ -621,13 +640,15 @@ public class ItemVar
         AttributeModifier Chestplate_A = new AttributeModifier(UUID.randomUUID(), "generic.max_health", 20, Operation.ADD_NUMBER, EquipmentSlot.CHEST);
         Chestplate_M.addAttributeModifier(Attribute.GENERIC_MAX_HEALTH, Chestplate_A);
         Chestplate_M.setDisplayName(WordVar.XM + "∞©ø ");
+        Chestplate_M.setUnbreakable(true);
         Chestplate.setItemMeta(Chestplate_M);
         
         ItemStack Leggings = new ItemStack(Material.DIAMOND_LEGGINGS);
         ItemMeta Leggings_M = Leggings.getItemMeta();
-        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.armor", 10, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
-        Leggings_M.addAttributeModifier(Attribute.GENERIC_ARMOR, Leggings_A);
+        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 1, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
+        Leggings_M.addAttributeModifier(Attribute.GENERIC_KNOCKBACK_RESISTANCE, Leggings_A);
         Leggings_M.setDisplayName(WordVar.XM + "«œ¿«");
+        Leggings_M.setUnbreakable(true);
         Leggings.setItemMeta(Leggings_M);
         
         ItemStack Boots = new ItemStack(Material.DIAMOND_BOOTS);
@@ -635,6 +656,7 @@ public class ItemVar
         AttributeModifier Boots_A = new AttributeModifier(UUID.randomUUID(), "generic.movement_speed", 0.1, Operation.ADD_NUMBER, EquipmentSlot.FEET);
         Boots_M.addAttributeModifier(Attribute.GENERIC_MOVEMENT_SPEED, Boots_A);
         Boots_M.setDisplayName(WordVar.XM + "Ω≈πﬂ");
+        Boots_M.setUnbreakable(true);
         Boots.setItemMeta(Boots_M);
         
         ItemStack itemlist[] = { Weapon, Helmet, Chestplate, Leggings, Boots };
@@ -650,11 +672,13 @@ public class ItemVar
         Weapon_M.setDisplayName(WordVar.XM + "∆‰Ω∫∆Æ");
         Weapon.setItemMeta(Weapon_M);
         
-        ItemStack Helmet = new ItemStack(Material.DIAMOND_HELMET);
-        ItemMeta Helmet_M = Helmet.getItemMeta();
-        AttributeModifier Helmet_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 1, Operation.ADD_NUMBER, EquipmentSlot.HEAD);
-        Helmet_M.addAttributeModifier(Attribute.GENERIC_KNOCKBACK_RESISTANCE, Helmet_A);
+        ItemStack Helmet = new ItemStack(Material.LEATHER_HELMET);
+        LeatherArmorMeta Helmet_M = (LeatherArmorMeta) Helmet.getItemMeta();
+        Helmet_M.setColor(JobSelectTool.JobArmorColor(player));
+        AttributeModifier Helmet_A = new AttributeModifier(UUID.randomUUID(), "generic.armor", 0, Operation.ADD_NUMBER, EquipmentSlot.HEAD);
+        Helmet_M.addAttributeModifier(Attribute.GENERIC_ARMOR, Helmet_A);
         Helmet_M.setDisplayName(WordVar.XM + "≈ı±∏");
+        Helmet_M.setUnbreakable(true);
         Helmet.setItemMeta(Helmet_M);
         
         ItemStack Chestplate = new ItemStack(Material.DIAMOND_CHESTPLATE);
@@ -662,13 +686,15 @@ public class ItemVar
         AttributeModifier Chestplate_A = new AttributeModifier(UUID.randomUUID(), "generic.max_health", 20, Operation.ADD_NUMBER, EquipmentSlot.CHEST);
         Chestplate_M.addAttributeModifier(Attribute.GENERIC_MAX_HEALTH, Chestplate_A);
         Chestplate_M.setDisplayName(WordVar.XM + "∞©ø ");
+        Chestplate_M.setUnbreakable(true);
         Chestplate.setItemMeta(Chestplate_M);
         
         ItemStack Leggings = new ItemStack(Material.DIAMOND_LEGGINGS);
         ItemMeta Leggings_M = Leggings.getItemMeta();
-        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.armor", 10, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
-        Leggings_M.addAttributeModifier(Attribute.GENERIC_ARMOR, Leggings_A);
+        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 1, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
+        Leggings_M.addAttributeModifier(Attribute.GENERIC_KNOCKBACK_RESISTANCE, Leggings_A);
         Leggings_M.setDisplayName(WordVar.XM + "«œ¿«");
+        Leggings_M.setUnbreakable(true);
         Leggings.setItemMeta(Leggings_M);
         
         ItemStack Boots = new ItemStack(Material.DIAMOND_BOOTS);
@@ -676,6 +702,7 @@ public class ItemVar
         AttributeModifier Boots_A = new AttributeModifier(UUID.randomUUID(), "generic.movement_speed", 0.1, Operation.ADD_NUMBER, EquipmentSlot.FEET);
         Boots_M.addAttributeModifier(Attribute.GENERIC_MOVEMENT_SPEED, Boots_A);
         Boots_M.setDisplayName(WordVar.XM + "Ω≈πﬂ");
+        Boots_M.setUnbreakable(true);
         Boots.setItemMeta(Boots_M);
         
         ItemStack itemlist[] = { Weapon, Helmet, Chestplate, Leggings, Boots };
@@ -691,11 +718,13 @@ public class ItemVar
         Weapon_M.setDisplayName(WordVar.XM + "≈©∂Û≈‰Ω∫");
         Weapon.setItemMeta(Weapon_M);
         
-        ItemStack Helmet = new ItemStack(Material.DIAMOND_HELMET);
-        ItemMeta Helmet_M = Helmet.getItemMeta();
-        AttributeModifier Helmet_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 1, Operation.ADD_NUMBER, EquipmentSlot.HEAD);
-        Helmet_M.addAttributeModifier(Attribute.GENERIC_KNOCKBACK_RESISTANCE, Helmet_A);
+        ItemStack Helmet = new ItemStack(Material.LEATHER_HELMET);
+        LeatherArmorMeta Helmet_M = (LeatherArmorMeta) Helmet.getItemMeta();
+        Helmet_M.setColor(JobSelectTool.JobArmorColor(player));
+        AttributeModifier Helmet_A = new AttributeModifier(UUID.randomUUID(), "generic.armor", 0, Operation.ADD_NUMBER, EquipmentSlot.HEAD);
+        Helmet_M.addAttributeModifier(Attribute.GENERIC_ARMOR, Helmet_A);
         Helmet_M.setDisplayName(WordVar.XM + "≈ı±∏");
+        Helmet_M.setUnbreakable(true);
         Helmet.setItemMeta(Helmet_M);
         
         ItemStack Chestplate = new ItemStack(Material.DIAMOND_CHESTPLATE);
@@ -703,13 +732,15 @@ public class ItemVar
         AttributeModifier Chestplate_A = new AttributeModifier(UUID.randomUUID(), "generic.max_health", 20, Operation.ADD_NUMBER, EquipmentSlot.CHEST);
         Chestplate_M.addAttributeModifier(Attribute.GENERIC_MAX_HEALTH, Chestplate_A);
         Chestplate_M.setDisplayName(WordVar.XM + "∞©ø ");
+        Chestplate_M.setUnbreakable(true);
         Chestplate.setItemMeta(Chestplate_M);
         
         ItemStack Leggings = new ItemStack(Material.DIAMOND_LEGGINGS);
         ItemMeta Leggings_M = Leggings.getItemMeta();
-        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.armor", 10, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
-        Leggings_M.addAttributeModifier(Attribute.GENERIC_ARMOR, Leggings_A);
+        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 1, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
+        Leggings_M.addAttributeModifier(Attribute.GENERIC_KNOCKBACK_RESISTANCE, Leggings_A);
         Leggings_M.setDisplayName(WordVar.XM + "«œ¿«");
+        Leggings_M.setUnbreakable(true);
         Leggings.setItemMeta(Leggings_M);
         
         ItemStack Boots = new ItemStack(Material.DIAMOND_BOOTS);
@@ -717,6 +748,7 @@ public class ItemVar
         AttributeModifier Boots_A = new AttributeModifier(UUID.randomUUID(), "generic.movement_speed", 0.1, Operation.ADD_NUMBER, EquipmentSlot.FEET);
         Boots_M.addAttributeModifier(Attribute.GENERIC_MOVEMENT_SPEED, Boots_A);
         Boots_M.setDisplayName(WordVar.XM + "Ω≈πﬂ");
+        Boots_M.setUnbreakable(true);
         Boots.setItemMeta(Boots_M);
         
         ItemStack itemlist[] = { Weapon, Helmet, Chestplate, Leggings, Boots };
@@ -732,11 +764,13 @@ public class ItemVar
         Weapon_M.setDisplayName(WordVar.XM + "ªÏ∑Á∂ı");
         Weapon.setItemMeta(Weapon_M);
         
-        ItemStack Helmet = new ItemStack(Material.DIAMOND_HELMET);
-        ItemMeta Helmet_M = Helmet.getItemMeta();
-        AttributeModifier Helmet_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 1, Operation.ADD_NUMBER, EquipmentSlot.HEAD);
-        Helmet_M.addAttributeModifier(Attribute.GENERIC_KNOCKBACK_RESISTANCE, Helmet_A);
+        ItemStack Helmet = new ItemStack(Material.LEATHER_HELMET);
+        LeatherArmorMeta Helmet_M = (LeatherArmorMeta) Helmet.getItemMeta();
+        Helmet_M.setColor(JobSelectTool.JobArmorColor(player));
+        AttributeModifier Helmet_A = new AttributeModifier(UUID.randomUUID(), "generic.armor", 0, Operation.ADD_NUMBER, EquipmentSlot.HEAD);
+        Helmet_M.addAttributeModifier(Attribute.GENERIC_ARMOR, Helmet_A);
         Helmet_M.setDisplayName(WordVar.XM + "≈ı±∏");
+        Helmet_M.setUnbreakable(true);
         Helmet.setItemMeta(Helmet_M);
         
         ItemStack Chestplate = new ItemStack(Material.DIAMOND_CHESTPLATE);
@@ -744,13 +778,15 @@ public class ItemVar
         AttributeModifier Chestplate_A = new AttributeModifier(UUID.randomUUID(), "generic.max_health", 20, Operation.ADD_NUMBER, EquipmentSlot.CHEST);
         Chestplate_M.addAttributeModifier(Attribute.GENERIC_MAX_HEALTH, Chestplate_A);
         Chestplate_M.setDisplayName(WordVar.XM + "∞©ø ");
+        Chestplate_M.setUnbreakable(true);
         Chestplate.setItemMeta(Chestplate_M);
         
         ItemStack Leggings = new ItemStack(Material.DIAMOND_LEGGINGS);
         ItemMeta Leggings_M = Leggings.getItemMeta();
-        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.armor", 10, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
-        Leggings_M.addAttributeModifier(Attribute.GENERIC_ARMOR, Leggings_A);
+        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 1, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
+        Leggings_M.addAttributeModifier(Attribute.GENERIC_KNOCKBACK_RESISTANCE, Leggings_A);
         Leggings_M.setDisplayName(WordVar.XM + "«œ¿«");
+        Leggings_M.setUnbreakable(true);
         Leggings.setItemMeta(Leggings_M);
         
         ItemStack Boots = new ItemStack(Material.DIAMOND_BOOTS);
@@ -758,6 +794,7 @@ public class ItemVar
         AttributeModifier Boots_A = new AttributeModifier(UUID.randomUUID(), "generic.movement_speed", 0.1, Operation.ADD_NUMBER, EquipmentSlot.FEET);
         Boots_M.addAttributeModifier(Attribute.GENERIC_MOVEMENT_SPEED, Boots_A);
         Boots_M.setDisplayName(WordVar.XM + "Ω≈πﬂ");
+        Boots_M.setUnbreakable(true);
         Boots.setItemMeta(Boots_M);
         
         ItemStack itemlist[] = { Weapon, Helmet, Chestplate, Leggings, Boots };
@@ -773,11 +810,13 @@ public class ItemVar
         Weapon_M.setDisplayName(WordVar.XM + "∆»∂ÛµÚ");
         Weapon.setItemMeta(Weapon_M);
         
-        ItemStack Helmet = new ItemStack(Material.DIAMOND_HELMET);
-        ItemMeta Helmet_M = Helmet.getItemMeta();
-        AttributeModifier Helmet_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 1, Operation.ADD_NUMBER, EquipmentSlot.HEAD);
-        Helmet_M.addAttributeModifier(Attribute.GENERIC_KNOCKBACK_RESISTANCE, Helmet_A);
+        ItemStack Helmet = new ItemStack(Material.LEATHER_HELMET);
+        LeatherArmorMeta Helmet_M = (LeatherArmorMeta) Helmet.getItemMeta();
+        Helmet_M.setColor(JobSelectTool.JobArmorColor(player));
+        AttributeModifier Helmet_A = new AttributeModifier(UUID.randomUUID(), "generic.armor", 0, Operation.ADD_NUMBER, EquipmentSlot.HEAD);
+        Helmet_M.addAttributeModifier(Attribute.GENERIC_ARMOR, Helmet_A);
         Helmet_M.setDisplayName(WordVar.XM + "≈ı±∏");
+        Helmet_M.setUnbreakable(true);
         Helmet.setItemMeta(Helmet_M);
         
         ItemStack Chestplate = new ItemStack(Material.DIAMOND_CHESTPLATE);
@@ -785,13 +824,15 @@ public class ItemVar
         AttributeModifier Chestplate_A = new AttributeModifier(UUID.randomUUID(), "generic.max_health", 20, Operation.ADD_NUMBER, EquipmentSlot.CHEST);
         Chestplate_M.addAttributeModifier(Attribute.GENERIC_MAX_HEALTH, Chestplate_A);
         Chestplate_M.setDisplayName(WordVar.XM + "∞©ø ");
+        Chestplate_M.setUnbreakable(true);
         Chestplate.setItemMeta(Chestplate_M);
         
         ItemStack Leggings = new ItemStack(Material.DIAMOND_LEGGINGS);
         ItemMeta Leggings_M = Leggings.getItemMeta();
-        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.armor", 10, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
-        Leggings_M.addAttributeModifier(Attribute.GENERIC_ARMOR, Leggings_A);
+        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 1, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
+        Leggings_M.addAttributeModifier(Attribute.GENERIC_KNOCKBACK_RESISTANCE, Leggings_A);
         Leggings_M.setDisplayName(WordVar.XM + "«œ¿«");
+        Leggings_M.setUnbreakable(true);
         Leggings.setItemMeta(Leggings_M);
         
         ItemStack Boots = new ItemStack(Material.DIAMOND_BOOTS);
@@ -799,6 +840,7 @@ public class ItemVar
         AttributeModifier Boots_A = new AttributeModifier(UUID.randomUUID(), "generic.movement_speed", 0.1, Operation.ADD_NUMBER, EquipmentSlot.FEET);
         Boots_M.addAttributeModifier(Attribute.GENERIC_MOVEMENT_SPEED, Boots_A);
         Boots_M.setDisplayName(WordVar.XM + "Ω≈πﬂ");
+        Boots_M.setUnbreakable(true);
         Boots.setItemMeta(Boots_M);
         
         ItemStack itemlist[] = { Weapon, Helmet, Chestplate, Leggings, Boots };
@@ -814,11 +856,13 @@ public class ItemVar
         Weapon_M.setDisplayName(WordVar.XM + "∆‰∏≥™");
         Weapon.setItemMeta(Weapon_M);
         
-        ItemStack Helmet = new ItemStack(Material.DIAMOND_HELMET);
-        ItemMeta Helmet_M = Helmet.getItemMeta();
-        AttributeModifier Helmet_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 1, Operation.ADD_NUMBER, EquipmentSlot.HEAD);
-        Helmet_M.addAttributeModifier(Attribute.GENERIC_KNOCKBACK_RESISTANCE, Helmet_A);
+        ItemStack Helmet = new ItemStack(Material.LEATHER_HELMET);
+        LeatherArmorMeta Helmet_M = (LeatherArmorMeta) Helmet.getItemMeta();
+        Helmet_M.setColor(JobSelectTool.JobArmorColor(player));
+        AttributeModifier Helmet_A = new AttributeModifier(UUID.randomUUID(), "generic.armor", 0, Operation.ADD_NUMBER, EquipmentSlot.HEAD);
+        Helmet_M.addAttributeModifier(Attribute.GENERIC_ARMOR, Helmet_A);
         Helmet_M.setDisplayName(WordVar.XM + "≈ı±∏");
+        Helmet_M.setUnbreakable(true);
         Helmet.setItemMeta(Helmet_M);
         
         ItemStack Chestplate = new ItemStack(Material.DIAMOND_CHESTPLATE);
@@ -826,13 +870,15 @@ public class ItemVar
         AttributeModifier Chestplate_A = new AttributeModifier(UUID.randomUUID(), "generic.max_health", 20, Operation.ADD_NUMBER, EquipmentSlot.CHEST);
         Chestplate_M.addAttributeModifier(Attribute.GENERIC_MAX_HEALTH, Chestplate_A);
         Chestplate_M.setDisplayName(WordVar.XM + "∞©ø ");
+        Chestplate_M.setUnbreakable(true);
         Chestplate.setItemMeta(Chestplate_M);
         
         ItemStack Leggings = new ItemStack(Material.DIAMOND_LEGGINGS);
         ItemMeta Leggings_M = Leggings.getItemMeta();
-        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.armor", 10, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
-        Leggings_M.addAttributeModifier(Attribute.GENERIC_ARMOR, Leggings_A);
+        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 1, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
+        Leggings_M.addAttributeModifier(Attribute.GENERIC_KNOCKBACK_RESISTANCE, Leggings_A);
         Leggings_M.setDisplayName(WordVar.XM + "«œ¿«");
+        Leggings_M.setUnbreakable(true);
         Leggings.setItemMeta(Leggings_M);
         
         ItemStack Boots = new ItemStack(Material.DIAMOND_BOOTS);
@@ -840,6 +886,7 @@ public class ItemVar
         AttributeModifier Boots_A = new AttributeModifier(UUID.randomUUID(), "generic.movement_speed", 0.1, Operation.ADD_NUMBER, EquipmentSlot.FEET);
         Boots_M.addAttributeModifier(Attribute.GENERIC_MOVEMENT_SPEED, Boots_A);
         Boots_M.setDisplayName(WordVar.XM + "Ω≈πﬂ");
+        Boots_M.setUnbreakable(true);
         Boots.setItemMeta(Boots_M);
         
         ItemStack itemlist[] = { Weapon, Helmet, Chestplate, Leggings, Boots };
@@ -855,11 +902,13 @@ public class ItemVar
         Weapon_M.setDisplayName(WordVar.XM + "¡÷≈©");
         Weapon.setItemMeta(Weapon_M);
         
-        ItemStack Helmet = new ItemStack(Material.DIAMOND_HELMET);
-        ItemMeta Helmet_M = Helmet.getItemMeta();
-        AttributeModifier Helmet_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 1, Operation.ADD_NUMBER, EquipmentSlot.HEAD);
-        Helmet_M.addAttributeModifier(Attribute.GENERIC_KNOCKBACK_RESISTANCE, Helmet_A);
+        ItemStack Helmet = new ItemStack(Material.LEATHER_HELMET);
+        LeatherArmorMeta Helmet_M = (LeatherArmorMeta) Helmet.getItemMeta();
+        Helmet_M.setColor(JobSelectTool.JobArmorColor(player));
+        AttributeModifier Helmet_A = new AttributeModifier(UUID.randomUUID(), "generic.armor", 0, Operation.ADD_NUMBER, EquipmentSlot.HEAD);
+        Helmet_M.addAttributeModifier(Attribute.GENERIC_ARMOR, Helmet_A);
         Helmet_M.setDisplayName(WordVar.XM + "≈ı±∏");
+        Helmet_M.setUnbreakable(true);
         Helmet.setItemMeta(Helmet_M);
         
         ItemStack Chestplate = new ItemStack(Material.DIAMOND_CHESTPLATE);
@@ -867,13 +916,15 @@ public class ItemVar
         AttributeModifier Chestplate_A = new AttributeModifier(UUID.randomUUID(), "generic.max_health", 20, Operation.ADD_NUMBER, EquipmentSlot.CHEST);
         Chestplate_M.addAttributeModifier(Attribute.GENERIC_MAX_HEALTH, Chestplate_A);
         Chestplate_M.setDisplayName(WordVar.XM + "∞©ø ");
+        Chestplate_M.setUnbreakable(true);
         Chestplate.setItemMeta(Chestplate_M);
         
         ItemStack Leggings = new ItemStack(Material.DIAMOND_LEGGINGS);
         ItemMeta Leggings_M = Leggings.getItemMeta();
-        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.armor", 10, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
-        Leggings_M.addAttributeModifier(Attribute.GENERIC_ARMOR, Leggings_A);
+        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 1, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
+        Leggings_M.addAttributeModifier(Attribute.GENERIC_KNOCKBACK_RESISTANCE, Leggings_A);
         Leggings_M.setDisplayName(WordVar.XM + "«œ¿«");
+        Leggings_M.setUnbreakable(true);
         Leggings.setItemMeta(Leggings_M);
         
         ItemStack Boots = new ItemStack(Material.DIAMOND_BOOTS);
@@ -881,9 +932,47 @@ public class ItemVar
         AttributeModifier Boots_A = new AttributeModifier(UUID.randomUUID(), "generic.movement_speed", 0.1, Operation.ADD_NUMBER, EquipmentSlot.FEET);
         Boots_M.addAttributeModifier(Attribute.GENERIC_MOVEMENT_SPEED, Boots_A);
         Boots_M.setDisplayName(WordVar.XM + "Ω≈πﬂ");
+        Boots_M.setUnbreakable(true);
         Boots.setItemMeta(Boots_M);
         
         ItemStack itemlist[] = { Weapon, Helmet, Chestplate, Leggings, Boots };
+        return itemlist;
+    }
+    
+    public static ItemStack[] ScienceGuiItem(Player player) {
+    	
+    	int[] UpInt = TeamVar.Player_Upgrade.get(player.getUniqueId());
+    	List<String> lore = new ArrayList<String>();
+        lore.add(player.getName());
+    	
+    	ItemStack Chestplate = new ItemStack(Material.DIAMOND_CHESTPLATE);
+        ItemMeta Chestplate_M = Chestplate.getItemMeta();
+        AttributeModifier Chestplate_A = new AttributeModifier(UUID.randomUUID(), "generic.armor", 0, Operation.ADD_NUMBER, EquipmentSlot.CHEST);
+        Chestplate_M.addAttributeModifier(Attribute.GENERIC_ARMOR, Chestplate_A);
+        Chestplate_M.setDisplayName(WordVar.XM + "+" + UpInt[0]);
+        lore.set(1, WordVar.Chest_Up);
+        Chestplate_M.setLore(lore);
+        Chestplate.setItemMeta(Chestplate_M);
+        
+        ItemStack Leggings = new ItemStack(Material.DIAMOND_LEGGINGS);
+        ItemMeta Leggings_M = Leggings.getItemMeta();
+        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.armor", 0, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
+        Leggings_M.addAttributeModifier(Attribute.GENERIC_ARMOR, Leggings_A);
+        Leggings_M.setDisplayName(WordVar.XM + "+" + UpInt[1]);
+        lore.set(1, WordVar.Leg_Up);
+        Chestplate_M.setLore(lore);
+        Leggings.setItemMeta(Leggings_M);
+        
+        ItemStack Boots = new ItemStack(Material.DIAMOND_BOOTS);
+        ItemMeta Boots_M = Boots.getItemMeta();
+        AttributeModifier Boots_A = new AttributeModifier(UUID.randomUUID(), "generic.armor", 0, Operation.ADD_NUMBER, EquipmentSlot.FEET);
+        Boots_M.addAttributeModifier(Attribute.GENERIC_ARMOR, Boots_A);
+        Boots_M.setDisplayName(WordVar.XM + "+" + UpInt[2]);
+        lore.set(1, WordVar.Boots_Up);
+        Chestplate_M.setLore(lore);
+        Boots.setItemMeta(Boots_M);
+        
+        ItemStack itemlist[] = { Chestplate, Leggings, Boots };
         return itemlist;
     }
 }

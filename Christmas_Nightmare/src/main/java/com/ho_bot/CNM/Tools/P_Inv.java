@@ -21,9 +21,23 @@ public class P_Inv
         }
         return false;
     }
+    
+    public static boolean ItemStackCheck(Player player, ItemStack itemstack, int stack)
+    {
+        if(player.getInventory().contains(itemstack, stack)) {
+        	return true;
+        }
+        return false;
+    }
 
     public static void ItemRemove(Player player, Material material, int stack)
     {
         player.getInventory().removeItem(new ItemStack(material, stack));
+    }
+    
+    public static void ItemStackRemove(Player player, ItemStack itemstack, int stack)
+    {
+    	itemstack.setAmount(stack);
+        player.getInventory().removeItem(itemstack);
     }
 }

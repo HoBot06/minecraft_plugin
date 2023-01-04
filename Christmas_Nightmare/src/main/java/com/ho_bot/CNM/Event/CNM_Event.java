@@ -27,8 +27,10 @@ import org.bukkit.inventory.EquipmentSlot;
 import com.ho_bot.CNM.Main;
 import com.ho_bot.CNM.Event.Job.BigGuyEvent;
 import com.ho_bot.CNM.Gui.JobSelect;
+import com.ho_bot.CNM.Gui.Science;
 import com.ho_bot.CNM.Job.Job;
 import com.ho_bot.CNM.NPC.JobSelectNPC;
+import com.ho_bot.CNM.NPC.ScienceNPC;
 import com.ho_bot.CNM.Utility.DamageUtil;
 import com.ho_bot.CNM.Var.EtcVar;
 import com.ho_bot.CNM.Var.JobVar;
@@ -134,6 +136,9 @@ public class CNM_Event implements Listener
 					if(entity.getCustomName().equalsIgnoreCase(WordVar.JobSelectNPC)) {
 						JobSelectNPC.JobSelectNPC_Click(event);
 					}
+					if(entity.getCustomName().equalsIgnoreCase(WordVar.ScienceNPC)) {
+						ScienceNPC.ScienceNPC_Click(event);
+					}
         		}
         	}
         }
@@ -143,6 +148,7 @@ public class CNM_Event implements Listener
     public void InventoryClickEvent(InventoryClickEvent event)
     {
         JobSelect.JobSelectEvent(event);
+        Science.ScienceNPCEvent(event);
         if(event.getCurrentItem() != null && event.getCurrentItem().getType() != Material.AIR && event.getCurrentItem().hasItemMeta()) {
 			if(event.getCurrentItem().getItemMeta().getDisplayName().contains(WordVar.XM)) {
 				event.setCancelled(true);

@@ -58,12 +58,12 @@ public class JobSelectTool
     }
     
     public static Color JobArmorColor(Player player) {
-    	if(TeamVar.Player_Team.get(player.getUniqueId())==WordVar.Santa) {
+    	if(TeamVar.Player_Team.get(player.getUniqueId()).equals(WordVar.Santa)) {
     		return Color.RED;
     	}
-    	if(TeamVar.Player_Team.get(player.getUniqueId())==WordVar.Krampus) {
+    	if(TeamVar.Player_Team.get(player.getUniqueId()).equals(WordVar.Krampus)) {
     		return Color.BLUE;
     	}
-		return null;
+		return Color.WHITE;
     }
 }

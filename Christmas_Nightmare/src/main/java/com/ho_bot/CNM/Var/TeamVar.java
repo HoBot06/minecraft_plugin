@@ -10,6 +10,7 @@ public class TeamVar
 	 
 	public static HashMap<UUID, String> Player_Team = new HashMap<UUID, String>();
 	public static HashMap<UUID, String> Player_Role = new HashMap<UUID, String>();
+	public static HashMap<UUID, int[]> Player_Upgrade = new HashMap<UUID, int[]>();
 	
 	public static void TeamShowName_Set(String Team, String Name)
 	{

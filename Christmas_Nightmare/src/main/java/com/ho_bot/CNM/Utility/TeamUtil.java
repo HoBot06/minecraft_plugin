@@ -5,6 +5,7 @@ import java.util.UUID;
 import java.util.Map.Entry;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 import com.ho_bot.CNM.Main;
@@ -21,6 +22,10 @@ public class TeamUtil
     {
         if(Team.equals(WordVar.Krampus) || Team.equals(WordVar.Santa))
         {
+        	if (!TeamVar.Player_Upgrade.containsKey(player.getUniqueId())) {
+        		int[] UpInt = {0,0,0};
+        		TeamVar.Player_Upgrade.put(player.getUniqueId(), UpInt);
+        	}
             TeamVar.Player_Team.put(player.getUniqueId(), Team);
             Bukkit.broadcastMessage(player.getName() + "님이 " + Team + " 팀으로 설정되었습니다");
             String TeamCustomName = chmain.getConfig().getString(Team + "." + WordVar.TeamShowName);
@@ -62,10 +67,10 @@ public class TeamUtil
     {
     	if(Team.equals(WordVar.Krampus) || Team.equals(WordVar.Santa))
         {
-            String TeamCustom = (new StringBuilder(String.valueOf(Name.replace('&', '\247')))).append(" ").toString();
+            String TeamCustom = Name.replace('&', ChatColor.COLOR_CHAR) + " ";
             TeamVar.TeamShowName_Set(Team, TeamCustom);
-            sender.sendMessage("\uD300 \uD45C\uC2DC\uC774\uB984\uC774 \uBCC0\uACBD\uB418\uC5C8\uC2B5\uB2C8\uB2E4");
-            sender.sendMessage((new StringBuilder("EX) ")).append(TeamCustom).append(sender.getName()).toString());
+            sender.sendMessage("팀표시이름이 변경되었습니다");
+            sender.sendMessage("EX) " + TeamCustom + sender.getName());
             for(Entry<UUID, String> TeamPlayer : TeamVar.Player_Team.entrySet())
             {
                 if(TeamPlayer.getValue().equals(Team))

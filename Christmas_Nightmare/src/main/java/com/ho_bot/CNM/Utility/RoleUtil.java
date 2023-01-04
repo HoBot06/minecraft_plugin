@@ -19,6 +19,10 @@ public class RoleUtil
             {
                 if(RoleCheck(sender, player, Role))
                 {
+                	if (!TeamVar.Player_Upgrade.containsKey(player.getUniqueId())) {
+                		int[] UpInt = {0,0,0};
+                		TeamVar.Player_Upgrade.put(player.getUniqueId(), UpInt);
+                	}
                     TeamVar.Player_Role.put(player.getUniqueId(), Role);
                     sender.sendMessage("전투원으로 설정되었습니다");
                 } else

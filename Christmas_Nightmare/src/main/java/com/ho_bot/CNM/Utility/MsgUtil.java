@@ -15,7 +15,7 @@ public class MsgUtil
 
     public static void SkillUse(Player p)
     {
-        p.sendMessage("[크리스마스의 막몽] 능력이 사용되었습니다");
+        p.sendMessage("[크리스마스의 악몽] 능력이 사용되었습니다");
     }
 
     public static List<String> ColorVarMsg(String msg[], ChatColor color)

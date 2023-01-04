@@ -58,7 +58,7 @@ public class Science
     public static void ScienceNPCEvent(InventoryClickEvent event)
     {
         Player player = (Player)event.getWhoClicked();
-        if(event.getView().getTitle().equalsIgnoreCase(WordVar.ScienceNPC))
+        if(event.getView().getTitle().equalsIgnoreCase(WordVar.ScienceGuiName))
         {
             event.setCancelled(true);
             if(event.getCurrentItem() == null || event.getCurrentItem().getType() == Material.AIR || !event.getCurrentItem().hasItemMeta()) {
@@ -69,6 +69,7 @@ public class Science
             		event.getCurrentItem().getType()==Material.DIAMOND_LEGGINGS || 
             		event.getCurrentItem().getType()==Material.DIAMOND_BOOTS) {
             	UpgradeTool.UpgradeArmor(player, lore.get(0), lore.get(1));
+            	ScienceGui(player);
             }
             
         }
@@ -95,10 +96,6 @@ public class Science
     
     private static Inventory PArmor(Inventory inv, Player player, int inv_c) {
     	
-    	if (!TeamVar.Player_Upgrade.containsKey(player.getUniqueId())) {
-    		int[] UpInt = {0,0,0};
-    		TeamVar.Player_Upgrade.put(player.getUniqueId(), UpInt);
-    	}
     	ItemStack[] armor = ItemVar.ScienceGuiItem(player);
 		inv.setItem(inv_c+1, armor[0]);
 		inv.setItem(inv_c+2, armor[1]);

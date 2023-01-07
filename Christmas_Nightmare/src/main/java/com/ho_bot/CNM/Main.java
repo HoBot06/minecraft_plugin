@@ -18,6 +18,7 @@ import com.ho_bot.CNM.Event.CNM_Event;
 import com.ho_bot.CNM.Scheduler.ActionBar_Scheduler;
 import com.ho_bot.CNM.Scheduler.Cap_Scheduler;
 import com.ho_bot.CNM.Scheduler.CoolTime_Scheduler;
+import com.ho_bot.CNM.Scheduler.GameTime_Scheduler;
 import com.ho_bot.CNM.Scheduler.Point_Scheduler;
 import com.ho_bot.CNM.Scheduler.Skill.AllSkillTimer;
 import com.ho_bot.CNM.Utility.JobListUtil;
@@ -87,11 +88,13 @@ public class Main extends JavaPlugin
         Point_Scheduler PS = new Point_Scheduler();
         CoolTime_Scheduler CTS = new CoolTime_Scheduler();
         AllSkillTimer AST = new AllSkillTimer();
+        GameTime_Scheduler GTS = new GameTime_Scheduler();
         
         CS.runTaskTimer(getPlugin(Main.class), 0L, 1L);
         AS.runTaskTimer(getPlugin(Main.class), 0L, 1L);
         PS.runTaskTimer(getPlugin(Main.class), 0L, 20L);
         CTS.runTaskTimer(getPlugin(Main.class), 0L, 20L);
         AST.runTaskTimer(getPlugin(Main.class), 0L, 1L);
+        GTS.runTaskTimer(getPlugin(Main.class), 0L, 20L);
     }
 }

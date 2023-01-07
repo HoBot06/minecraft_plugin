@@ -127,13 +127,19 @@ public class CNM_Event implements Listener
                 job.T_Active(event);
             }
         }
+        if(EtcVar.GameSet) {
+        	if(event.getClickedBlock()!=null && event.getClickedBlock().getType() != Material.AIR) {
+	        	if(event.getClickedBlock().getType()==Material.CHEST) {
+	        		event.setCancelled(true);
+	        	}
+        	}
+        }
     }
 
     @EventHandler
     public void PlayerInteractEntityEvent(PlayerInteractEntityEvent event)
     {
         Entity entity = event.getRightClicked();
-        Player player = event.getPlayer();
         if(event.getHand() == EquipmentSlot.HAND) {
         	if(entity instanceof Player) {
 				if(entity.getCustomName() != null) {
@@ -152,7 +158,7 @@ public class CNM_Event implements Listener
     public void onChest(InventoryOpenEvent event) {
     	if(EtcVar.GameSet) {
 	    	InventoryType invtype = event.getInventory().getType();
-	    	if(invtype==InventoryType.CHEST || invtype==InventoryType.CRAFTING || invtype==InventoryType.BEACON) {
+	    	if(invtype==InventoryType.WORKBENCH || invtype==InventoryType.CRAFTING || invtype==InventoryType.BEACON) {
 	    		event.setCancelled(true);
 	    	}
     	}
@@ -163,6 +169,8 @@ public class CNM_Event implements Listener
     {
         JobSelect.JobSelectEvent(event);
         Science.ScienceNPCEvent(event);
+        Science.JobScienceEvent(event);
+        Science.ChoiceNPCEvent(event);
         if(event.getCurrentItem() != null && event.getCurrentItem().getType() != Material.AIR && event.getCurrentItem().hasItemMeta()) {
 			if(event.getCurrentItem().getItemMeta().getDisplayName().contains(WordVar.XM)) {
 				event.setCancelled(true);

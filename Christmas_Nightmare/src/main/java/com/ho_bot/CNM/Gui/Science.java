@@ -12,21 +12,11 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
-import com.ho_bot.CNM.Job.Dealer.Bomber;
-import com.ho_bot.CNM.Job.Dealer.Faster;
-import com.ho_bot.CNM.Job.Dealer.Kratos;
-import com.ho_bot.CNM.Job.Dealer.Saluran;
-import com.ho_bot.CNM.Job.Support.Paladin;
-import com.ho_bot.CNM.Job.Support.Pemanah;
-import com.ho_bot.CNM.Job.Support.Zouk;
-import com.ho_bot.CNM.Job.Tank.BigGuy;
-import com.ho_bot.CNM.Job.Tank.Cruise;
-import com.ho_bot.CNM.Job.Tank.Egis;
-import com.ho_bot.CNM.Job.Tank.Patai;
-import com.ho_bot.CNM.Tools.JobSelectTool;
 import com.ho_bot.CNM.Tools.UpgradeTool;
+import com.ho_bot.CNM.Utility.JobListUtil;
 import com.ho_bot.CNM.Var.EtcVar;
 import com.ho_bot.CNM.Var.ItemVar;
 import com.ho_bot.CNM.Var.TeamVar;
@@ -34,6 +24,35 @@ import com.ho_bot.CNM.Var.WordVar;
 
 public class Science
 {
+	
+	public static void ChoiceGui(Player player)
+    {
+        Inventory inv = Bukkit.createInventory(null, 27, WordVar.ChoiceGuiName);
+        ItemStack glass = new ItemStack(Material.BLACK_STAINED_GLASS_PANE);
+        glass.getItemMeta().setDisplayName("");
+        for(int i = 0; i < 9; i++) {
+            inv.setItem(i, new ItemStack(glass));
+        }
+
+        for(int i = 18; i < 27; i++) {
+            inv.setItem(i, new ItemStack(glass));
+        }
+        ItemStack Job = new ItemStack(Material.NETHER_STAR);
+        ItemMeta Job_M = Job.getItemMeta();
+        Job_M.setDisplayName(ChatColor.WHITE + "능력 업그레이드");
+        Job.setItemMeta(Job_M);
+        
+        ItemStack Armor = new ItemStack(Material.DIAMOND_CHESTPLATE);
+        ItemMeta Armor_M = Armor.getItemMeta();
+        Armor_M.setDisplayName(ChatColor.WHITE + "갑옷 업그레이드");
+        Armor.setItemMeta(Armor_M);
+        
+        inv.setItem(12, Job);
+        inv.setItem(14, Armor);
+        
+        player.openInventory(inv);
+    }
+	
 	@SuppressWarnings("deprecation")
 	public static void ScienceGui(Player player)
     {
@@ -80,22 +99,22 @@ public class Science
             inv.setItem(i, new ItemStack(glass));
         }
 
-        inv.setItem(10, ItemVar.BigGuyGuiItem(player));
-        inv.setItem(19, ItemVar.EgisGuiItem(player));
-        inv.setItem(28, ItemVar.PataiGuiItem(player));
-        inv.setItem(37, ItemVar.CruiseGuiItem(player));
-        inv.setItem(13, ItemVar.SaluranGuiItem(player));
-        inv.setItem(22, ItemVar.FasterGuiItem(player));
-        inv.setItem(31, ItemVar.BomberGuiItem(player));
-        inv.setItem(40, ItemVar.KratosGuiItem(player));
-        inv.setItem(16, ItemVar.ZoukGuiItem(player));
-        inv.setItem(25, ItemVar.PaladinGuiItem(player));
-        inv.setItem(34, ItemVar.PemanahGuiItem(player));
+        inv.setItem(10, ItemVar.BigGuyChoiceGuiItem(player));
+        inv.setItem(19, ItemVar.EgisChoiceGuiItem(player));
+        inv.setItem(28, ItemVar.PataiChoiceGuiItem(player));
+        inv.setItem(37, ItemVar.CruiseChoiceGuiItem(player));
+        inv.setItem(13, ItemVar.SaluranChoiceGuiItem(player));
+        inv.setItem(22, ItemVar.FasterChoiceGuiItem(player));
+        inv.setItem(31, ItemVar.BomberChoiceGuiItem(player));
+        inv.setItem(40, ItemVar.KratosChoiceGuiItem(player));
+        inv.setItem(16, ItemVar.ZoukChoiceGuiItem(player));
+        inv.setItem(25, ItemVar.PaladinChoiceGuiItem(player));
+        inv.setItem(34, ItemVar.PemanahChoiceGuiItem(player));
         
         player.openInventory(inv);
     }
 
-    public static void ScienceNPCEvent(InventoryClickEvent event)
+	public static void ScienceNPCEvent(InventoryClickEvent event)
     {
         Player player = (Player)event.getWhoClicked();
         if(event.getView().getTitle().equalsIgnoreCase(WordVar.ScienceGuiName))
@@ -114,6 +133,26 @@ public class Science
             
         }
     }
+	
+    public static void ChoiceNPCEvent(InventoryClickEvent event)
+    {
+        Player player = (Player)event.getWhoClicked();
+        if(event.getView().getTitle().equalsIgnoreCase(WordVar.ChoiceGuiName))
+        {
+            event.setCancelled(true);
+            if(event.getCurrentItem() == null || event.getCurrentItem().getType() == Material.AIR || !event.getCurrentItem().hasItemMeta()) {
+            	return;
+            }
+            switch(ChatColor.stripColor(event.getCurrentItem().getItemMeta().getDisplayName())) {
+            case "능력 업그레이드" :
+            	JobScienceGui(player);
+            	break;
+            case "갑옷 업그레이드" :
+            	ScienceGui(player);
+            	break;
+            }
+        }
+    }
     
 	public static void JobScienceEvent(InventoryClickEvent event)
     {
@@ -125,40 +164,41 @@ public class Science
             	return;
             }
             switch(ChatColor.stripColor(event.getCurrentItem().getItemMeta().getDisplayName())) {
-            case "봄버" :
-            	JobSelectTool.JobSelTool(player, new Bomber(player.getName()));
+            case JobListUtil.Bomber :
+            	UpgradeTool.UpgradeJob(player, JobListUtil.Bomber);
             	break;
-            case "주크" :
-            	JobSelectTool.JobSelTool(player, new Zouk(player.getName()));
+            case JobListUtil.Zouk :
+            	UpgradeTool.UpgradeJob(player, JobListUtil.Zouk);
             	break;
-            case "빅가이" :
-            	JobSelectTool.JobSelTool(player, new BigGuy(player.getName()));
+            case JobListUtil.BigGuy :
+            	UpgradeTool.UpgradeJob(player, JobListUtil.BigGuy);
             	break;
-            case "살루란" :
-            	JobSelectTool.JobSelTool(player, new Saluran(player.getName()));
+            case JobListUtil.Saluran :
+            	UpgradeTool.UpgradeJob(player, JobListUtil.Saluran);
             	break;
-            case "에기스" :
-            	JobSelectTool.JobSelTool(player, new Egis(player.getName()));
+            case JobListUtil.Egis :
+            	UpgradeTool.UpgradeJob(player, JobListUtil.Egis);
             	break;
-            case "크루스" :
-            	JobSelectTool.JobSelTool(player, new Cruise(player.getName()));
+            case JobListUtil.Cruise :
+            	UpgradeTool.UpgradeJob(player, JobListUtil.Cruise);
             	break;
-            case "팔라딘" :
-            	JobSelectTool.JobSelTool(player, new Paladin(player.getName()));
+            case JobListUtil.Paladin :
+            	UpgradeTool.UpgradeJob(player, JobListUtil.Paladin);
             	break;
-            case "페모나" :
-            	JobSelectTool.JobSelTool(player, new Pemanah(player.getName()));
+            case JobListUtil.Pemanah :
+            	UpgradeTool.UpgradeJob(player, JobListUtil.Pemanah);
             	break;
-            case "파타이" :
-            	JobSelectTool.JobSelTool(player, new Patai(player.getName()));
+            case JobListUtil.Patai :
+            	UpgradeTool.UpgradeJob(player, JobListUtil.Patai);
             	break;
-            case "페스트" :
-            	JobSelectTool.JobSelTool(player, new Faster(player.getName()));
+            case JobListUtil.Faster :
+            	UpgradeTool.UpgradeJob(player, JobListUtil.Faster);
             	break;
-            case "크라토스" :
-            	JobSelectTool.JobSelTool(player, new Kratos(player.getName()));
+            case JobListUtil.Kratos :
+            	UpgradeTool.UpgradeJob(player, JobListUtil.Kratos);
             	break;
             }
+            JobScienceGui(player);
         }
     }
     

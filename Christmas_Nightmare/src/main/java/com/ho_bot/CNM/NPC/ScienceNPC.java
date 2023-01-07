@@ -15,7 +15,7 @@ public class ScienceNPC
         if(TeamVar.Player_Role.containsKey(player.getUniqueId()))
         {
             if(TeamVar.Player_Role.get(player.getUniqueId()).equals(WordVar.Santa_Scientist) || TeamVar.Player_Role.get(player.getUniqueId()).equals(WordVar.Krampus_Scientist)) {
-                Science.ScienceGui(player);
+                Science.ChoiceGui(player);
             }
             else {
                 player.sendMessage("연구원이 아닙니다");

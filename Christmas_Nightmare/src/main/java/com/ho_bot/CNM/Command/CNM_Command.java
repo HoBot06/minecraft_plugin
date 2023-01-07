@@ -10,6 +10,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import com.ho_bot.CNM.Scheduler.CoolTime_Scheduler;
+import com.ho_bot.CNM.Scheduler.GameTime_Scheduler;
 import com.ho_bot.CNM.Utility.CapUtil;
 import com.ho_bot.CNM.Utility.CommandUtil;
 import com.ho_bot.CNM.Utility.RoleUtil;
@@ -95,7 +96,17 @@ public class CNM_Command implements CommandExecutor
                         }
                     }
                     if(args[0].equalsIgnoreCase("start")) {
-                    	
+                    	if(args[1]!=null) {
+                    		EtcVar.GameSet=true;
+                    		GameTime_Scheduler.GameTime=Integer.parseInt(args[1]);
+                    		Bukkit.broadcastMessage("게임이 시작되었습니다!");
+                    	}
+                    	else {
+                    		player.sendMessage("시간을 입력해주세요");
+                    	}
+                    }
+                    if(args[0].equalsIgnoreCase("stop")) {
+                    	GameTime_Scheduler.GameTime=0;
                     }
                     if(args[0].equalsIgnoreCase("test")) {
                     	player.sendMessage(TeamVar.Team_JobUpgrade + "");
@@ -121,34 +132,44 @@ public class CNM_Command implements CommandExecutor
             Bukkit.broadcastMessage("[전체] " + player.getName() + msg);
         }
         if(label.equalsIgnoreCase("check")) {
-        	if(args[0].equalsIgnoreCase("team")) {
-        		if(TeamVar.Player_Team.containsKey(player.getUniqueId())) {
-	        		List<String> teamlist = new ArrayList<String>();
-	        		for(Player p : Bukkit.getOnlinePlayers()) {
-	        			if(TeamVar.Player_Team.containsKey(p.getUniqueId())) {
-	        				if(TeamVar.Player_Team.get(player.getUniqueId()).equals(TeamVar.Player_Team.get(p.getUniqueId()))) {
-	        					if(TeamVar.Player_Role.containsKey(player.getUniqueId())) {
-	        	        			teamlist.add(ChatColor.WHITE + p.getName() + " : " + TeamVar.Player_Role.get(player.getUniqueId()));
-	        	        		}
-	        	        		else {
-	        	        			teamlist.add(ChatColor.WHITE + p.getName() + " : 역할이 없습니다");
-	        	        		}
-	        				}
-	        			}
+        	if(!args[0].isEmpty()) {
+	        	if(args[0].equalsIgnoreCase("team")) {
+	        		if(TeamVar.Player_Team.containsKey(player.getUniqueId())) {
+		        		List<String> teamlist = new ArrayList<String>();
+		        		for(Player p : Bukkit.getOnlinePlayers()) {
+		        			if(TeamVar.Player_Team.containsKey(p.getUniqueId())) {
+		        				if(TeamVar.Player_Team.get(player.getUniqueId()).equals(TeamVar.Player_Team.get(p.getUniqueId()))) {
+		        					if(TeamVar.Player_Role.containsKey(player.getUniqueId())) {
+		        	        			teamlist.add(ChatColor.WHITE + p.getName() + " : " + TeamVar.Player_Role.get(player.getUniqueId()));
+		        	        		}
+		        	        		else {
+		        	        			teamlist.add(ChatColor.WHITE + p.getName() + " : 역할이 없습니다");
+		        	        		}
+		        				}
+		        			}
+		        		}
+		        		for(String s : teamlist) {
+		        			player.sendMessage(s);
+		        		}
 	        		}
-	        		for(String s : teamlist) {
-	        			player.sendMessage(s);
+	        		else {
+	            		player.sendMessage("팀이 존재하지 않습니다");
+	            	}
+	        	}
+	        	if(args[0].equalsIgnoreCase("time")) {
+	        		player.sendMessage(GameTime_Scheduler.GameTime+"초 남았습니다");
+	        	}
+	        	if(args[0].equalsIgnoreCase("point")) {
+	        		if(TeamVar.Player_Team.containsKey(player.getUniqueId())) {
+	        			player.sendMessage("현재 연구포인트 : " + TeamVar.Team_JobUpPoint.get(TeamVar.Player_Team.get(player.getUniqueId())));
 	        		}
-        		}
-        		else {
-            		player.sendMessage("팀이 존재하지 않습니다");
-            	}
+	        		else {
+	        			player.sendMessage("팀이 없습니다");
+	        		}
+	        	}
         	}
-        	if(args[0].equalsIgnoreCase("time")) {
-        		
-        	}
-        	if(args[0].equalsIgnoreCase("point")) {
-
+        	else {
+        		commandutil.CheckCommand(player);
         	}
         }
         return false;

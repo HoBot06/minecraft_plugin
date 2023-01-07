@@ -20,6 +20,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 
 import com.ho_bot.CNM.Tools.JobSelectTool;
+import com.ho_bot.CNM.Utility.JobListUtil;
 import com.ho_bot.CNM.Utility.MsgUtil;
 
 public class ItemVar
@@ -433,6 +434,182 @@ public class ItemVar
         itemi.setItemMeta(itemmm);
         return itemi;
     }
+    
+    public static ItemStack BigGuyChoiceGuiItem(Player player)
+    {
+        ItemStack itemi = new ItemStack(Material.WOODEN_SWORD);
+        ItemMeta itemm = itemi.getItemMeta();
+        HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
+        int UpInt = JobUp.get(JobListUtil.BigGuy);
+        itemm.setDisplayName(ChatColor.WHITE + JobListUtil.BigGuy);
+        List<String> lore = new ArrayList<String>();
+        lore.add(ChatColor.GRAY + "현재 업그레이드 단계");
+        lore.add(ChatColor.GRAY + " - " + UpInt);
+        itemm.setLore(lore);
+        
+        itemi.setItemMeta(itemm);
+        return itemi;
+    }
+
+    public static ItemStack CruiseChoiceGuiItem(Player player)
+    {
+    	ItemStack itemi = new ItemStack(Material.WOODEN_SWORD);
+        ItemMeta itemm = itemi.getItemMeta();
+        HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
+        int UpInt = JobUp.get(JobListUtil.Cruise);
+        itemm.setDisplayName(ChatColor.WHITE + JobListUtil.Cruise);
+        List<String> lore = new ArrayList<String>();
+        lore.add(ChatColor.GRAY + "현재 업그레이드 단계");
+        lore.add(ChatColor.GRAY + " - " + UpInt);
+        itemm.setLore(lore);
+        
+        itemi.setItemMeta(itemm);
+        return itemi;
+    }
+
+    public static ItemStack EgisChoiceGuiItem(Player player)
+    {
+    	ItemStack itemi = new ItemStack(Material.WOODEN_SWORD);
+        ItemMeta itemm = itemi.getItemMeta();
+        HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
+        int UpInt = JobUp.get(JobListUtil.Egis);
+        itemm.setDisplayName(ChatColor.WHITE + JobListUtil.Egis);
+        List<String> lore = new ArrayList<String>();
+        lore.add(ChatColor.GRAY + "현재 업그레이드 단계");
+        lore.add(ChatColor.GRAY + " - " + UpInt);
+        itemm.setLore(lore);
+        
+        itemi.setItemMeta(itemm);
+        return itemi;
+    }
+
+    public static ItemStack PataiChoiceGuiItem(Player player)
+    {
+    	ItemStack itemi = new ItemStack(Material.WOODEN_SWORD);
+        ItemMeta itemm = itemi.getItemMeta();
+        HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
+        int UpInt = JobUp.get(JobListUtil.Patai);
+        itemm.setDisplayName(ChatColor.WHITE + JobListUtil.Patai);
+        List<String> lore = new ArrayList<String>();
+        lore.add(ChatColor.GRAY + "현재 업그레이드 단계");
+        lore.add(ChatColor.GRAY + " - " + UpInt);
+        itemm.setLore(lore);
+        
+        itemi.setItemMeta(itemm);
+        return itemi;
+    }
+
+    public static ItemStack BomberChoiceGuiItem(Player player)
+    {
+    	ItemStack itemi = new ItemStack(Material.WOODEN_SWORD);
+        ItemMeta itemm = itemi.getItemMeta();
+        HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
+        int UpInt = JobUp.get(JobListUtil.Bomber);
+        itemm.setDisplayName(ChatColor.WHITE + JobListUtil.Bomber);
+        List<String> lore = new ArrayList<String>();
+        lore.add(ChatColor.GRAY + "현재 업그레이드 단계");
+        lore.add(ChatColor.GRAY + " - " + UpInt);
+        itemm.setLore(lore);
+        
+        itemi.setItemMeta(itemm);
+        return itemi;
+    }
+
+    public static ItemStack FasterChoiceGuiItem(Player player)
+    {
+    	ItemStack itemi = new ItemStack(Material.WOODEN_SWORD);
+        ItemMeta itemm = itemi.getItemMeta();
+        HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
+        int UpInt = JobUp.get(JobListUtil.Faster);
+        itemm.setDisplayName(ChatColor.WHITE + JobListUtil.Faster);
+        List<String> lore = new ArrayList<String>();
+        lore.add(ChatColor.GRAY + "현재 업그레이드 단계");
+        lore.add(ChatColor.GRAY + " - " + UpInt);
+        itemm.setLore(lore);
+        
+        itemi.setItemMeta(itemm);
+        return itemi;
+    }
+
+    public static ItemStack KratosChoiceGuiItem(Player player)
+    {
+    	ItemStack itemi = new ItemStack(Material.WOODEN_SWORD);
+        ItemMeta itemm = itemi.getItemMeta();
+        HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
+        int UpInt = JobUp.get(JobListUtil.Kratos);
+        itemm.setDisplayName(ChatColor.WHITE + JobListUtil.Kratos);
+        List<String> lore = new ArrayList<String>();
+        lore.add(ChatColor.GRAY + "현재 업그레이드 단계");
+        lore.add(ChatColor.GRAY + " - " + UpInt);
+        itemm.setLore(lore);
+        
+        itemi.setItemMeta(itemm);
+        return itemi;
+    }
+
+    public static ItemStack SaluranChoiceGuiItem(Player player)
+    {
+    	ItemStack itemi = new ItemStack(Material.WOODEN_SWORD);
+        ItemMeta itemm = itemi.getItemMeta();
+        HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
+        int UpInt = JobUp.get(JobListUtil.Saluran);
+        itemm.setDisplayName(ChatColor.WHITE + JobListUtil.Saluran);
+        List<String> lore = new ArrayList<String>();
+        lore.add(ChatColor.GRAY + "현재 업그레이드 단계");
+        lore.add(ChatColor.GRAY + " - " + UpInt);
+        itemm.setLore(lore);
+        
+        itemi.setItemMeta(itemm);
+        return itemi;
+    }
+
+    public static ItemStack PaladinChoiceGuiItem(Player player)
+    {
+    	ItemStack itemi = new ItemStack(Material.WOODEN_SWORD);
+        ItemMeta itemm = itemi.getItemMeta();
+        HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
+        int UpInt = JobUp.get(JobListUtil.Paladin);
+        itemm.setDisplayName(ChatColor.WHITE + JobListUtil.Paladin);
+        List<String> lore = new ArrayList<String>();
+        lore.add(ChatColor.GRAY + "현재 업그레이드 단계");
+        lore.add(ChatColor.GRAY + " - " + UpInt);
+        itemm.setLore(lore);
+        
+        itemi.setItemMeta(itemm);
+        return itemi;
+    }
+
+    public static ItemStack PemanahChoiceGuiItem(Player player)
+    {
+    	ItemStack itemi = new ItemStack(Material.WOODEN_SWORD);
+        ItemMeta itemm = itemi.getItemMeta();
+        HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
+        int UpInt = JobUp.get(JobListUtil.Pemanah);
+        itemm.setDisplayName(ChatColor.WHITE + JobListUtil.Pemanah);
+        List<String> lore = new ArrayList<String>();
+        lore.add(ChatColor.GRAY + "현재 업그레이드 단계");
+        lore.add(ChatColor.GRAY + " - " + UpInt);
+        itemm.setLore(lore);
+        
+        itemi.setItemMeta(itemm);
+        return itemi;
+    }
+
+    public static ItemStack ZoukChoiceGuiItem(Player player)
+    {
+    	ItemStack itemi = new ItemStack(Material.WOODEN_SWORD);
+        ItemMeta itemm = itemi.getItemMeta();
+        HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
+        int UpInt = JobUp.get(JobListUtil.Zouk);
+        itemm.setDisplayName(ChatColor.WHITE + JobListUtil.Zouk);
+        List<String> lore = new ArrayList<String>();
+        lore.add(ChatColor.GRAY + "현재 업그레이드 단계");
+        lore.add(ChatColor.GRAY + " - " + UpInt);
+        itemm.setLore(lore);
+        
+        itemi.setItemMeta(itemm);
+        return itemi;
+    }
 
     public static ItemStack[] BigGuyJobItem(Player player)
     {
@@ -440,7 +617,8 @@ public class ItemVar
         ItemMeta Weapon_M = Weapon.getItemMeta();
         AttributeModifier Weapon_A = new AttributeModifier(UUID.randomUUID(), "generic.attack_damage", 4, Operation.ADD_NUMBER, EquipmentSlot.HAND);
         Weapon_M.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, Weapon_A);
-        Weapon_M.setDisplayName(WordVar.XM + "빅가이");
+        HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
+        Weapon_M.setDisplayName(WordVar.XM + "빅가이 +" + JobUp.get(JobListUtil.BigGuy));
         Weapon.setItemMeta(Weapon_M);
         
         ItemStack Helmet = new ItemStack(Material.LEATHER_HELMET);
@@ -489,7 +667,8 @@ public class ItemVar
         ItemMeta Weapon_M = Weapon.getItemMeta();
         AttributeModifier Weapon_A = new AttributeModifier(UUID.randomUUID(), "generic.attack_damage", 4, Operation.ADD_NUMBER, EquipmentSlot.HAND);
         Weapon_M.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, Weapon_A);
-        Weapon_M.setDisplayName(WordVar.XM + "크루스");
+        HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
+        Weapon_M.setDisplayName(WordVar.XM + "크루스 +" + JobUp.get(JobListUtil.Cruise));
         Weapon.setItemMeta(Weapon_M);
         
         ItemStack Helmet = new ItemStack(Material.LEATHER_HELMET);
@@ -538,7 +717,8 @@ public class ItemVar
         ItemMeta Weapon_M = Weapon.getItemMeta();
         AttributeModifier Weapon_A = new AttributeModifier(UUID.randomUUID(), "generic.attack_damage", 4, Operation.ADD_NUMBER, EquipmentSlot.HAND);
         Weapon_M.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, Weapon_A);
-        Weapon_M.setDisplayName(WordVar.XM + "에기스");
+        HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
+        Weapon_M.setDisplayName(WordVar.XM + "에기스 +" + JobUp.get(JobListUtil.Egis));
         Weapon.setItemMeta(Weapon_M);
         
         ItemStack Helmet = new ItemStack(Material.LEATHER_HELMET);
@@ -587,7 +767,8 @@ public class ItemVar
         ItemMeta Weapon_M = Weapon.getItemMeta();
         AttributeModifier Weapon_A = new AttributeModifier(UUID.randomUUID(), "generic.attack_damage", 4, Operation.ADD_NUMBER, EquipmentSlot.HAND);
         Weapon_M.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, Weapon_A);
-        Weapon_M.setDisplayName(WordVar.XM + "파타이");
+        HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
+        Weapon_M.setDisplayName(WordVar.XM + "파타이 +" + JobUp.get(JobListUtil.Patai));
         Weapon.setItemMeta(Weapon_M);
         
         ItemStack Helmet = new ItemStack(Material.LEATHER_HELMET);
@@ -636,7 +817,8 @@ public class ItemVar
         ItemMeta Weapon_M = Weapon.getItemMeta();
         AttributeModifier Weapon_A = new AttributeModifier(UUID.randomUUID(), "generic.attack_damage", 4, Operation.ADD_NUMBER, EquipmentSlot.HAND);
         Weapon_M.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, Weapon_A);
-        Weapon_M.setDisplayName(WordVar.XM + "봄버");
+        HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
+        Weapon_M.setDisplayName(WordVar.XM + "봄버 +" + JobUp.get(JobListUtil.Bomber));
         Weapon.setItemMeta(Weapon_M);
         
         ItemStack Helmet = new ItemStack(Material.LEATHER_HELMET);
@@ -685,7 +867,8 @@ public class ItemVar
         ItemMeta Weapon_M = Weapon.getItemMeta();
         AttributeModifier Weapon_A = new AttributeModifier(UUID.randomUUID(), "generic.attack_damage", 4, Operation.ADD_NUMBER, EquipmentSlot.HAND);
         Weapon_M.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, Weapon_A);
-        Weapon_M.setDisplayName(WordVar.XM + "페스트");
+        HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
+        Weapon_M.setDisplayName(WordVar.XM + "페스트 +" + JobUp.get(JobListUtil.Faster));
         Weapon.setItemMeta(Weapon_M);
         
         ItemStack Helmet = new ItemStack(Material.LEATHER_HELMET);
@@ -734,7 +917,8 @@ public class ItemVar
         ItemMeta Weapon_M = Weapon.getItemMeta();
         AttributeModifier Weapon_A = new AttributeModifier(UUID.randomUUID(), "generic.attack_damage", 4, Operation.ADD_NUMBER, EquipmentSlot.HAND);
         Weapon_M.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, Weapon_A);
-        Weapon_M.setDisplayName(WordVar.XM + "크라토스");
+        HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
+        Weapon_M.setDisplayName(WordVar.XM + "크라토스 +" + JobUp.get(JobListUtil.Kratos));
         Weapon.setItemMeta(Weapon_M);
         
         ItemStack Helmet = new ItemStack(Material.LEATHER_HELMET);
@@ -783,7 +967,8 @@ public class ItemVar
         ItemMeta Weapon_M = Weapon.getItemMeta();
         AttributeModifier Weapon_A = new AttributeModifier(UUID.randomUUID(), "generic.attack_damage", 4, Operation.ADD_NUMBER, EquipmentSlot.HAND);
         Weapon_M.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, Weapon_A);
-        Weapon_M.setDisplayName(WordVar.XM + "살루란");
+        HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
+        Weapon_M.setDisplayName(WordVar.XM + "살루란 +" + JobUp.get(JobListUtil.Saluran));
         Weapon.setItemMeta(Weapon_M);
         
         ItemStack Helmet = new ItemStack(Material.LEATHER_HELMET);
@@ -832,7 +1017,8 @@ public class ItemVar
         ItemMeta Weapon_M = Weapon.getItemMeta();
         AttributeModifier Weapon_A = new AttributeModifier(UUID.randomUUID(), "generic.attack_damage", 4, Operation.ADD_NUMBER, EquipmentSlot.HAND);
         Weapon_M.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, Weapon_A);
-        Weapon_M.setDisplayName(WordVar.XM + "팔라딘");
+        HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
+        Weapon_M.setDisplayName(WordVar.XM + "팔라딘 +" + JobUp.get(JobListUtil.Paladin));
         Weapon.setItemMeta(Weapon_M);
         
         ItemStack Helmet = new ItemStack(Material.LEATHER_HELMET);
@@ -879,7 +1065,8 @@ public class ItemVar
     {
         ItemStack Weapon = new ItemStack(Material.BOW);
         ItemMeta Weapon_M = Weapon.getItemMeta();
-        Weapon_M.setDisplayName(WordVar.XM + "페모나");
+        HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
+        Weapon_M.setDisplayName(WordVar.XM + "페모나 +" + JobUp.get(JobListUtil.Pemanah));
         Weapon_M.setUnbreakable(true);
         Weapon.setItemMeta(Weapon_M);
         Weapon.addEnchantment(Enchantment.ARROW_INFINITE, 1);
@@ -930,7 +1117,8 @@ public class ItemVar
         ItemMeta Weapon_M = Weapon.getItemMeta();
         AttributeModifier Weapon_A = new AttributeModifier(UUID.randomUUID(), "generic.attack_damage", 4, Operation.ADD_NUMBER, EquipmentSlot.HAND);
         Weapon_M.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, Weapon_A);
-        Weapon_M.setDisplayName(WordVar.XM + "주크");
+        HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
+        Weapon_M.setDisplayName(WordVar.XM + "주크 +" + JobUp.get(JobListUtil.Zouk));
         Weapon.setItemMeta(Weapon_M);
         
         ItemStack Helmet = new ItemStack(Material.LEATHER_HELMET);

@@ -1,5 +1,7 @@
 package com.ho_bot.CNM.Tools;
 
+import java.util.HashMap;
+
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -67,7 +69,25 @@ public class UpgradeTool {
 	}
 	
 	public static void UpgradeJob(Player player, String Job) {
-		
+		int UpPoint = TeamVar.Team_JobUpPoint.get(TeamVar.Player_Team.get(player.getUniqueId()));
+		if(UpPoint>=5) {
+			HashMap<String, Integer> JopUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
+			int JobUpPoint = JopUp.get(Job);
+			if(JobUpPoint<5) {
+				UpPoint=UpPoint-5;
+				JobUpPoint++;
+				JopUp.put(Job, JobUpPoint);
+				TeamVar.Team_JobUpgrade.put(Job, JopUp);
+				TeamVar.Team_JobUpPoint.put(TeamVar.Player_Team.get(player.getUniqueId()), UpPoint);
+				player.sendMessage("업그레이드가 완료되었습니다 (현재 연구포인트 : " + UpPoint + ")");
+			}
+			else {
+				player.sendMessage("최대 업그레이드입니다");
+			}
+		}
+		else {
+			player.sendMessage("최소 5이상의 연구포인트가 필요합니다 (현재 연구포인트 : " + UpPoint + ")");
+		}
 	}
 
 }

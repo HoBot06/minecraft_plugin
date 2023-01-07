@@ -10,6 +10,7 @@ public class WordVar {
     public static final String JobSelectNPC = "능력선택NPC";
     public static final String JobSelectGuiName = "능력선택";
     public static final String ScienceNPC = "연구NPC";
+    public static final String ChoiceGuiName = "연구선택";
     public static final String ScienceGuiName = "갑옷연구";
     public static final String JobScienceGuiName = "능력연구";
     public static final String Santa_Scientist = "산타연구원";

@@ -1,7 +1,12 @@
 package com.ho_bot.CNM.Utility;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+
+import org.bukkit.entity.Player;
+
+import com.ho_bot.CNM.Var.TeamVar;
 
 public class JobListUtil {
 	
@@ -36,6 +41,11 @@ public class JobListUtil {
 		JobList.add(Pemanah);
 		
 		return JobList;
+	}
+	
+	public static int GetJobUpint(Player player, String Job) {
+		HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
+		return JobUp.get(Job);
 	}
 
 }

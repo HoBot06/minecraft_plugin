@@ -15,7 +15,10 @@ import org.bukkit.event.entity.EntityDropItemEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.entity.ProjectileLaunchEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryOpenEvent;
+import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.PlayerChatEvent;
+import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -23,6 +26,7 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerShearEntityEvent;
 import org.bukkit.inventory.EquipmentSlot;
+import org.bukkit.inventory.Inventory;
 
 import com.ho_bot.CNM.Main;
 import com.ho_bot.CNM.Event.Job.BigGuyEvent;
@@ -143,7 +147,17 @@ public class CNM_Event implements Listener
         	}
         }
     }
-
+    
+    @EventHandler
+    public void onChest(InventoryOpenEvent event) {
+    	if(EtcVar.GameSet) {
+	    	InventoryType invtype = event.getInventory().getType();
+	    	if(invtype==InventoryType.CHEST || invtype==InventoryType.CRAFTING || invtype==InventoryType.BEACON) {
+	    		event.setCancelled(true);
+	    	}
+    	}
+    }
+    
     @EventHandler
     public void InventoryClickEvent(InventoryClickEvent event)
     {
@@ -174,6 +188,9 @@ public class CNM_Event implements Listener
         MGE.TreeEvent(event);
         MGE.StoneEvent(event);
         MGE.SnowEvent(event);
+        if(EtcVar.GameSet) {
+        	event.setCancelled(true);
+        }
     }
 
     @EventHandler
@@ -243,5 +260,12 @@ public class CNM_Event implements Listener
                 job.T_Passive(event);
             }
         }
+    }
+    
+    @EventHandler
+    public void onDrop(PlayerDropItemEvent event) {
+    	if(EtcVar.GameSet) {
+    		event.setCancelled(true);
+    	}
     }
 }

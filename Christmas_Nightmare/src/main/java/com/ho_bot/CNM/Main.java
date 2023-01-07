@@ -1,6 +1,7 @@
 package com.ho_bot.CNM;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.UUID;
 
 import org.bukkit.Bukkit;
@@ -19,8 +20,10 @@ import com.ho_bot.CNM.Scheduler.Cap_Scheduler;
 import com.ho_bot.CNM.Scheduler.CoolTime_Scheduler;
 import com.ho_bot.CNM.Scheduler.Point_Scheduler;
 import com.ho_bot.CNM.Scheduler.Skill.AllSkillTimer;
+import com.ho_bot.CNM.Utility.JobListUtil;
 import com.ho_bot.CNM.Utility.ToolUtil;
 import com.ho_bot.CNM.Var.EtcVar;
+import com.ho_bot.CNM.Var.TeamVar;
 import com.ho_bot.CNM.Var.WordVar;
 
 import xyz.haoshoku.nick.api.NickAPI;
@@ -38,6 +41,7 @@ public class Main extends JavaPlugin
         
         getCommand("CNM").setExecutor(new CNM_Command());
         getCommand("all").setExecutor(new CNM_Command());
+        getCommand("check").setExecutor(new CNM_Command());
         getServer().getPluginManager().registerEvents(nswevent, this);
         getConfig().options().copyDefaults(true);
         saveConfig();
@@ -51,6 +55,20 @@ public class Main extends JavaPlugin
 
         EtcVar.TeamPoint.put(WordVar.Santa, 0);
         EtcVar.TeamPoint.put(WordVar.Krampus, 0);
+        TeamVar.Team_JobUpPoint.put(WordVar.Santa, 0);
+        TeamVar.Team_JobUpPoint.put(WordVar.Krampus, 0);
+        for(String JN : JobListUtil.GetJobList()) {
+        	HashMap<String, Integer> JobUp = new HashMap<String, Integer>();
+        	if(TeamVar.Team_JobUpgrade.containsKey(WordVar.Santa)) {
+        		JobUp = TeamVar.Team_JobUpgrade.get(WordVar.Santa);
+        	}
+        	if(TeamVar.Team_JobUpgrade.containsKey(WordVar.Krampus)) {
+        		JobUp = TeamVar.Team_JobUpgrade.get(WordVar.Krampus);
+        	}
+        	JobUp.put(JN, 0);
+        	TeamVar.Team_JobUpgrade.put(WordVar.Santa, JobUp);
+        	TeamVar.Team_JobUpgrade.put(WordVar.Krampus, JobUp);
+        }
         for(String CapName : EtcVar.CapNameList)
         {
             if(getConfig().get(CapName) != null) {

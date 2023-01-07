@@ -12,6 +12,7 @@ import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.attribute.AttributeModifier.Operation;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
@@ -729,7 +730,7 @@ public class ItemVar
 
     public static ItemStack[] KratosJobItem(Player player)
     {
-        ItemStack Weapon = new ItemStack(Material.BLAZE_ROD);
+        ItemStack Weapon = new ItemStack(Material.NETHERITE_SWORD);
         ItemMeta Weapon_M = Weapon.getItemMeta();
         AttributeModifier Weapon_A = new AttributeModifier(UUID.randomUUID(), "generic.attack_damage", 4, Operation.ADD_NUMBER, EquipmentSlot.HAND);
         Weapon_M.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, Weapon_A);
@@ -876,12 +877,12 @@ public class ItemVar
 
     public static ItemStack[] PemanahJobItem(Player player)
     {
-        ItemStack Weapon = new ItemStack(Material.BLAZE_ROD);
+        ItemStack Weapon = new ItemStack(Material.BOW);
         ItemMeta Weapon_M = Weapon.getItemMeta();
-        AttributeModifier Weapon_A = new AttributeModifier(UUID.randomUUID(), "generic.attack_damage", 4, Operation.ADD_NUMBER, EquipmentSlot.HAND);
-        Weapon_M.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, Weapon_A);
         Weapon_M.setDisplayName(WordVar.XM + "Æä¸ð³ª");
+        Weapon_M.setUnbreakable(true);
         Weapon.setItemMeta(Weapon_M);
+        Weapon.addEnchantment(Enchantment.ARROW_INFINITE, 1);
         
         ItemStack Helmet = new ItemStack(Material.LEATHER_HELMET);
         LeatherArmorMeta Helmet_M = (LeatherArmorMeta) Helmet.getItemMeta();

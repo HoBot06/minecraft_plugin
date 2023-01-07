@@ -65,5 +65,9 @@ public class UpgradeTool {
 			}
 		}
 	}
+	
+	public static void UpgradeJob(Player player, String Job) {
+		
+	}
 
 }

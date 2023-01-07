@@ -10,11 +10,12 @@ public class WordVar {
     public static final String JobSelectNPC = "능력선택NPC";
     public static final String JobSelectGuiName = "능력선택";
     public static final String ScienceNPC = "연구NPC";
-    public static final String ScienceGuiName = "연구GUI";
-    public static final String Santa_Scientist = "산타과학자";
-    public static final String Krampus_Scientist = "크람푸스과학자";
-    public static final String Santa_Battle = "산타전투";
-    public static final String Krampus_Battle = "크람푸스전투";
+    public static final String ScienceGuiName = "갑옷연구";
+    public static final String JobScienceGuiName = "능력연구";
+    public static final String Santa_Scientist = "산타연구원";
+    public static final String Krampus_Scientist = "크람연구원";
+    public static final String Santa_Battle = "산타전투원";
+    public static final String Krampus_Battle = "크람전투원";
     public static final String XM = ChatColor.WHITE + "[X-Mas] ";
     public static final String Chest_Up = ChatColor.GRAY + "갑옷강화";
     public static final String Leg_Up = ChatColor.GRAY + "바지강화";

@@ -1,7 +1,6 @@
 package com.ho_bot.CNM.Job.Dealer;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -19,6 +18,7 @@ import com.ho_bot.CNM.Var.JobVar;
 
 public class Faster extends Job
 {
+	private final int Shoot_Delay = 20;
 	private final int coolTime = 5;
     private final int power = 5;
     private static final String des[] = JobVar.Faster_Des;
@@ -34,7 +34,7 @@ public class Faster extends Job
     public void T_Active(PlayerInteractEvent event)
     {
         Player player = event.getPlayer();
-        if(P_Inv.InHandItemCheck(player, Material.BLAZE_ROD))
+        if(P_Inv.InHandItemCheck(player, ItemVar.FasterJobItem(Bukkit.getPlayer(playerName))[0].getType()))
             switch(EventFilter.PlayerInteract(event))
             {
             case 0: case 1:
@@ -49,7 +49,10 @@ public class Faster extends Job
 
     private void leftAction(Player player)
     {
-        ShootUtility.ShootGunSpreadShoot(player, Particle.CRIT, 30, 1.0F, 4D, 0.0D, 0.0D, 0.0D, 0.0D, 1, Sound.ENTITY_GENERIC_EXPLODE, 1.0F, 1.0F, 10, 10);
+    	if(CoolTimeUtil.ShootCheck(player)) {
+    		Skill.Shoot(player, Shoot_Delay);
+    		ShootUtility.ShootGunSpreadShoot(player, Particle.CRIT, 30, 1.0F, 4D, 0.0D, 0.0D, 0.0D, 0.0D, 1, Sound.ENTITY_GENERIC_EXPLODE, 1.0F, 1.0F, 10, 10);
+    	}
     }
 
     private void rightAction(Player player)

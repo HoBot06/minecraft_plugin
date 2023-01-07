@@ -58,7 +58,7 @@ public class RoleUtil
     public void RoleCommand(Player player)
     {
         player.sendMessage("==========================================");
-        player.sendMessage("/CNM Role Set [playername] [" + WordVar.Santa_Battle + "/" + WordVar.Santa_Scientist + "/" + WordVar.Krampus_Battle + "/" + WordVar.Krampus_Scientist + "]");
+        player.sendMessage("/CNM Role Set [" + WordVar.Santa_Battle + "/" + WordVar.Santa_Scientist + "/" + WordVar.Krampus_Battle + "/" + WordVar.Krampus_Scientist + "]");
         player.sendMessage("==========================================");
     }
 }

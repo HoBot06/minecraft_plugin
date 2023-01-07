@@ -1,7 +1,6 @@
 package com.ho_bot.CNM.Job.Dealer;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -21,6 +20,8 @@ import com.ho_bot.CNM.Var.JobVar;
 
 public class Bomber extends Job
 {
+	private final int Shoot_Delay = 10;
+	private final int Boom_Delay = 40;
 	private final int coolTime = 30;
     private final int duration = 20;
     private final int power = 2;
@@ -37,7 +38,7 @@ public class Bomber extends Job
     public void T_Active(PlayerInteractEvent event)
     {
         Player player = event.getPlayer();
-        if(P_Inv.InHandItemCheck(player, Material.BLAZE_ROD))
+        if(P_Inv.InHandItemCheck(player, ItemVar.BomberJobItem(Bukkit.getPlayer(playerName))[0].getType()))
             switch(EventFilter.PlayerInteract(event))
             {
             case 0: case 1:
@@ -55,11 +56,17 @@ public class Bomber extends Job
         if(JobVar.Bomber_P.containsKey(player.getUniqueId()))
         {
             if(JobVar.Bomber_P.get(player.getUniqueId())) {
-                ShootUtility.SnowShoot(player, player.getLocation().getDirection(), 1.2f);
+            	if(CoolTimeUtil.ShootCheck(player)) {
+            		Skill.Shoot(player, Boom_Delay);
+            		ShootUtility.SnowShoot(player, player.getLocation().getDirection(), 1.2f);
+            	}
             }
         } else
         {
-            ShootUtility.LineShoot(player, Particle.END_ROD, 30, 1.0F, 2D, 0.0D, 0.0D, 0.0D, 0.0D, 1, Sound.BLOCK_PISTON_CONTRACT, 1.0F, 1.0F);
+        	if(CoolTimeUtil.ShootCheck(player)) {
+        		Skill.Shoot(player, Shoot_Delay);
+        		ShootUtility.LineShoot(player, Particle.END_ROD, 30, 1.0F, 2D, 0.0D, 0.0D, 0.0D, 0.0D, 1, Sound.BLOCK_PISTON_CONTRACT, 1.0F, 1.0F);
+        	}
         }
     }
 

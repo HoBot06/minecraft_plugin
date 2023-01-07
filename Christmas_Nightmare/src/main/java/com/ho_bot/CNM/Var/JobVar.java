@@ -8,6 +8,7 @@ import org.bukkit.Particle;
 public class JobVar {
 	
 	public static HashMap<UUID, Job> Job_Player = new HashMap<UUID, Job>();
+	public static HashMap<UUID, Integer> ShootDelay_Player = new HashMap<UUID, Integer>();
 	public static HashMap<UUID, Boolean> BigGuy_P = new HashMap<UUID, Boolean>();
 	public static final double BigGuy_distance = 12D;
 	public static HashMap<UUID, Boolean> Bomber_P = new HashMap<UUID, Boolean>();

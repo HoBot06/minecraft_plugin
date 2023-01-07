@@ -1,7 +1,6 @@
 package com.ho_bot.CNM.Job.Dealer;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -33,7 +32,7 @@ public class Saluran extends Job
     public void T_Active(PlayerInteractEvent event)
     {
         Player player = event.getPlayer();
-        if(P_Inv.InHandItemCheck(player, Material.BLAZE_ROD))
+        if(P_Inv.InHandItemCheck(player, ItemVar.SaluranJobItem(Bukkit.getPlayer(playerName))[0].getType()))
             switch(EventFilter.PlayerInteract(event))
             {
             case 0: case 1:

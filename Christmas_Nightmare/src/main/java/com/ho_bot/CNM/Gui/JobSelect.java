@@ -7,6 +7,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import com.ho_bot.CNM.Job.Dealer.Bomber;
 import com.ho_bot.CNM.Job.Dealer.Faster;
@@ -86,7 +88,7 @@ public class JobSelect
             	JobSelectTool.JobSelTool(player, new Paladin(player.getName()));
             	break;
             case "페모나" :
-            	JobSelectTool.JobSelTool(player, new Pemanah(player.getName()));
+            	JobSelectTool.JobSelTool(player, new Pemanah(player.getName())); player.getInventory().addItem(new ItemStack(Material.ARROW, 1));
             	break;
             case "파타이" :
             	JobSelectTool.JobSelTool(player, new Patai(player.getName()));
@@ -99,6 +101,7 @@ public class JobSelect
             	break;
             }
             player.setHealthScale(20d);
+            player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 40, 10), true);
         }
     }
 }

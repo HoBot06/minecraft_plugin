@@ -15,7 +15,6 @@ import com.ho_bot.CNM.Var.JobVar;
 
 public class Paladin extends Job
 {
-	private final int coolTime = 30;
     private final int dis = 5;
     private final double heal = 2D;
     private static final String des[] = JobVar.Paladin_Des;
@@ -25,7 +24,6 @@ public class Paladin extends Job
         super(playerName, "ÆÈ¶óµò", 11, des, ItemVar.PaladinJobItem(Bukkit.getPlayer(playerName))[0], 
         		ItemVar.PaladinJobItem(Bukkit.getPlayer(playerName))[1], ItemVar.PaladinJobItem(Bukkit.getPlayer(playerName))[2], 
         		ItemVar.PaladinJobItem(Bukkit.getPlayer(playerName))[3], ItemVar.PaladinJobItem(Bukkit.getPlayer(playerName))[4]);
-        this.cool=coolTime;
     }
 
     @SuppressWarnings("deprecation")
@@ -41,6 +39,7 @@ public class Paladin extends Job
                 for(Player p : NearList) {
                 	p.setHealth(Math.min(p.getMaxHealth(), p.getHealth() + heal));
                 }
+                atp.setHealth(Math.min(atp.getMaxHealth(), atp.getHealth() + heal));
             }
         }
     }

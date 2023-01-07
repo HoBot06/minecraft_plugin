@@ -28,7 +28,7 @@ public class Pemanah extends Job
         		ItemVar.PemanahJobItem(Bukkit.getPlayer(playerName))[3], ItemVar.PemanahJobItem(Bukkit.getPlayer(playerName))[4]);
         this.cool = coolTime;
     }
-
+    
     @SuppressWarnings("deprecation")
 	public void T_Passive(ProjectileHitEvent event)
     {

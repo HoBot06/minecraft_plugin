@@ -1,5 +1,8 @@
 package com.ho_bot.CNM.Command;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -12,6 +15,9 @@ import com.ho_bot.CNM.Utility.CommandUtil;
 import com.ho_bot.CNM.Utility.RoleUtil;
 import com.ho_bot.CNM.Utility.TeamUtil;
 import com.ho_bot.CNM.Var.EtcVar;
+import com.ho_bot.CNM.Var.TeamVar;
+
+import net.md_5.bungee.api.ChatColor;
 
 public class CNM_Command implements CommandExecutor
 {
@@ -88,11 +94,11 @@ public class CNM_Command implements CommandExecutor
                             RU.RoleSet(player, player, args[2]);
                         }
                     }
+                    if(args[0].equalsIgnoreCase("start")) {
+                    	
+                    }
                     if(args[0].equalsIgnoreCase("test")) {
-                    	player.sendMessage(player.getHealth() + " : " + player.getMaxHealth() + " : " + player.getHealthScale());
-                    	for(int count=0; count < 6; count++) {
-                    		player.sendMessage(EtcVar.Armor_int[count] + "");
-                    	}
+                    	player.sendMessage(TeamVar.Team_JobUpgrade + "");
                     }
                 }
                 catch(Exception e)
@@ -113,6 +119,37 @@ public class CNM_Command implements CommandExecutor
                 msg = msg + " " + s;
             }
             Bukkit.broadcastMessage("[전체] " + player.getName() + msg);
+        }
+        if(label.equalsIgnoreCase("check")) {
+        	if(args[0].equalsIgnoreCase("team")) {
+        		if(TeamVar.Player_Team.containsKey(player.getUniqueId())) {
+	        		List<String> teamlist = new ArrayList<String>();
+	        		for(Player p : Bukkit.getOnlinePlayers()) {
+	        			if(TeamVar.Player_Team.containsKey(p.getUniqueId())) {
+	        				if(TeamVar.Player_Team.get(player.getUniqueId()).equals(TeamVar.Player_Team.get(p.getUniqueId()))) {
+	        					if(TeamVar.Player_Role.containsKey(player.getUniqueId())) {
+	        	        			teamlist.add(ChatColor.WHITE + p.getName() + " : " + TeamVar.Player_Role.get(player.getUniqueId()));
+	        	        		}
+	        	        		else {
+	        	        			teamlist.add(ChatColor.WHITE + p.getName() + " : 역할이 없습니다");
+	        	        		}
+	        				}
+	        			}
+	        		}
+	        		for(String s : teamlist) {
+	        			player.sendMessage(s);
+	        		}
+        		}
+        		else {
+            		player.sendMessage("팀이 존재하지 않습니다");
+            	}
+        	}
+        	if(args[0].equalsIgnoreCase("time")) {
+        		
+        	}
+        	if(args[0].equalsIgnoreCase("point")) {
+
+        	}
         }
         return false;
     }

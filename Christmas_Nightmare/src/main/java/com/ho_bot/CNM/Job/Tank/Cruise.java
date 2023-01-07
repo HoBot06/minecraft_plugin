@@ -3,7 +3,6 @@ package com.ho_bot.CNM.Job.Tank;
 import java.util.List;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -47,7 +46,7 @@ public class Cruise extends Job
     public void T_Active(PlayerInteractEvent event)
     {
         Player player = event.getPlayer();
-        if(P_Inv.InHandItemCheck(player, Material.BLAZE_ROD))
+        if(P_Inv.InHandItemCheck(player, ItemVar.CruiseJobItem(Bukkit.getPlayer(playerName))[0].getType()))
             switch(EventFilter.PlayerInteract(event))
             {
             case 2: case 3:

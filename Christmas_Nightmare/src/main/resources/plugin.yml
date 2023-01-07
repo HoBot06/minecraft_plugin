@@ -9,3 +9,5 @@ commands:
         description: 크리스마스
   all:
         description: 전체 채팅
+  check:
+        description: 확인

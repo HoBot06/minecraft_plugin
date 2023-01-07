@@ -19,6 +19,16 @@ public class AllSkillTimer extends BukkitRunnable
             		ZoukTimer.ZoukSkill(p);
             	}
             }
+            if(JobVar.ShootDelay_Player.containsKey(p.getUniqueId())) {
+            	int cool = JobVar.ShootDelay_Player.get(p.getUniqueId());
+            	cool--;
+            	if(cool<0) {
+            		JobVar.ShootDelay_Player.remove(p.getUniqueId());
+            	}
+            	else {
+            		JobVar.ShootDelay_Player.put(p.getUniqueId(), cool);
+            	}
+            }
         }
     }
 }

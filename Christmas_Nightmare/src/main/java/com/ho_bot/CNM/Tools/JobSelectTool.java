@@ -1,6 +1,7 @@
 package com.ho_bot.CNM.Tools;
 
 import java.util.HashMap;
+import java.util.Map.Entry;
 import java.util.UUID;
 
 import org.bukkit.Color;
@@ -28,8 +29,14 @@ public class JobSelectTool
                 JobArmorTool(player, job);
                 player.sendMessage("직업이 변경되었습니다");
             }
-            else if(joblist.containsKey(player.getUniqueId()) && joblist.get(player.getUniqueId()) != job.abilityName || !joblist.containsKey(player.getUniqueId()))
+            else if((joblist.containsKey(player.getUniqueId()) && joblist.get(player.getUniqueId()) != job.abilityName) || !joblist.containsKey(player.getUniqueId()))
             {
+            	for(Entry<UUID, String> entry : joblist.entrySet()) {
+            		if(entry.getValue().equals(job.abilityName)) {
+            			player.sendMessage("이미 다른 플레이어가 선택중입니다");
+            			return;
+            		}
+            	}
                 JobVar.Job_Player.put(player.getUniqueId(), job);
                 joblist.put(player.getUniqueId(), job.abilityName);
                 JobVar.TeamJobList.put(TeamVar.Player_Team.get(player.getUniqueId()), joblist);

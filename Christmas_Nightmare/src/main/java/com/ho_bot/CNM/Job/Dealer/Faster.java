@@ -19,8 +19,8 @@ import com.ho_bot.CNM.Var.JobVar;
 public class Faster extends Job
 {
 	private final int Shoot_Delay = 20;
-	private final int coolTime = 5;
-    private final int power = 5;
+	private final int coolTime = 10;
+    private final int power = 2;
     private static final String des[] = JobVar.Faster_Des;
 
     public Faster(String playerName)
@@ -51,7 +51,7 @@ public class Faster extends Job
     {
     	if(CoolTimeUtil.ShootCheck(player)) {
     		Skill.Shoot(player, Shoot_Delay);
-    		ShootUtility.ShootGunSpreadShoot(player, Particle.CRIT, 30, 1.0F, 4D, 0.0D, 0.0D, 0.0D, 0.0D, 1, Sound.ENTITY_GENERIC_EXPLODE, 1.0F, 1.0F, 10, 10);
+    		ShootUtility.ShootGunSpreadShoot(player, Particle.CRIT, 30, 1.0F, 2, 0.0D, 0.0D, 0.0D, 0.0D, 1, Sound.ENTITY_GENERIC_EXPLODE, 1.0F, 1.0F, 5, 10);
     	}
     }
 

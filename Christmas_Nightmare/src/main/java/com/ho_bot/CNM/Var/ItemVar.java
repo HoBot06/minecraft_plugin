@@ -619,6 +619,7 @@ public class ItemVar
         Weapon_M.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, Weapon_A);
         HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
         Weapon_M.setDisplayName(WordVar.XM + "빅가이 +" + JobUp.get(JobListUtil.BigGuy));
+        Weapon_M.setCustomModelData(7600);
         Weapon.setItemMeta(Weapon_M);
         
         ItemStack Helmet = new ItemStack(Material.LEATHER_HELMET);
@@ -669,6 +670,7 @@ public class ItemVar
         Weapon_M.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, Weapon_A);
         HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
         Weapon_M.setDisplayName(WordVar.XM + "크루스 +" + JobUp.get(JobListUtil.Cruise));
+        Weapon_M.setCustomModelData(7603);
         Weapon.setItemMeta(Weapon_M);
         
         ItemStack Helmet = new ItemStack(Material.LEATHER_HELMET);
@@ -719,6 +721,7 @@ public class ItemVar
         Weapon_M.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, Weapon_A);
         HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
         Weapon_M.setDisplayName(WordVar.XM + "에기스 +" + JobUp.get(JobListUtil.Egis));
+        Weapon_M.setCustomModelData(7604);
         Weapon.setItemMeta(Weapon_M);
         
         ItemStack Helmet = new ItemStack(Material.LEATHER_HELMET);
@@ -769,6 +772,7 @@ public class ItemVar
         Weapon_M.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, Weapon_A);
         HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
         Weapon_M.setDisplayName(WordVar.XM + "파타이 +" + JobUp.get(JobListUtil.Patai));
+        Weapon_M.setCustomModelData(7607);
         Weapon.setItemMeta(Weapon_M);
         
         ItemStack Helmet = new ItemStack(Material.LEATHER_HELMET);
@@ -819,6 +823,7 @@ public class ItemVar
         Weapon_M.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, Weapon_A);
         HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
         Weapon_M.setDisplayName(WordVar.XM + "봄버 +" + JobUp.get(JobListUtil.Bomber));
+        Weapon_M.setCustomModelData(7601);
         Weapon.setItemMeta(Weapon_M);
         
         ItemStack Helmet = new ItemStack(Material.LEATHER_HELMET);
@@ -869,6 +874,7 @@ public class ItemVar
         Weapon_M.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, Weapon_A);
         HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
         Weapon_M.setDisplayName(WordVar.XM + "페스트 +" + JobUp.get(JobListUtil.Faster));
+        Weapon_M.setCustomModelData(7606);
         Weapon.setItemMeta(Weapon_M);
         
         ItemStack Helmet = new ItemStack(Material.LEATHER_HELMET);
@@ -913,12 +919,14 @@ public class ItemVar
 
     public static ItemStack[] KratosJobItem(Player player)
     {
-        ItemStack Weapon = new ItemStack(Material.NETHERITE_SWORD);
+        ItemStack Weapon = new ItemStack(Material.BLAZE_ROD);
         ItemMeta Weapon_M = Weapon.getItemMeta();
-        AttributeModifier Weapon_A = new AttributeModifier(UUID.randomUUID(), "generic.attack_damage", 4, Operation.ADD_NUMBER, EquipmentSlot.HAND);
+        AttributeModifier Weapon_A = new AttributeModifier(UUID.randomUUID(), "generic.attack_damage", 6, Operation.ADD_NUMBER, EquipmentSlot.HAND);
         Weapon_M.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, Weapon_A);
         HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
         Weapon_M.setDisplayName(WordVar.XM + "크라토스 +" + JobUp.get(JobListUtil.Kratos));
+        Weapon_M.setUnbreakable(true);
+        Weapon_M.setCustomModelData(7602);
         Weapon.setItemMeta(Weapon_M);
         
         ItemStack Helmet = new ItemStack(Material.LEATHER_HELMET);
@@ -969,6 +977,7 @@ public class ItemVar
         Weapon_M.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, Weapon_A);
         HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
         Weapon_M.setDisplayName(WordVar.XM + "살루란 +" + JobUp.get(JobListUtil.Saluran));
+        Weapon_M.setCustomModelData(7609);
         Weapon.setItemMeta(Weapon_M);
         
         ItemStack Helmet = new ItemStack(Material.LEATHER_HELMET);
@@ -1019,6 +1028,7 @@ public class ItemVar
         Weapon_M.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, Weapon_A);
         HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
         Weapon_M.setDisplayName(WordVar.XM + "팔라딘 +" + JobUp.get(JobListUtil.Paladin));
+        Weapon_M.setCustomModelData(7605);
         Weapon.setItemMeta(Weapon_M);
         
         ItemStack Helmet = new ItemStack(Material.LEATHER_HELMET);
@@ -1068,6 +1078,7 @@ public class ItemVar
         HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
         Weapon_M.setDisplayName(WordVar.XM + "페모나 +" + JobUp.get(JobListUtil.Pemanah));
         Weapon_M.setUnbreakable(true);
+        Weapon_M.setCustomModelData(7601);
         Weapon.setItemMeta(Weapon_M);
         Weapon.addEnchantment(Enchantment.ARROW_INFINITE, 1);
         
@@ -1119,6 +1130,7 @@ public class ItemVar
         Weapon_M.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, Weapon_A);
         HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
         Weapon_M.setDisplayName(WordVar.XM + "주크 +" + JobUp.get(JobListUtil.Zouk));
+        Weapon_M.setCustomModelData(7608);
         Weapon.setItemMeta(Weapon_M);
         
         ItemStack Helmet = new ItemStack(Material.LEATHER_HELMET);

@@ -48,7 +48,7 @@ public class Cap_Scheduler extends BukkitRunnable
             for(UUID player_uuid : EtcVar.NowInCapture.get(Cap.getKey()))
             {
                 if(TeamVar.Player_Team.containsKey(player_uuid)) {
-                    if(isTeam.equalsIgnoreCase(WordVar.NoTeam)) {
+                    if(isTeam.equalsIgnoreCase(WordVar.NoTeam) || isTeam.equals(TeamVar.Player_Team.get(player_uuid))) {
                         isTeam = TeamVar.Player_Team.get(player_uuid);
                         continue;
                     }
@@ -82,7 +82,6 @@ public class Cap_Scheduler extends BukkitRunnable
                         bossbar.setColor(BarColor.BLUE);
                     }
                     EtcVar.CaptureBossbar.put(Cap.getKey(), bossbar);
-                    continue;
                 }
                 if(isTeam.equals(WordVar.NoTeam) && EtcVar.NowCapTeam.get(Cap.getKey()).equals(WordVar.NoTeam))
                 {
@@ -91,7 +90,6 @@ public class Cap_Scheduler extends BukkitRunnable
                     bossbar.setProgress(0.0D);
                     EtcVar.CaptureBossbar.put(Cap.getKey(), bossbar);
                 }
-                continue;
             }
             BossBar bossbar = (BossBar)EtcVar.CaptureBossbar.get(Cap.getKey());
             bossbar.setColor(BarColor.WHITE);

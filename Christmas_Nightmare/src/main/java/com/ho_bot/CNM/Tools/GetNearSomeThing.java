@@ -50,7 +50,7 @@ public class GetNearSomeThing
 
     public static List<Player> GetPlayerNearNotTeam(Player player, double x, double y, double z)
     {
-        String PlayerTeam = (String)TeamVar.Player_Team.get(player.getUniqueId());
+        String PlayerTeam = TeamVar.Player_Team.get(player.getUniqueId());
         ArrayList<Player> NearPlayerList = new ArrayList<Player>();
         List<Entity> nearEntity = player.getNearbyEntities(x, y, z);
         if(!nearEntity.isEmpty())

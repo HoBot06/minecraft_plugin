@@ -1,7 +1,8 @@
 eclipse.preferences.version=1
-encoding//src/main/java/septagram/Theomachy/Ability/DLC/EiEi.java=UTF-8
-encoding//src/main/java/septagram/Theomachy/Ability/DLC/Evlove.java=UTF-8
-encoding//src/main/java/septagram/Theomachy/Ability/DLC/VendingMachine.java=UTF-8
-encoding//src/main/java/septagram/Theomachy/Timer/CoolTime.java=UTF-8
-encoding//src/main/java/septagram/Theomachy/Timer/Skill/SnipingDuration.java=UTF-8
+encoding//src/main/septagram/Theomachy/Ability/DLC/EiEi.java=UTF-8
+encoding//src/main/septagram/Theomachy/Ability/DLC/Evlove.java=UTF-8
+encoding//src/main/septagram/Theomachy/Ability/DLC/VendingMachine.java=UTF-8
+encoding//src/main/septagram/Theomachy/Timer/CoolTime.java=UTF-8
+encoding//src/main/septagram/Theomachy/Timer/Skill/SnipingDuration.java=UTF-8
+encoding/<project>=MS949
 separateDerivedEncodings=true

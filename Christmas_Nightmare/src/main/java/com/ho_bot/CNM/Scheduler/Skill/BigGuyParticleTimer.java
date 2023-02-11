@@ -24,7 +24,7 @@ public class BigGuyParticleTimer extends BukkitRunnable
         if(duration <= 0) {
         	this.cancel();
         }
-        Print_Effect.CircleParticle(particle, player.getLocation(), 6, 1, 0, 0, 0, 0);
+        Print_Effect.CircleParticle(particle, player.getLocation(), 12, 1, 0, 0, 0, 0);
         duration--;
     }
 }

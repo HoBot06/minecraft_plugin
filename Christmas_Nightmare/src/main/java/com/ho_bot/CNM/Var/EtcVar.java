@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.boss.BossBar;
 import org.bukkit.entity.Player;
@@ -24,6 +25,8 @@ public class EtcVar {
 	public static final List<String> CapNameList = Arrays.asList("A", "B", "C");
 	public static final int[] Armor_int = {9, 14, 18, 23, 27, 32};
 	public static Boolean GameSet = false;
+	public static Location SantaRoleLoc = new Location(Bukkit.getWorld("world"), 46.5, 39, 187.5);
+	public static Location KrampusRoleLoc = new Location(Bukkit.getWorld("world"), 298.5, 39, -66.5);
 	
 	public static void AddNowCap(String CapName, Player player) {
 		ArrayList<UUID> P_List = new ArrayList<UUID>();

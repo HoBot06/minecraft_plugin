@@ -4,6 +4,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
+import com.ho_bot.CNM.Var.EtcVar;
 import com.ho_bot.CNM.Var.TeamVar;
 
 public class DamageUtil
@@ -33,6 +34,9 @@ public class DamageUtil
 	            	}
 	            }
             }
+        }
+        if(!EtcVar.GameSet) {
+        	event.setCancelled(true);
         }
     }
 }

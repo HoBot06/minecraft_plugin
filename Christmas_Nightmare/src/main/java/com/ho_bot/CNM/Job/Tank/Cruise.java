@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Particle;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
@@ -20,6 +21,7 @@ import com.ho_bot.CNM.Tools.GetNearSomeThing;
 import com.ho_bot.CNM.Tools.P_Inv;
 import com.ho_bot.CNM.Tools.Print_Effect;
 import com.ho_bot.CNM.Tools.Skill;
+import com.ho_bot.CNM.Tools.Sounds;
 import com.ho_bot.CNM.Utility.CoolTimeUtil;
 import com.ho_bot.CNM.Var.ItemVar;
 import com.ho_bot.CNM.Var.JobVar;
@@ -29,9 +31,9 @@ public class Cruise extends Job
 	private final int coolTime = 30;
     private final int dis = 10;
     private final int duration = 200;
-    private final int force_power = 4;
+    private final int force_power = 3;
     private final int down_power = -4;
-    private final int power = 1;
+    private final int power = 2;
     private boolean onSkill = false;
     private static final String des[] = JobVar.Cruise_Des;
 
@@ -64,6 +66,7 @@ public class Cruise extends Job
             vec = player.getLocation().getDirection();
             vec.multiply(force_power);
             vec.setY(3);
+            Sounds.SoundAL(player.getLocation(), Sound.ENTITY_ENDER_DRAGON_FLAP, 1.0f, 2.0f);
             player.setVelocity(vec);
             new BukkitRunnable() {
 				@Override
@@ -91,6 +94,7 @@ public class Cruise extends Job
                         	enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, duration, power));
                         }
                     }
+                    Sounds.SoundAL(p.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 0.5f, 1.0f);
                     onSkill = false;
         		}
         	}

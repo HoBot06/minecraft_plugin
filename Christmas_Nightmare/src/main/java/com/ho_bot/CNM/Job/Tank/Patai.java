@@ -21,11 +21,11 @@ import com.ho_bot.CNM.Var.JobVar;
 
 public class Patai extends Job
 {
-	private final int coolTime = 30;
+	private final int coolTime = 40;
     private final int dis = 15;
     private final int duration = 600;
-    private final int grab_power = 1;
-    private final int power = 1;
+    private final int grab_power = 3;
+    private final int power = 2;
     private static final String des[] = JobVar.Patai_Des;
 
     public Patai(String playerName)
@@ -61,7 +61,6 @@ public class Patai extends Job
             	vec.setY(2);
             	vec.multiply(grab_power);
             }
-
             if(NearNotTeamList != null) {
                 player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, duration, power * NearNotTeamList.size()), true);
             }

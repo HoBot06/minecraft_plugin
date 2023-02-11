@@ -8,12 +8,16 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import com.ho_bot.CNM.Scheduler.CoolTime_Scheduler;
 import com.ho_bot.CNM.Scheduler.GameTime_Scheduler;
+import com.ho_bot.CNM.Tools.TeamGreen;
 import com.ho_bot.CNM.Utility.CapUtil;
 import com.ho_bot.CNM.Utility.CommandUtil;
 import com.ho_bot.CNM.Utility.RoleUtil;
+import com.ho_bot.CNM.Utility.StartUtil;
 import com.ho_bot.CNM.Utility.TeamUtil;
 import com.ho_bot.CNM.Var.EtcVar;
 import com.ho_bot.CNM.Var.TeamVar;
@@ -51,6 +55,9 @@ public class CNM_Command implements CommandExecutor
                             }
                             if(args[1].equalsIgnoreCase("name")) {
                                 TU.TeamCustomName(player, args[2], args[3]);
+                            }
+                            if(args[1].equalsIgnoreCase("random")) {
+                            	TeamGreen.Module(sender);
                             }
                         }
                     }
@@ -100,6 +107,10 @@ public class CNM_Command implements CommandExecutor
                     		EtcVar.GameSet=true;
                     		GameTime_Scheduler.GameTime=Integer.parseInt(args[1]);
                     		Bukkit.broadcastMessage("게임이 시작되었습니다!");
+                    		for(Player user : Bukkit.getOnlinePlayers()) {
+                    			StartUtil.moveTeamSpawn(user);
+                    			user.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 1000000, 1));
+                    		}
                     	}
                     	else {
                     		player.sendMessage("시간을 입력해주세요");
@@ -108,9 +119,7 @@ public class CNM_Command implements CommandExecutor
                     if(args[0].equalsIgnoreCase("stop")) {
                     	GameTime_Scheduler.GameTime=0;
                     }
-                    if(args[0].equalsIgnoreCase("test")) {
-                    	player.sendMessage(TeamVar.Team_JobUpgrade + "");
-                    }
+
                 }
                 catch(Exception e)
                 {

@@ -15,7 +15,7 @@ public class JobVar {
 	public static HashMap<UUID, Boolean> Kratos_P = new HashMap<UUID, Boolean>();
 	public static HashMap<UUID, Boolean> Zouk_P = new HashMap<UUID, Boolean>();
 	public static final int Zouk_Dis = 8;
-	public static final Particle Zouk_Particle = Particle.FLAME;
+	public static final Particle Zouk_Particle = Particle.NOTE;
 	public static HashMap<String, HashMap<UUID, String>> TeamJobList = new HashMap<String, HashMap<UUID, String>>();
 	  
 	public static String[] BigGuy_Des = new String[] { "능력 사용시", "받는 데미지가 감소하고 주변 아군의 데미지를 대신 입습니다" };
@@ -30,7 +30,7 @@ public class JobVar {
 	  
 	public static String[] Faster_Des = new String[] { "능력 사용시", "바라보고있는 방향으로 돌진합니다"};
 	  
-	public static String[] Kratos_Des = new String[] { "능력 사용시", "일정시간동안 2타 공격으로 변경된다. 2타 데미지는 50%이다"};
+	public static String[] Kratos_Des = new String[] { "능력 사용시", "일정시간동안 많은 버프를 획득한다"};
 	  
 	public static String[] Saluran_Des = new String[] { "능력 사용시", "매 8번째 화살은 화살비로 변경되어 발사된다"};
 	  

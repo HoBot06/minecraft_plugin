@@ -18,8 +18,8 @@ import com.ho_bot.CNM.Var.JobVar;
 
 public class Kratos extends Job
 {
-	private final int coolTime = 5;
-	private final int duration = 100;
+	private final int coolTime = 10;
+	private final int duration = 60;
     private static final String des[] = JobVar.Kratos_Des;
 
     public Kratos(String playerName)

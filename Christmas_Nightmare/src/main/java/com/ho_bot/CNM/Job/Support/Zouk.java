@@ -16,8 +16,8 @@ import com.ho_bot.CNM.Var.JobVar;
 
 public class Zouk extends Job
 {
-	private final int coolTime = 10;
-    private final int duration = 5;
+	private final int coolTime = 15;
+    private final int duration = 3;
     private static final String des[] = JobVar.Zouk_Des;
 
     public Zouk(String playerName)

@@ -19,9 +19,9 @@ import com.ho_bot.CNM.Var.JobVar;
 
 public class BigGuy extends Job
 {
-	private final int coolTime = 10;
-    private final int duration = 5;
-    private final Particle particle = Particle.CRIT;
+	private final int coolTime = 30;
+    private final int duration = 10;
+    private final Particle particle = Particle.SPELL;
     private static final String des[] = JobVar.BigGuy_Des;
 
     public BigGuy(String playerName)

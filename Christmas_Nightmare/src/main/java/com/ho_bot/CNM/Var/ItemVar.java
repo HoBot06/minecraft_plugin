@@ -615,7 +615,7 @@ public class ItemVar
     {
         ItemStack Weapon = new ItemStack(Material.BLAZE_ROD);
         ItemMeta Weapon_M = Weapon.getItemMeta();
-        AttributeModifier Weapon_A = new AttributeModifier(UUID.randomUUID(), "generic.attack_damage", 4, Operation.ADD_NUMBER, EquipmentSlot.HAND);
+        AttributeModifier Weapon_A = new AttributeModifier(UUID.randomUUID(), "generic.attack_damage", 3, Operation.ADD_NUMBER, EquipmentSlot.HAND);
         Weapon_M.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, Weapon_A);
         HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
         Weapon_M.setDisplayName(WordVar.XM + "∫Ú∞°¿Ã +" + JobUp.get(JobListUtil.BigGuy));
@@ -634,7 +634,7 @@ public class ItemVar
         int Chestplate_Int = TeamVar.Player_Upgrade.get(player.getUniqueId())[0];
         ItemStack Chestplate = new ItemStack(Material.DIAMOND_CHESTPLATE);
         ItemMeta Chestplate_M = Chestplate.getItemMeta();
-        AttributeModifier Chestplate_A = new AttributeModifier(UUID.randomUUID(), "generic.max_health", 20+Chestplate_Int*5, Operation.ADD_NUMBER, EquipmentSlot.CHEST);
+        AttributeModifier Chestplate_A = new AttributeModifier(UUID.randomUUID(), "generic.max_health", 40+Chestplate_Int*5, Operation.ADD_NUMBER, EquipmentSlot.CHEST);
         Chestplate_M.addAttributeModifier(Attribute.GENERIC_MAX_HEALTH, Chestplate_A);
         Chestplate_M.setDisplayName(WordVar.XM + "∞©ø  +" + Chestplate_Int);
         Chestplate_M.setUnbreakable(true);
@@ -643,7 +643,7 @@ public class ItemVar
         int Leggings_Int = TeamVar.Player_Upgrade.get(player.getUniqueId())[1];
         ItemStack Leggings = new ItemStack(Material.DIAMOND_LEGGINGS);
         ItemMeta Leggings_M = Leggings.getItemMeta();
-        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 1+Leggings_Int*1, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
+        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 0+Leggings_Int*0.1, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
         Leggings_M.addAttributeModifier(Attribute.GENERIC_KNOCKBACK_RESISTANCE, Leggings_A);
         Leggings_M.setDisplayName(WordVar.XM + "«œ¿« +" + Leggings_Int);
         Leggings_M.setUnbreakable(true);
@@ -652,7 +652,7 @@ public class ItemVar
         int Boots_Int = TeamVar.Player_Upgrade.get(player.getUniqueId())[2];
         ItemStack Boots = new ItemStack(Material.DIAMOND_BOOTS);
         ItemMeta Boots_M = Boots.getItemMeta();
-        AttributeModifier Boots_A = new AttributeModifier(UUID.randomUUID(), "generic.movement_speed", 0.1+Boots_Int*0.1, Operation.ADD_NUMBER, EquipmentSlot.FEET);
+        AttributeModifier Boots_A = new AttributeModifier(UUID.randomUUID(), "generic.movement_speed", 0+Boots_Int*0.05, Operation.ADD_NUMBER, EquipmentSlot.FEET);
         Boots_M.addAttributeModifier(Attribute.GENERIC_MOVEMENT_SPEED, Boots_A);
         Boots_M.setDisplayName(WordVar.XM + "Ω≈πﬂ +" + Boots_Int);
         Boots_M.setUnbreakable(true);
@@ -685,7 +685,7 @@ public class ItemVar
         int Chestplate_Int = TeamVar.Player_Upgrade.get(player.getUniqueId())[0];
         ItemStack Chestplate = new ItemStack(Material.DIAMOND_CHESTPLATE);
         ItemMeta Chestplate_M = Chestplate.getItemMeta();
-        AttributeModifier Chestplate_A = new AttributeModifier(UUID.randomUUID(), "generic.max_health", 20+Chestplate_Int*5, Operation.ADD_NUMBER, EquipmentSlot.CHEST);
+        AttributeModifier Chestplate_A = new AttributeModifier(UUID.randomUUID(), "generic.max_health", 30+Chestplate_Int*5, Operation.ADD_NUMBER, EquipmentSlot.CHEST);
         Chestplate_M.addAttributeModifier(Attribute.GENERIC_MAX_HEALTH, Chestplate_A);
         Chestplate_M.setDisplayName(WordVar.XM + "∞©ø  +" + Chestplate_Int);
         Chestplate_M.setUnbreakable(true);
@@ -694,7 +694,7 @@ public class ItemVar
         int Leggings_Int = TeamVar.Player_Upgrade.get(player.getUniqueId())[1];
         ItemStack Leggings = new ItemStack(Material.DIAMOND_LEGGINGS);
         ItemMeta Leggings_M = Leggings.getItemMeta();
-        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 1+Leggings_Int*1, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
+        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 0+Leggings_Int*0.1, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
         Leggings_M.addAttributeModifier(Attribute.GENERIC_KNOCKBACK_RESISTANCE, Leggings_A);
         Leggings_M.setDisplayName(WordVar.XM + "«œ¿« +" + Leggings_Int);
         Leggings_M.setUnbreakable(true);
@@ -703,7 +703,7 @@ public class ItemVar
         int Boots_Int = TeamVar.Player_Upgrade.get(player.getUniqueId())[2];
         ItemStack Boots = new ItemStack(Material.DIAMOND_BOOTS);
         ItemMeta Boots_M = Boots.getItemMeta();
-        AttributeModifier Boots_A = new AttributeModifier(UUID.randomUUID(), "generic.movement_speed", 0.1+Boots_Int*0.1, Operation.ADD_NUMBER, EquipmentSlot.FEET);
+        AttributeModifier Boots_A = new AttributeModifier(UUID.randomUUID(), "generic.movement_speed", 0.05+Boots_Int*0.05, Operation.ADD_NUMBER, EquipmentSlot.FEET);
         Boots_M.addAttributeModifier(Attribute.GENERIC_MOVEMENT_SPEED, Boots_A);
         Boots_M.setDisplayName(WordVar.XM + "Ω≈πﬂ +" + Boots_Int);
         Boots_M.setUnbreakable(true);
@@ -717,7 +717,7 @@ public class ItemVar
     {
         ItemStack Weapon = new ItemStack(Material.BLAZE_ROD);
         ItemMeta Weapon_M = Weapon.getItemMeta();
-        AttributeModifier Weapon_A = new AttributeModifier(UUID.randomUUID(), "generic.attack_damage", 4, Operation.ADD_NUMBER, EquipmentSlot.HAND);
+        AttributeModifier Weapon_A = new AttributeModifier(UUID.randomUUID(), "generic.attack_damage", 2, Operation.ADD_NUMBER, EquipmentSlot.HAND);
         Weapon_M.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, Weapon_A);
         HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
         Weapon_M.setDisplayName(WordVar.XM + "ø°±‚Ω∫ +" + JobUp.get(JobListUtil.Egis));
@@ -736,7 +736,7 @@ public class ItemVar
         int Chestplate_Int = TeamVar.Player_Upgrade.get(player.getUniqueId())[0];
         ItemStack Chestplate = new ItemStack(Material.DIAMOND_CHESTPLATE);
         ItemMeta Chestplate_M = Chestplate.getItemMeta();
-        AttributeModifier Chestplate_A = new AttributeModifier(UUID.randomUUID(), "generic.max_health", 20+Chestplate_Int*5, Operation.ADD_NUMBER, EquipmentSlot.CHEST);
+        AttributeModifier Chestplate_A = new AttributeModifier(UUID.randomUUID(), "generic.max_health", 20+Chestplate_Int*10, Operation.ADD_NUMBER, EquipmentSlot.CHEST);
         Chestplate_M.addAttributeModifier(Attribute.GENERIC_MAX_HEALTH, Chestplate_A);
         Chestplate_M.setDisplayName(WordVar.XM + "∞©ø  +" + Chestplate_Int);
         Chestplate_M.setUnbreakable(true);
@@ -745,7 +745,7 @@ public class ItemVar
         int Leggings_Int = TeamVar.Player_Upgrade.get(player.getUniqueId())[1];
         ItemStack Leggings = new ItemStack(Material.DIAMOND_LEGGINGS);
         ItemMeta Leggings_M = Leggings.getItemMeta();
-        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 1+Leggings_Int*1, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
+        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 0+Leggings_Int*0.05, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
         Leggings_M.addAttributeModifier(Attribute.GENERIC_KNOCKBACK_RESISTANCE, Leggings_A);
         Leggings_M.setDisplayName(WordVar.XM + "«œ¿« +" + Leggings_Int);
         Leggings_M.setUnbreakable(true);
@@ -754,7 +754,7 @@ public class ItemVar
         int Boots_Int = TeamVar.Player_Upgrade.get(player.getUniqueId())[2];
         ItemStack Boots = new ItemStack(Material.DIAMOND_BOOTS);
         ItemMeta Boots_M = Boots.getItemMeta();
-        AttributeModifier Boots_A = new AttributeModifier(UUID.randomUUID(), "generic.movement_speed", 0.1+Boots_Int*0.1, Operation.ADD_NUMBER, EquipmentSlot.FEET);
+        AttributeModifier Boots_A = new AttributeModifier(UUID.randomUUID(), "generic.movement_speed", 0.05+Boots_Int*0.05, Operation.ADD_NUMBER, EquipmentSlot.FEET);
         Boots_M.addAttributeModifier(Attribute.GENERIC_MOVEMENT_SPEED, Boots_A);
         Boots_M.setDisplayName(WordVar.XM + "Ω≈πﬂ +" + Boots_Int);
         Boots_M.setUnbreakable(true);
@@ -796,7 +796,7 @@ public class ItemVar
         int Leggings_Int = TeamVar.Player_Upgrade.get(player.getUniqueId())[1];
         ItemStack Leggings = new ItemStack(Material.DIAMOND_LEGGINGS);
         ItemMeta Leggings_M = Leggings.getItemMeta();
-        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 1+Leggings_Int*1, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
+        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 0.1+Leggings_Int*0.1, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
         Leggings_M.addAttributeModifier(Attribute.GENERIC_KNOCKBACK_RESISTANCE, Leggings_A);
         Leggings_M.setDisplayName(WordVar.XM + "«œ¿« +" + Leggings_Int);
         Leggings_M.setUnbreakable(true);
@@ -805,7 +805,7 @@ public class ItemVar
         int Boots_Int = TeamVar.Player_Upgrade.get(player.getUniqueId())[2];
         ItemStack Boots = new ItemStack(Material.DIAMOND_BOOTS);
         ItemMeta Boots_M = Boots.getItemMeta();
-        AttributeModifier Boots_A = new AttributeModifier(UUID.randomUUID(), "generic.movement_speed", 0.1+Boots_Int*0.1, Operation.ADD_NUMBER, EquipmentSlot.FEET);
+        AttributeModifier Boots_A = new AttributeModifier(UUID.randomUUID(), "generic.movement_speed", 0.05+Boots_Int*0.1, Operation.ADD_NUMBER, EquipmentSlot.FEET);
         Boots_M.addAttributeModifier(Attribute.GENERIC_MOVEMENT_SPEED, Boots_A);
         Boots_M.setDisplayName(WordVar.XM + "Ω≈πﬂ +" + Boots_Int);
         Boots_M.setUnbreakable(true);
@@ -838,7 +838,7 @@ public class ItemVar
         int Chestplate_Int = TeamVar.Player_Upgrade.get(player.getUniqueId())[0];
         ItemStack Chestplate = new ItemStack(Material.DIAMOND_CHESTPLATE);
         ItemMeta Chestplate_M = Chestplate.getItemMeta();
-        AttributeModifier Chestplate_A = new AttributeModifier(UUID.randomUUID(), "generic.max_health", 20+Chestplate_Int*5, Operation.ADD_NUMBER, EquipmentSlot.CHEST);
+        AttributeModifier Chestplate_A = new AttributeModifier(UUID.randomUUID(), "generic.max_health", 10+Chestplate_Int*5, Operation.ADD_NUMBER, EquipmentSlot.CHEST);
         Chestplate_M.addAttributeModifier(Attribute.GENERIC_MAX_HEALTH, Chestplate_A);
         Chestplate_M.setDisplayName(WordVar.XM + "∞©ø  +" + Chestplate_Int);
         Chestplate_M.setUnbreakable(true);
@@ -847,7 +847,7 @@ public class ItemVar
         int Leggings_Int = TeamVar.Player_Upgrade.get(player.getUniqueId())[1];
         ItemStack Leggings = new ItemStack(Material.DIAMOND_LEGGINGS);
         ItemMeta Leggings_M = Leggings.getItemMeta();
-        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 1+Leggings_Int*1, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
+        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 0+Leggings_Int*0.05, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
         Leggings_M.addAttributeModifier(Attribute.GENERIC_KNOCKBACK_RESISTANCE, Leggings_A);
         Leggings_M.setDisplayName(WordVar.XM + "«œ¿« +" + Leggings_Int);
         Leggings_M.setUnbreakable(true);
@@ -856,7 +856,7 @@ public class ItemVar
         int Boots_Int = TeamVar.Player_Upgrade.get(player.getUniqueId())[2];
         ItemStack Boots = new ItemStack(Material.DIAMOND_BOOTS);
         ItemMeta Boots_M = Boots.getItemMeta();
-        AttributeModifier Boots_A = new AttributeModifier(UUID.randomUUID(), "generic.movement_speed", 0.1+Boots_Int*0.1, Operation.ADD_NUMBER, EquipmentSlot.FEET);
+        AttributeModifier Boots_A = new AttributeModifier(UUID.randomUUID(), "generic.movement_speed", 0.05+Boots_Int*0.05, Operation.ADD_NUMBER, EquipmentSlot.FEET);
         Boots_M.addAttributeModifier(Attribute.GENERIC_MOVEMENT_SPEED, Boots_A);
         Boots_M.setDisplayName(WordVar.XM + "Ω≈πﬂ +" + Boots_Int);
         Boots_M.setUnbreakable(true);
@@ -889,7 +889,7 @@ public class ItemVar
         int Chestplate_Int = TeamVar.Player_Upgrade.get(player.getUniqueId())[0];
         ItemStack Chestplate = new ItemStack(Material.DIAMOND_CHESTPLATE);
         ItemMeta Chestplate_M = Chestplate.getItemMeta();
-        AttributeModifier Chestplate_A = new AttributeModifier(UUID.randomUUID(), "generic.max_health", 20+Chestplate_Int*5, Operation.ADD_NUMBER, EquipmentSlot.CHEST);
+        AttributeModifier Chestplate_A = new AttributeModifier(UUID.randomUUID(), "generic.max_health", 15+Chestplate_Int*5, Operation.ADD_NUMBER, EquipmentSlot.CHEST);
         Chestplate_M.addAttributeModifier(Attribute.GENERIC_MAX_HEALTH, Chestplate_A);
         Chestplate_M.setDisplayName(WordVar.XM + "∞©ø  +" + Chestplate_Int);
         Chestplate_M.setUnbreakable(true);
@@ -898,7 +898,7 @@ public class ItemVar
         int Leggings_Int = TeamVar.Player_Upgrade.get(player.getUniqueId())[1];
         ItemStack Leggings = new ItemStack(Material.DIAMOND_LEGGINGS);
         ItemMeta Leggings_M = Leggings.getItemMeta();
-        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 1+Leggings_Int*1, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
+        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 0+Leggings_Int*0.05, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
         Leggings_M.addAttributeModifier(Attribute.GENERIC_KNOCKBACK_RESISTANCE, Leggings_A);
         Leggings_M.setDisplayName(WordVar.XM + "«œ¿« +" + Leggings_Int);
         Leggings_M.setUnbreakable(true);
@@ -907,7 +907,7 @@ public class ItemVar
         int Boots_Int = TeamVar.Player_Upgrade.get(player.getUniqueId())[2];
         ItemStack Boots = new ItemStack(Material.DIAMOND_BOOTS);
         ItemMeta Boots_M = Boots.getItemMeta();
-        AttributeModifier Boots_A = new AttributeModifier(UUID.randomUUID(), "generic.movement_speed", 0.1+Boots_Int*0.1, Operation.ADD_NUMBER, EquipmentSlot.FEET);
+        AttributeModifier Boots_A = new AttributeModifier(UUID.randomUUID(), "generic.movement_speed", 0.05+Boots_Int*0.1, Operation.ADD_NUMBER, EquipmentSlot.FEET);
         Boots_M.addAttributeModifier(Attribute.GENERIC_MOVEMENT_SPEED, Boots_A);
         Boots_M.setDisplayName(WordVar.XM + "Ω≈πﬂ +" + Boots_Int);
         Boots_M.setUnbreakable(true);
@@ -921,7 +921,7 @@ public class ItemVar
     {
         ItemStack Weapon = new ItemStack(Material.BLAZE_ROD);
         ItemMeta Weapon_M = Weapon.getItemMeta();
-        AttributeModifier Weapon_A = new AttributeModifier(UUID.randomUUID(), "generic.attack_damage", 6, Operation.ADD_NUMBER, EquipmentSlot.HAND);
+        AttributeModifier Weapon_A = new AttributeModifier(UUID.randomUUID(), "generic.attack_damage", 5, Operation.ADD_NUMBER, EquipmentSlot.HAND);
         Weapon_M.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, Weapon_A);
         HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
         Weapon_M.setDisplayName(WordVar.XM + "≈©∂Û≈‰Ω∫ +" + JobUp.get(JobListUtil.Kratos));
@@ -941,7 +941,7 @@ public class ItemVar
         int Chestplate_Int = TeamVar.Player_Upgrade.get(player.getUniqueId())[0];
         ItemStack Chestplate = new ItemStack(Material.DIAMOND_CHESTPLATE);
         ItemMeta Chestplate_M = Chestplate.getItemMeta();
-        AttributeModifier Chestplate_A = new AttributeModifier(UUID.randomUUID(), "generic.max_health", 20+Chestplate_Int*5, Operation.ADD_NUMBER, EquipmentSlot.CHEST);
+        AttributeModifier Chestplate_A = new AttributeModifier(UUID.randomUUID(), "generic.max_health", 15+Chestplate_Int*5, Operation.ADD_NUMBER, EquipmentSlot.CHEST);
         Chestplate_M.addAttributeModifier(Attribute.GENERIC_MAX_HEALTH, Chestplate_A);
         Chestplate_M.setDisplayName(WordVar.XM + "∞©ø  +" + Chestplate_Int);
         Chestplate_M.setUnbreakable(true);
@@ -950,7 +950,7 @@ public class ItemVar
         int Leggings_Int = TeamVar.Player_Upgrade.get(player.getUniqueId())[1];
         ItemStack Leggings = new ItemStack(Material.DIAMOND_LEGGINGS);
         ItemMeta Leggings_M = Leggings.getItemMeta();
-        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 1+Leggings_Int*1, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
+        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 0+Leggings_Int*0.1, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
         Leggings_M.addAttributeModifier(Attribute.GENERIC_KNOCKBACK_RESISTANCE, Leggings_A);
         Leggings_M.setDisplayName(WordVar.XM + "«œ¿« +" + Leggings_Int);
         Leggings_M.setUnbreakable(true);
@@ -959,7 +959,7 @@ public class ItemVar
         int Boots_Int = TeamVar.Player_Upgrade.get(player.getUniqueId())[2];
         ItemStack Boots = new ItemStack(Material.DIAMOND_BOOTS);
         ItemMeta Boots_M = Boots.getItemMeta();
-        AttributeModifier Boots_A = new AttributeModifier(UUID.randomUUID(), "generic.movement_speed", 0.1+Boots_Int*0.1, Operation.ADD_NUMBER, EquipmentSlot.FEET);
+        AttributeModifier Boots_A = new AttributeModifier(UUID.randomUUID(), "generic.movement_speed", 0.05+Boots_Int*0.1, Operation.ADD_NUMBER, EquipmentSlot.FEET);
         Boots_M.addAttributeModifier(Attribute.GENERIC_MOVEMENT_SPEED, Boots_A);
         Boots_M.setDisplayName(WordVar.XM + "Ω≈πﬂ +" + Boots_Int);
         Boots_M.setUnbreakable(true);
@@ -1024,7 +1024,7 @@ public class ItemVar
     {
         ItemStack Weapon = new ItemStack(Material.BLAZE_ROD);
         ItemMeta Weapon_M = Weapon.getItemMeta();
-        AttributeModifier Weapon_A = new AttributeModifier(UUID.randomUUID(), "generic.attack_damage", 4, Operation.ADD_NUMBER, EquipmentSlot.HAND);
+        AttributeModifier Weapon_A = new AttributeModifier(UUID.randomUUID(), "generic.attack_damage", 2, Operation.ADD_NUMBER, EquipmentSlot.HAND);
         Weapon_M.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, Weapon_A);
         HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
         Weapon_M.setDisplayName(WordVar.XM + "∆»∂ÛµÚ +" + JobUp.get(JobListUtil.Paladin));
@@ -1043,7 +1043,7 @@ public class ItemVar
         int Chestplate_Int = TeamVar.Player_Upgrade.get(player.getUniqueId())[0];
         ItemStack Chestplate = new ItemStack(Material.DIAMOND_CHESTPLATE);
         ItemMeta Chestplate_M = Chestplate.getItemMeta();
-        AttributeModifier Chestplate_A = new AttributeModifier(UUID.randomUUID(), "generic.max_health", 20+Chestplate_Int*5, Operation.ADD_NUMBER, EquipmentSlot.CHEST);
+        AttributeModifier Chestplate_A = new AttributeModifier(UUID.randomUUID(), "generic.max_health", 10+Chestplate_Int*5, Operation.ADD_NUMBER, EquipmentSlot.CHEST);
         Chestplate_M.addAttributeModifier(Attribute.GENERIC_MAX_HEALTH, Chestplate_A);
         Chestplate_M.setDisplayName(WordVar.XM + "∞©ø  +" + Chestplate_Int);
         Chestplate_M.setUnbreakable(true);
@@ -1052,7 +1052,7 @@ public class ItemVar
         int Leggings_Int = TeamVar.Player_Upgrade.get(player.getUniqueId())[1];
         ItemStack Leggings = new ItemStack(Material.DIAMOND_LEGGINGS);
         ItemMeta Leggings_M = Leggings.getItemMeta();
-        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 1+Leggings_Int*1, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
+        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 0+Leggings_Int*0, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
         Leggings_M.addAttributeModifier(Attribute.GENERIC_KNOCKBACK_RESISTANCE, Leggings_A);
         Leggings_M.setDisplayName(WordVar.XM + "«œ¿« +" + Leggings_Int);
         Leggings_M.setUnbreakable(true);
@@ -1061,7 +1061,7 @@ public class ItemVar
         int Boots_Int = TeamVar.Player_Upgrade.get(player.getUniqueId())[2];
         ItemStack Boots = new ItemStack(Material.DIAMOND_BOOTS);
         ItemMeta Boots_M = Boots.getItemMeta();
-        AttributeModifier Boots_A = new AttributeModifier(UUID.randomUUID(), "generic.movement_speed", 0.1+Boots_Int*0.1, Operation.ADD_NUMBER, EquipmentSlot.FEET);
+        AttributeModifier Boots_A = new AttributeModifier(UUID.randomUUID(), "generic.movement_speed", 0.05+Boots_Int*0.05, Operation.ADD_NUMBER, EquipmentSlot.FEET);
         Boots_M.addAttributeModifier(Attribute.GENERIC_MOVEMENT_SPEED, Boots_A);
         Boots_M.setDisplayName(WordVar.XM + "Ω≈πﬂ +" + Boots_Int);
         Boots_M.setUnbreakable(true);
@@ -1094,7 +1094,7 @@ public class ItemVar
         int Chestplate_Int = TeamVar.Player_Upgrade.get(player.getUniqueId())[0];
         ItemStack Chestplate = new ItemStack(Material.DIAMOND_CHESTPLATE);
         ItemMeta Chestplate_M = Chestplate.getItemMeta();
-        AttributeModifier Chestplate_A = new AttributeModifier(UUID.randomUUID(), "generic.max_health", 20+Chestplate_Int*5, Operation.ADD_NUMBER, EquipmentSlot.CHEST);
+        AttributeModifier Chestplate_A = new AttributeModifier(UUID.randomUUID(), "generic.max_health", 10+Chestplate_Int*5, Operation.ADD_NUMBER, EquipmentSlot.CHEST);
         Chestplate_M.addAttributeModifier(Attribute.GENERIC_MAX_HEALTH, Chestplate_A);
         Chestplate_M.setDisplayName(WordVar.XM + "∞©ø  +" + Chestplate_Int);
         Chestplate_M.setUnbreakable(true);
@@ -1103,7 +1103,7 @@ public class ItemVar
         int Leggings_Int = TeamVar.Player_Upgrade.get(player.getUniqueId())[1];
         ItemStack Leggings = new ItemStack(Material.DIAMOND_LEGGINGS);
         ItemMeta Leggings_M = Leggings.getItemMeta();
-        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 1+Leggings_Int*1, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
+        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 0+Leggings_Int*0, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
         Leggings_M.addAttributeModifier(Attribute.GENERIC_KNOCKBACK_RESISTANCE, Leggings_A);
         Leggings_M.setDisplayName(WordVar.XM + "«œ¿« +" + Leggings_Int);
         Leggings_M.setUnbreakable(true);
@@ -1126,7 +1126,7 @@ public class ItemVar
     {
         ItemStack Weapon = new ItemStack(Material.BLAZE_ROD);
         ItemMeta Weapon_M = Weapon.getItemMeta();
-        AttributeModifier Weapon_A = new AttributeModifier(UUID.randomUUID(), "generic.attack_damage", 4, Operation.ADD_NUMBER, EquipmentSlot.HAND);
+        AttributeModifier Weapon_A = new AttributeModifier(UUID.randomUUID(), "generic.attack_damage", 2, Operation.ADD_NUMBER, EquipmentSlot.HAND);
         Weapon_M.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, Weapon_A);
         HashMap<String, Integer> JobUp = TeamVar.Team_JobUpgrade.get(TeamVar.Player_Team.get(player.getUniqueId()));
         Weapon_M.setDisplayName(WordVar.XM + "¡÷≈© +" + JobUp.get(JobListUtil.Zouk));
@@ -1145,7 +1145,7 @@ public class ItemVar
         int Chestplate_Int = TeamVar.Player_Upgrade.get(player.getUniqueId())[0];
         ItemStack Chestplate = new ItemStack(Material.DIAMOND_CHESTPLATE);
         ItemMeta Chestplate_M = Chestplate.getItemMeta();
-        AttributeModifier Chestplate_A = new AttributeModifier(UUID.randomUUID(), "generic.max_health", 20+Chestplate_Int*5, Operation.ADD_NUMBER, EquipmentSlot.CHEST);
+        AttributeModifier Chestplate_A = new AttributeModifier(UUID.randomUUID(), "generic.max_health", 15+Chestplate_Int*5, Operation.ADD_NUMBER, EquipmentSlot.CHEST);
         Chestplate_M.addAttributeModifier(Attribute.GENERIC_MAX_HEALTH, Chestplate_A);
         Chestplate_M.setDisplayName(WordVar.XM + "∞©ø  +" + Chestplate_Int);
         Chestplate_M.setUnbreakable(true);
@@ -1154,7 +1154,7 @@ public class ItemVar
         int Leggings_Int = TeamVar.Player_Upgrade.get(player.getUniqueId())[1];
         ItemStack Leggings = new ItemStack(Material.DIAMOND_LEGGINGS);
         ItemMeta Leggings_M = Leggings.getItemMeta();
-        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 1+Leggings_Int*1, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
+        AttributeModifier Leggings_A = new AttributeModifier(UUID.randomUUID(), "generic.knockback_resistance", 0+Leggings_Int*0, Operation.ADD_NUMBER, EquipmentSlot.LEGS);
         Leggings_M.addAttributeModifier(Attribute.GENERIC_KNOCKBACK_RESISTANCE, Leggings_A);
         Leggings_M.setDisplayName(WordVar.XM + "«œ¿« +" + Leggings_Int);
         Leggings_M.setUnbreakable(true);
@@ -1163,7 +1163,7 @@ public class ItemVar
         int Boots_Int = TeamVar.Player_Upgrade.get(player.getUniqueId())[2];
         ItemStack Boots = new ItemStack(Material.DIAMOND_BOOTS);
         ItemMeta Boots_M = Boots.getItemMeta();
-        AttributeModifier Boots_A = new AttributeModifier(UUID.randomUUID(), "generic.movement_speed", 0.1+Boots_Int*0.1, Operation.ADD_NUMBER, EquipmentSlot.FEET);
+        AttributeModifier Boots_A = new AttributeModifier(UUID.randomUUID(), "generic.movement_speed", 0.05+Boots_Int*0.05, Operation.ADD_NUMBER, EquipmentSlot.FEET);
         Boots_M.addAttributeModifier(Attribute.GENERIC_MOVEMENT_SPEED, Boots_A);
         Boots_M.setDisplayName(WordVar.XM + "Ω≈πﬂ +" + Boots_Int);
         Boots_M.setUnbreakable(true);
@@ -1217,5 +1217,10 @@ public class ItemVar
         
         ItemStack itemlist[] = { Chestplate, Leggings, Boots };
         return itemlist;
+    }
+    
+    public static ItemStack[] ScienceItem() {
+		return null;
+    	
     }
 }

@@ -12,6 +12,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDropItemEvent;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.entity.ProjectileLaunchEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -24,6 +25,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.event.player.PlayerShearEntityEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.Inventory;
@@ -36,6 +38,7 @@ import com.ho_bot.CNM.Job.Job;
 import com.ho_bot.CNM.NPC.JobSelectNPC;
 import com.ho_bot.CNM.NPC.ScienceNPC;
 import com.ho_bot.CNM.Utility.DamageUtil;
+import com.ho_bot.CNM.Utility.StartUtil;
 import com.ho_bot.CNM.Var.EtcVar;
 import com.ho_bot.CNM.Var.JobVar;
 import com.ho_bot.CNM.Var.TeamVar;
@@ -193,10 +196,13 @@ public class CNM_Event implements Listener
     @EventHandler
     public void onBreak(BlockBreakEvent event)
     {
-        MGE.TreeEvent(event);
-        MGE.StoneEvent(event);
-        MGE.SnowEvent(event);
         if(EtcVar.GameSet) {
+        	event.setCancelled(true);
+        	MGE.TreeEvent(event);
+            MGE.StoneEvent(event);
+            MGE.SnowEvent(event);
+        }
+        if(!event.getPlayer().isOp()) {
         	event.setCancelled(true);
         }
     }
@@ -275,5 +281,10 @@ public class CNM_Event implements Listener
     	if(EtcVar.GameSet) {
     		event.setCancelled(true);
     	}
+    }
+    
+    @EventHandler
+    public void onDeath(PlayerRespawnEvent event) {
+    	StartUtil.onPlayerReSpawn(event);
     }
 }

@@ -19,10 +19,10 @@ import com.ho_bot.CNM.Var.JobVar;
 
 public class Egis extends Job
 {
-	private final int coolTime = 30;
-    private final int dis = 30;
-    private final int duration = 600;
-    private final int power = 2;
+	private final int coolTime = 40;
+    private final int dis = 20;
+    private final int duration = 400;
+    private final int power = 3;
     private static final String des[] = JobVar.Egis_Des;
 
     public Egis(String playerName)

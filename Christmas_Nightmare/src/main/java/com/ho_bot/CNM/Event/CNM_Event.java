@@ -29,6 +29,8 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.event.player.PlayerShearEntityEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import com.ho_bot.CNM.Main;
 import com.ho_bot.CNM.Event.Job.BigGuyEvent;
@@ -37,6 +39,7 @@ import com.ho_bot.CNM.Gui.Science;
 import com.ho_bot.CNM.Job.Job;
 import com.ho_bot.CNM.NPC.JobSelectNPC;
 import com.ho_bot.CNM.NPC.ScienceNPC;
+import com.ho_bot.CNM.Tools.JobSelectTool;
 import com.ho_bot.CNM.Utility.DamageUtil;
 import com.ho_bot.CNM.Utility.StartUtil;
 import com.ho_bot.CNM.Var.EtcVar;
@@ -53,6 +56,7 @@ public class CNM_Event implements Listener
 	public MatGiveEvent MGE = new MatGiveEvent();
 	public static Main plugin;
 	static Main chmain = Main.getPlugin(Main.class);
+	private final Location spawnloc = new Location(Bukkit.getWorld("world"), 172.5, 83, 67.5);
 
     public static void setPlugin(Main MainPlugin)
     {
@@ -86,6 +90,11 @@ public class CNM_Event implements Listener
             String TeamCustomName = chmain.getConfig().getString((TeamVar.Player_Team.get(player.getUniqueId()) + "." + WordVar.TeamShowName));
             NickAPI.nick(player, TeamCustomName + player.getName());
             NickAPI.refreshPlayer(player);
+        }
+        if(!EtcVar.GameSet) {
+        	player.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 100000, 1, false, false), true);
+        	player.setBedSpawnLocation(spawnloc, true);
+        	player.teleport(spawnloc);
         }
     }
 
@@ -281,10 +290,18 @@ public class CNM_Event implements Listener
     	if(EtcVar.GameSet) {
     		event.setCancelled(true);
     	}
+    	if(event.getItemDrop().getItemStack().getItemMeta().getDisplayName().contains("[드랍불가]")) {
+    		event.setCancelled(true);
+    	}
     }
     
     @EventHandler
-    public void onDeath(PlayerRespawnEvent event) {
+    public void onRespawn(PlayerRespawnEvent event) {
     	StartUtil.onPlayerReSpawn(event);
+    }
+    
+    @EventHandler
+    public void onDeath(PlayerDeathEvent event) {
+    	event.getEntity().spigot().respawn();
     }
 }

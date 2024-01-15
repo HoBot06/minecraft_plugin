@@ -48,9 +48,9 @@ public class Kratos extends Job
         {
             Skill.Use(player, coolTime);
             JobVar.Kratos_P.put(player.getUniqueId(), true);
-            player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, duration, 1), true);
-            player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, duration, 1), true);
-            player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, duration, 1), true);
+            player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, duration, 1, false, false), true);
+            player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, duration, 1, false, false), true);
+            player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, duration, 1, false, false), true);
             KratosTimer KT = new KratosTimer(player, coolTime);
             KT.runTaskTimer(Main.getPlugin(Main.class), 0L, 20L);
         }

@@ -53,9 +53,9 @@ public class Egis extends Job
             Skill.Use(player, coolTime);
             List<Player> NearList = GetNearSomeThing.GetPlayerNearTeam(player, dis, dis, dis);
             for(Player p : NearList) {
-            	p.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, duration, power), true);
+            	p.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, duration, power, false, false), true);
             }
-            player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, duration, power), true);
+            player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, duration, power, false, false), true);
         }
     }
 }

@@ -91,7 +91,7 @@ public class Cruise extends Job
                     if(NearList != null)
                     {
                         for(Player enemy : NearList) {
-                        	enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, duration, power));
+                        	enemy.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, duration, power, false, false), true);
                         }
                     }
                     Sounds.SoundAL(p.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 0.5f, 1.0f);

@@ -1220,7 +1220,25 @@ public class ItemVar
     }
     
     public static ItemStack[] ScienceItem() {
-		return null;
-    	
+    	ItemStack pic = new ItemStack(Material.STONE_PICKAXE);
+        ItemMeta pic_M = pic.getItemMeta();
+        pic_M.setDisplayName(ChatColor.WHITE + "돌 곡괭이 [드랍불가]");
+        pic_M.setUnbreakable(true);
+        pic.setItemMeta(pic_M);
+        
+        ItemStack axe = new ItemStack(Material.STONE_AXE);
+        ItemMeta axe_M = axe.getItemMeta();
+        axe_M.setDisplayName(ChatColor.WHITE + "돌 도끼 [드랍불가]");
+        axe_M.setUnbreakable(true);
+        axe.setItemMeta(axe_M);
+        
+        ItemStack sh = new ItemStack(Material.SHEARS);
+        ItemMeta sh_M = sh.getItemMeta();
+        sh_M.setDisplayName(ChatColor.WHITE + "가위 [드랍불가]");
+        sh_M.setUnbreakable(true);
+        sh.setItemMeta(sh_M);
+        
+        ItemStack itemlist[] = { pic, axe, sh };
+        return itemlist;
     }
 }

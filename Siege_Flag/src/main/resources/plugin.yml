@@ -1,0 +1,8 @@
+name: Siege_Flag
+main: com.ho_bot.Siege_Flag.Siege_Flag
+version: 1.0
+api-version: 1.13
+
+commands:
+    SiegeF:
+        description: Siege_Flag

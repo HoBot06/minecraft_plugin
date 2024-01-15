@@ -11,10 +11,8 @@ public class TeamGreen {
 	{
 		ArrayList<String> Player_Green = new ArrayList<String>();
 		Player_Green.add("Ddang67");
-		Player_Green.add("newpokemon_");
 		Player_Green.add("Ddun_kim");
 		Player_Green.add("green_kim");
-		Player_Green.add("momo_52");
 		Player_Green.add("Rev_0602");
 		Player_Green.add("Dire5778");
 		GreenTime GT = new GreenTime(sender, Player_Green);

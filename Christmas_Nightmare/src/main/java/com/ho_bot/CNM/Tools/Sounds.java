@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 public class Sounds {
 
 	public static void SoundP(Player player, Sound sound, float volume, float pitch) {
-		player.playSound(player.getLocation(), sound, volume, pitch);
+		player.playSound(player, sound, volume, pitch);
 	}
 
 	public static void SoundPL(Player player, Location loc, Sound sound, float volume, float pitch) {

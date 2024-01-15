@@ -4,7 +4,9 @@ import java.util.Map.Entry;
 import java.util.UUID;
 
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
+import com.ho_bot.CNM.Var.ItemVar;
 import com.ho_bot.CNM.Var.TeamVar;
 import com.ho_bot.CNM.Var.WordVar;
 
@@ -24,6 +26,7 @@ public class RoleUtil
                 		TeamVar.Player_Upgrade.put(player.getUniqueId(), UpInt);
                 	}
                     TeamVar.Player_Role.put(player.getUniqueId(), Role);
+                    player.getInventory().clear();
                     sender.sendMessage("전투원으로 설정되었습니다");
                 } else
                 {
@@ -33,6 +36,10 @@ public class RoleUtil
             if(Role.equals(WordVar.Santa_Scientist) || Role.equals(WordVar.Krampus_Scientist))
             {
                 TeamVar.Player_Role.put(player.getUniqueId(), Role);
+                player.getInventory().clear();
+                for(ItemStack item : ItemVar.ScienceItem()) {
+                	player.getInventory().addItem(item);
+                }
                 sender.sendMessage("연구원으로 설정되었습니다");
             }
         } else

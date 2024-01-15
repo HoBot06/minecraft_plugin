@@ -57,12 +57,12 @@ public class ZoukTimer extends BukkitRunnable
         }
         for(Player p : NearList)
         {
-            p.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, 20, 0), true);
-            p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 20, 0), true);
+            p.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, 20, 0, false, false), true);
+            p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 20, 0, false, false), true);
             if(JobVar.Zouk_P.containsKey(player.getUniqueId())) {
             	if(JobVar.Zouk_P.get(player.getUniqueId())) {
-            		p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 20, 2), true);
-                    p.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 20, 2), true);
+            		p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 20, 2, false, false), true);
+                    p.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 20, 2, false, false), true);
             	}
             }
         }

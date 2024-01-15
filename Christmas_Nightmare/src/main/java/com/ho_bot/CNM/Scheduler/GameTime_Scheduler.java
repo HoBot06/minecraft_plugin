@@ -1,9 +1,11 @@
 package com.ho_bot.CNM.Scheduler;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import com.ho_bot.CNM.Tools.Sounds;
 import com.ho_bot.CNM.Var.EtcVar;
 import com.ho_bot.CNM.Var.WordVar;
 
@@ -26,6 +28,7 @@ public class GameTime_Scheduler extends BukkitRunnable
                 }
         		for(Player p : Bukkit.getOnlinePlayers()) {
         			p.sendTitle("게임이 종료되었습니다!", "");
+        			Sounds.SoundP(p, Sound.ENTITY_ENDER_DRAGON_AMBIENT, 1.0f, 1.0f);
         		}
         	}
         	if(GameTime==60) {

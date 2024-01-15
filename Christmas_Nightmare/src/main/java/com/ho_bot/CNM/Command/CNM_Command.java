@@ -31,7 +31,8 @@ public class CNM_Command implements CommandExecutor
     RoleUtil RU = new RoleUtil();
     CapUtil CU = new CapUtil();
 
-    public boolean onCommand(CommandSender sender, Command command, String label, String args[])
+    @SuppressWarnings("deprecation")
+	public boolean onCommand(CommandSender sender, Command command, String label, String args[])
     {
         Player player = (Player)sender;
         if(label.equalsIgnoreCase("CNM")) {
@@ -108,8 +109,9 @@ public class CNM_Command implements CommandExecutor
                     		GameTime_Scheduler.GameTime=Integer.parseInt(args[1]);
                     		Bukkit.broadcastMessage("게임이 시작되었습니다!");
                     		for(Player user : Bukkit.getOnlinePlayers()) {
-                    			StartUtil.moveTeamSpawn(user);
-                    			user.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 1000000, 1));
+                    			StartUtil.SetTeamSpawn(user);
+                    			StartUtil.SetTeamTel(user);
+                    			user.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 1000000, 1, false, false), true);
                     		}
                     	}
                     	else {

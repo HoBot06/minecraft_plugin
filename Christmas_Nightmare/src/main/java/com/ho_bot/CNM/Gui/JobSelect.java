@@ -101,7 +101,7 @@ public class JobSelect
             	break;
             }
             player.setHealthScale(20d);
-            player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 40, 10), true);
+            player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 40, 10, false, false), true);
         }
     }
 }

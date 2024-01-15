@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 

@@ -62,7 +62,7 @@ public class Patai extends Job
             	vec.multiply(grab_power);
             }
             if(NearNotTeamList != null) {
-                player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, duration, power * NearNotTeamList.size()), true);
+                player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, duration, power * NearNotTeamList.size(), false, false), true);
             }
         }
     }

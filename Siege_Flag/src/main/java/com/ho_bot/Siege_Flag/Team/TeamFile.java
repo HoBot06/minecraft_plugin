@@ -10,6 +10,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Player;
 
 import com.ho_bot.Siege_Flag.Siege_Flag;
 import com.ho_bot.Siege_Flag.Util.ColorUtil;
@@ -22,17 +23,15 @@ public class TeamFile {
 	
 	public void reloadTeamFile() {
 		Logger log = Bukkit.getLogger();
-		File file = new File(Siege_Flag.getPlugin(Siege_Flag.class).getDataFolder( ) + File.separator + "팀//config.yml");
-		if(file.listFiles()==null) {
-			return;
-		}
 		TeamVar.Teamlist.clear();
-		TeamVar.Teamlist = getTeamFile();
+		if(getTeamFile()!=null) {
+			TeamVar.Teamlist = getTeamFile();
+		}
 		log.info("[Siege_Flag] 총 " + TeamVar.Teamlist.size() + " 개의 팀 확인완료");
 	}
 	
-	public void setTeamFile(String TeamName, String DisplayName, String TeamColor, Material TeamBlock) {
-		File file = new File(Siege_Flag.getPlugin(Siege_Flag.class).getDataFolder( ) + File.separator + "팀//config.yml");
+	public void addTeamFile(String TeamName, String DisplayName, String TeamColor, Material TeamBlock) {
+		File file = new File(Siege_Flag.getPlugin(Siege_Flag.class).getDataFolder( ) + File.separator + "Team//config.yml");
 		YamlConfiguration yml = YamlConfiguration.loadConfiguration(file);
 		ConfigurationSection sel = yml.createSection("TeamList");
 		for(Team team : getTeamFile()) {
@@ -51,7 +50,7 @@ public class TeamFile {
 	}
 	
 	public List<Team> getTeamFile() {
-		File file = new File(Siege_Flag.getPlugin(Siege_Flag.class).getDataFolder( ) + File.separator + "팀//config.yml");
+		File file = new File(Siege_Flag.getPlugin(Siege_Flag.class).getDataFolder( ) + File.separator + "Team//config.yml");
 		YamlConfiguration yml = YamlConfiguration.loadConfiguration(file);
 		List<Team> m_list = new ArrayList<Team>();
 		if(yml.getConfigurationSection("TeamList") != null) {
@@ -70,7 +69,7 @@ public class TeamFile {
 	}
 	
 	public Team getTeam(String TeamName) {
-		List<Team> teamlist = getTeamFile();
+		List<Team> teamlist = TeamVar.Teamlist;
 		for(Team team : teamlist) {
 			if(team.TeamName.equalsIgnoreCase(TeamName)) {
 				return team;
@@ -80,7 +79,7 @@ public class TeamFile {
 	}
 	
 	public boolean hasTeam(String TeamName) {
-		List<Team> teamlist = getTeamFile();
+		List<Team> teamlist = TeamVar.Teamlist;
 		for(Team team : teamlist) {
 			if(team.TeamName.equalsIgnoreCase(TeamName)) {
 				return true;
@@ -91,10 +90,56 @@ public class TeamFile {
 	
 	public List<String> getTeamNameList() {
 		List<String> teamlist = new ArrayList<String>();
-		for(Team team : getTeamFile()) {
+		for(Team team : TeamVar.Teamlist) {
 			teamlist.add(team.TeamName);
 		}
 		return teamlist;
+	}
+	
+	public void setTeamList(Team team) {
+		List<Team> teamlist = TeamVar.Teamlist;
+		List<Team> fix_teamlist = new ArrayList<Team>();
+		for(Team tl : teamlist) {
+			if(!tl.TeamName.equalsIgnoreCase(team.TeamName)) {
+				fix_teamlist.add(tl);
+			}
+			else {
+				fix_teamlist.add(team);
+			}
+		}
+		TeamVar.Teamlist = fix_teamlist;
+	}
+	
+	public void setPlayerTeam(String TeamName, Player player) {
+		if(hasTeam(TeamName)) {
+			removePlayerTeam(player);
+			Team team = getTeam(TeamName);
+			team.addPlayer(player);
+			setTeamList(team);
+			player.sendMessage(TeamName + "팀에 "+ player.getName() +"님을 추가했습니다");
+		}
+	}
+	
+	public Team getPlayerTeam(Player player) {
+		for(Team team : getTeamFile()) {
+			if(team.hasPlayer(player)) {
+				return team;
+			}
+		}
+		return null;
+	}
+	
+	public void removePlayerTeam(Player player) {
+		List<Team> fix_teamlist = new ArrayList<Team>();
+		for(Team team : TeamVar.Teamlist) {
+			if(team.playerlist!=null) {
+				if(team.playerlist.contains(player)) {
+					team.removePlayer(player);
+				}
+			}
+			fix_teamlist.add(team);
+		}
+		TeamVar.Teamlist = fix_teamlist;
 	}
 
 }

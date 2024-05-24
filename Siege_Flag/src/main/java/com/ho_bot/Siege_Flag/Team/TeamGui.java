@@ -55,29 +55,38 @@ public class TeamGui {
 	public void OpenTeamSettingGui(Player player, String TeamName) {
 		Inventory inv = Bukkit.createInventory(null, 27, TeamName);
 		Team team = TeamF.getTeam(TeamName);
-		G.Stack("팀표시이름", Material.NETHER_STAR, 1, Arrays.asList("클릭시 팀표시이름을 변경합니다"), 11, inv);
+		G.Stack(ColorU.returnChatColor(team.TeamColor)+"팀표시이름 : "+team.DisplayName, Material.NETHER_STAR, 1, Arrays.asList("클릭시 팀표시이름을 변경합니다"), 11, inv);
 		G.Stack("팀블럭", team.TeamBlock, 1, Arrays.asList("바꿀 블럭을 들고 클릭시 변경됩니다"), 13, inv);
 		G.Stack("팀색상", ColorU.returnBlockColor(team.TeamColor), 1, Arrays.asList("클릭시 팀색상을 선택합니다"), 15, inv);
+		for(int i = 0; i < 27; i++) {
+			if(inv.getItem(i)==null) {
+				G.Stack(ChatColor.WHITE+"", Material.LIGHT_GRAY_STAINED_GLASS_PANE, 1, Arrays.asList(""), i, inv);
+			}
+		}
 		player.openInventory(inv);
 	}
 	
 	public void EventTeamSettingGui(InventoryClickEvent event) {
 		Player player = (Player)event.getWhoClicked();
 		if(TeamF.getTeamNameList().contains(event.getView().getTitle())) {
-			event.setCancelled(true);
             if(event.getCurrentItem() == null || event.getCurrentItem().getType() == Material.AIR || !event.getCurrentItem().hasItemMeta()) {
             	return;
             }
             if(event.getClickedInventory().getType()==InventoryType.CHEST) {
+            	event.setCancelled(true);
             	String TeamName = event.getView().getTitle();
             	if(event.getSlot()==11) {
-            		
+            		player.closeInventory();
+            		TeamVar.TeamSettingDisplay.put(player.getUniqueId(), true);
+            		TeamVar.TeamSelect.put(player.getUniqueId(), TeamName);
+            		player.sendMessage(ChatColor.GREEN+"채팅에 입력시 설정이 됩니다");
+            		player.sendMessage(ChatColor.GREEN+"(취소시 Cancel 을 입력하시면 됩니다)");
             	}
 				if(event.getSlot()==13) {
-					if(event.getCurrentItem()!=null) {
+					if(event.getCursor()!=null) {
 						Team team = TeamF.getTeam(TeamName);
-						TeamF.setTeamFile(team.TeamName, team.DisplayName, team.TeamColor, event.getCurrentItem().getType());
-						event.setCurrentItem(new ItemStack(Material.AIR));
+						TeamF.addTeamFile(team.TeamName, team.DisplayName, team.TeamColor, event.getCursor().getType());
+						event.setCursor(new ItemStack(Material.AIR));
 						OpenTeamSettingGui(player, TeamName);
 					}
 				}
@@ -114,7 +123,7 @@ public class TeamGui {
 	            if(event.getClickedInventory().getType()==InventoryType.CHEST) {
 	            	String color = ColorU.ColorList().get(event.getSlot()-10);
 	            	Team team = TeamF.getTeam(teamname);
-	            	TeamF.setTeamFile(team.TeamName, team.DisplayName, color, team.TeamBlock);
+	            	TeamF.addTeamFile(team.TeamName, team.DisplayName, color, team.TeamBlock);
 	            	OpenTeamColor(player, teamname);
 	            }
 			}

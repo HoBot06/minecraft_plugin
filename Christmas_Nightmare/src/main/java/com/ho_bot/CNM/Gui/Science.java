@@ -164,7 +164,7 @@ public class Science
             	return;
             }
             switch(ChatColor.stripColor(event.getCurrentItem().getItemMeta().getDisplayName())) {
-            case JobListUtil.Bomber :
+            /*case JobListUtil.Bomber :
             	UpgradeTool.UpgradeJob(player, JobListUtil.Bomber);
             	break;
             case JobListUtil.Zouk :
@@ -181,7 +181,7 @@ public class Science
             	break;
             case JobListUtil.Cruise :
             	UpgradeTool.UpgradeJob(player, JobListUtil.Cruise);
-            	break;
+            	break;*/
             case JobListUtil.Paladin :
             	UpgradeTool.UpgradeJob(player, JobListUtil.Paladin);
             	break;

@@ -374,21 +374,21 @@ public class EventManager implements Listener
 	
 	@EventHandler
 	public static void onInventoryClick(InventoryClickEvent event) {
-		if(!ChatColor.stripColor(event.getView().getTitle()).equalsIgnoreCase(":: ºí·¢¸®½ºÆ® ::") && !ChatColor.stripColor(event.getView().getTitle()).equalsIgnoreCase(":::::::: ´É·Â Á¤º¸ ::::::::") && !ChatColor.stripColor(event.getView().getTitle()).equalsIgnoreCase(":::::: ¼³Á¤ ::::::"))
+		if(!ChatColor.stripColor(event.getView().getTitle()).equalsIgnoreCase(":: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ::") && !ChatColor.stripColor(event.getView().getTitle()).equalsIgnoreCase(":::::::: ï¿½É·ï¿½ ï¿½ï¿½ï¿½ï¿½ ::::::::") && !ChatColor.stripColor(event.getView().getTitle()).equalsIgnoreCase(":::::: ï¿½ï¿½ï¿½ï¿½ ::::::"))
 			return;
 		event.setCancelled(true);
 		try {
 			ItemStack wool=event.getCurrentItem();
 			ItemMeta meta=wool.getItemMeta();
 			
-			if(ChatColor.stripColor(event.getView().getTitle()).equals(":: ºí·¢¸®½ºÆ® ::")) {
+			if(ChatColor.stripColor(event.getView().getTitle()).equals(":: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ::")) {
 				
 				if(wool.getType()==Material.LIME_WOOL) {
 					wool.setType(Material.RED_WOOL);
 					String[] y=meta.getDisplayName().split(" ");
 					int num=Integer.parseInt(y[y.length-1]);
 					Blacklist.Blacklist.add(num);
-					Bukkit.broadcastMessage(ChatColor.GREEN+"¡¼ ¾Ë¸² ¡½ "+ChatColor.WHITE+y[0]+" "+ChatColor.RED+"ºí·¢¸®½ºÆ®"+ChatColor.WHITE+"¿¡ µî·ÏµÇ¾ú½À´Ï´Ù.");
+					Bukkit.broadcastMessage(ChatColor.GREEN+"ï¿½ï¿½ ï¿½Ë¸ï¿½ ï¿½ï¿½ "+ChatColor.WHITE+y[0]+" "+ChatColor.RED+"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®"+ChatColor.WHITE+"ï¿½ï¿½ ï¿½ï¿½ÏµÇ¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 					return;
 				}if(wool.getType()==Material.RED_WOOL) {
 					wool.setType(Material.LIME_WOOL);
@@ -396,45 +396,45 @@ public class EventManager implements Listener
 					int num=Integer.parseInt(y[y.length-1]);
 					Object o=num;
 					Blacklist.Blacklist.remove(o);
-					Bukkit.broadcastMessage(ChatColor.GREEN+"¡¼ ¾Ë¸² ¡½ "+ChatColor.WHITE+y[0]+" "+ChatColor.RED+"ºí·¢¸®½ºÆ®"+ChatColor.WHITE+"¿¡¼­ ¹þ¾î³µ½À´Ï´Ù.");
+					Bukkit.broadcastMessage(ChatColor.GREEN+"ï¿½ï¿½ ï¿½Ë¸ï¿½ ï¿½ï¿½ "+ChatColor.WHITE+y[0]+" "+ChatColor.RED+"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®"+ChatColor.WHITE+"ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½î³µï¿½ï¿½ï¿½Ï´ï¿½.");
 					return;
 				}
 			}
 			
-			if(ChatColor.stripColor(event.getView().getTitle()).equals(":::::: ¼³Á¤ ::::::")) {
+			if(ChatColor.stripColor(event.getView().getTitle()).equals(":::::: ï¿½ï¿½ï¿½ï¿½ ::::::")) {
 				switch(ChatColor.stripColor(wool.getItemMeta().getDisplayName())) {
-				case "°ÔÀÓ ½ÃÀÛ ½Ã ÀÎº¥Åä¸® Å¬¸®¾î":
+				case "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Îºï¿½ï¿½ä¸® Å¬ï¿½ï¿½ï¿½ï¿½":
 						if(wool.getType()==Material.LIME_WOOL) { Theomachy.INVENTORY_CLEAR=false; wool.setType(Material.RED_WOOL);}
 						else { Theomachy.INVENTORY_CLEAR=true; wool.setType(Material.LIME_WOOL); }
 					break;
-				case "°ÔÀÓ ½ÃÀÛ ½Ã ½ºÄ«ÀÌºí·° ¾ÆÀÌÅÜ Áö±Þ":
+				case "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Ä«ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½":
 						if(wool.getType()==Material.LIME_WOOL) { Theomachy.GIVE_ITEM=false; wool.setType(Material.RED_WOOL);}
 						else { Theomachy.GIVE_ITEM=true; wool.setType(Material.LIME_WOOL); }
 					break;
-				case "°ÔÀÓ ½ÃÀÛ ½Ã ¿£Æ¼Æ¼ Á¦°Å":
+				case "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Æ¼Æ¼ ï¿½ï¿½ï¿½ï¿½":
 						if(wool.getType()==Material.LIME_WOOL) { Theomachy.ENTITIES_REMOVE=false; wool.setType(Material.RED_WOOL);}
 						else { Theomachy.ENTITIES_REMOVE=true; wool.setType(Material.LIME_WOOL); }
 					break;
-				case "Ä§´ë ¹«½Ã":
+				case "Ä§ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½":
 						if(wool.getType()==Material.LIME_WOOL) { Theomachy.IGNORE_BED=false; wool.setType(Material.RED_WOOL);}
 						else { Theomachy.IGNORE_BED=true; wool.setType(Material.LIME_WOOL); }
 					break;
-				case "ºü¸¥ ½ÃÀÛ":
+				/*case "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½":
 						if(wool.getType()==Material.LIME_WOOL) { Theomachy.FAST_START=false; wool.setType(Material.RED_WOOL);}
 						else { Theomachy.FAST_START=true; wool.setType(Material.LIME_WOOL); }
-					break;
-				case "¼­¹ö ÀÚµ¿ ÀúÀå":
+					break;*/
+				case "ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½":
 						if(wool.getType()==Material.LIME_WOOL) { Theomachy.AUTO_SAVE=false; wool.setType(Material.RED_WOOL);}
 						else { Theomachy.AUTO_SAVE=true; wool.setType(Material.LIME_WOOL); }
 					break;
-				case "µ¿¹° ½ºÆù":
+				/*case "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½":
 						if(wool.getType()==Material.LIME_WOOL) { Theomachy.ANIMAL=false; wool.setType(Material.RED_WOOL);}
 						else { Theomachy.ANIMAL=true; wool.setType(Material.LIME_WOOL); }
 					break;
-				case "¸ó½ºÅÍ ½ºÆù":
+				/*case "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½":
 						if(wool.getType()==Material.LIME_WOOL) { Theomachy.MONSTER=false; wool.setType(Material.RED_WOOL);}
 						else { Theomachy.MONSTER=true; wool.setType(Material.LIME_WOOL); }
-					break;
+					break;*/
 				}
 			}
 		}catch(NullPointerException e) {}

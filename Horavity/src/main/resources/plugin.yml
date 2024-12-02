@@ -1,0 +1,8 @@
+name: Horavity
+main: com.ho_bot.Horavity.main.Horavity
+version: 0.5.0
+api-version: 1.20
+
+commands:
+    horavity:
+        description: horavity

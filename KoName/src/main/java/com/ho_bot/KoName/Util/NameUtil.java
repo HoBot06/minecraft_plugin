@@ -43,9 +43,8 @@ public class NameUtil {
 			NickAPI.nick(player, nick.replace('&', ChatColor.COLOR_CHAR));
 			NickAPI.setGameProfileName(player, name.replace('&', ChatColor.COLOR_CHAR));
 //			armorstandU.setNameStand(player.getUniqueId(), nick);
-			NickAPI.refreshPlayerSync(player);
-			
-		}
+			NickAPI.refreshPlayer(player);
+		}	
 	}
 	
 	public void refreshNick(Player player) {
@@ -67,7 +66,7 @@ public class NameUtil {
 		if(name != null) {
 			NickAPI.nick(player, nick.replace('&', ChatColor.COLOR_CHAR));
 			NickAPI.setGameProfileName(player, name.replace('&', ChatColor.COLOR_CHAR));
-			NickAPI.refreshPlayerSync(player);
+			NickAPI.refreshPlayer(player);
 		}
 	}
 	

@@ -24,25 +24,18 @@ public class StaminaEvent implements Listener{
 	@EventHandler
 	public void onJoin(PlayerJoinEvent event) {
 		if(VarUtil.Player_Stamina.containsKey(event.getPlayer().getUniqueId())) return;
-		VarUtil.Player_Stamina.put(event.getPlayer().getUniqueId(), 100);
+		VarUtil.Player_Stamina.put(event.getPlayer().getUniqueId(), (float) VarUtil.maxStamina);
 	}
 	
-	@EventHandler
+	/*@EventHandler
 	public void onQuit(PlayerQuitEvent event) {
 		if(!VarUtil.Player_Stamina.containsKey(event.getPlayer().getUniqueId())) return;
 		VarUtil.Player_Stamina.remove(event.getPlayer().getUniqueId());
-	}
+	}*/
 	
 	@EventHandler
 	public void onBreak(BlockBreakEvent event) {
-		if(staminaU.getStamina(event.getPlayer())<5) {
-			event.setCancelled(true);
-			event.getPlayer().sendMessage("스테미나가 부족합니다");
-			return;
-		}
-		else {
-			staminaU.setStamina(event.getPlayer(), staminaU.getStamina(event.getPlayer())-5);
-		}
+		staminaU.setStamina(event.getPlayer(), staminaU.getStamina(event.getPlayer())-VarUtil.breakStamina);
 	}
 
 }

@@ -1,10 +1,18 @@
 package com.ho_bot.event;
 
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.FoodLevelChangeEvent;
+import org.bukkit.event.player.PlayerFishEvent;
+import org.bukkit.event.player.PlayerFishEvent.State;
+import org.bukkit.event.player.PlayerInteractEntityEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerItemConsumeEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
 
 import com.ho_bot.main.Hotamina;
 import com.ho_bot.util.StaminaUtil;
@@ -36,6 +44,60 @@ public class StaminaEvent implements Listener{
 	@EventHandler
 	public void onBreak(BlockBreakEvent event) {
 		staminaU.setStamina(event.getPlayer(), staminaU.getStamina(event.getPlayer())-VarUtil.breakStamina);
+	}
+	
+	/*@EventHandler
+	public void onPlace(BlockPlaceEvent event) {
+		staminaU.setStamina(event.getPlayer(), staminaU.getStamina(event.getPlayer())-VarUtil.breakStamina);
+	}*/
+	
+	@EventHandler
+	public void onInteractEntity(PlayerInteractEntityEvent event) {
+		if(event.getRightClicked() != null) {
+			staminaU.setStamina(event.getPlayer(), staminaU.getStamina(event.getPlayer())-VarUtil.breakStamina);
+		}
+	}
+	
+	@EventHandler
+	public void onDamage(EntityDamageByEntityEvent event) {
+		if(event.getDamager() instanceof Player player) {
+			staminaU.setStamina(player, staminaU.getStamina(player)-VarUtil.breakStamina);
+		}
+	}
+	
+	@EventHandler
+	public void onInteract(PlayerInteractEvent event) {
+		if(event.getAction()==Action.LEFT_CLICK_BLOCK || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
+			staminaU.setStamina(event.getPlayer(), staminaU.getStamina(event.getPlayer())-VarUtil.breakStamina);
+		}
+	}
+	
+	@EventHandler
+	public void onFish(PlayerFishEvent event) {
+		if(event.getState() == State.CAUGHT_ENTITY || event.getState() == State.CAUGHT_FISH || event.getState() == State.FAILED_ATTEMPT) {
+			staminaU.setStamina(event.getPlayer(), staminaU.getStamina(event.getPlayer())-VarUtil.breakStamina);
+		}
+	}
+	
+	@EventHandler
+	public void onItemConsume(PlayerItemConsumeEvent event) {
+		VarUtil.Player_Foodlevel.put(event.getPlayer().getUniqueId(), event.getPlayer().getFoodLevel());
+	}
+	
+	@EventHandler
+	public void onFoodlevel(FoodLevelChangeEvent event) {
+		if(event.getFoodLevel() > 0) {
+			healFood((Player) event.getEntity(), event.getFoodLevel());
+		}
+	}
+	
+	private void healFood(Player player, int foodlevel) {
+		try {
+			int food = foodlevel - VarUtil.Player_Foodlevel.get(player.getUniqueId());
+			staminaU.setStamina(player, Math.min(VarUtil.maxStamina, staminaU.getStamina(player)+food*VarUtil.healFood));
+		} catch (Exception e) {
+
+		}
 	}
 
 }

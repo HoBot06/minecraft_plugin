@@ -1,7 +1,6 @@
 package com.ho_bot.timer;
 
 import java.util.Map.Entry;
-import java.util.Random;
 import java.util.UUID;
 
 import org.bukkit.Bukkit;
@@ -11,7 +10,6 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import com.ho_bot.util.ActionBarUtil;
 import com.ho_bot.util.BoardUtil;
 import com.ho_bot.util.VarUtil;
 
@@ -27,7 +25,7 @@ public class staminaTimer extends BukkitRunnable{
 				Player player = Bukkit.getPlayer(entry.getKey());
 				//actionU.sendAction(player, "피로도: " + getStamina(entry.getValue()));
 				boardU.reloadScoreBoard(player, "피로도: " + getStamina(entry.getValue()));
-				VarUtil.Player_Stamina.put(entry.getKey(), Math.min(VarUtil.maxStamina, entry.getValue()+VarUtil.healperStamina/10));
+				VarUtil.Player_Stamina.put(entry.getKey(), Math.min(VarUtil.maxStamina, entry.getValue()+VarUtil.healperStamina/2));
 				setDeBuff(player, entry.getValue());
 				if(VarUtil.Player_Stamina.get(player.getUniqueId())<= VarUtil.f_desStamina) {
 					if(!VarUtil.Player_Foodmsg.containsKey(player.getUniqueId())) {

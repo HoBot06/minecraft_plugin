@@ -18,6 +18,7 @@ public class foodTimer extends BukkitRunnable{
 	public void run() {
 		for(Entry<UUID, Float> entry : VarUtil.Player_Stamina.entrySet()) {
 			Player player = Bukkit.getPlayer(entry.getKey());
+			if(player == null) continue;
 			setFood(player, entry.getValue());
 		}
 		
@@ -25,12 +26,12 @@ public class foodTimer extends BukkitRunnable{
 	
 	private void setFood(Player player, float stamina) {
 		if(stamina <= VarUtil.s_desStamina) {
-			int food = rand.nextInt(rand.nextInt(5));
+			int food = rand.nextInt(rand.nextInt(VarUtil.s_desFood)+1);
 			player.setFoodLevel(Math.max(0, player.getFoodLevel()-food));
 			return;
 		}
 		else if(stamina <= VarUtil.f_desStamina) {
-			int food = rand.nextInt(rand.nextInt(3));
+			int food = rand.nextInt(rand.nextInt(VarUtil.f_desFood)+1);
 			player.setFoodLevel(Math.max(0, player.getFoodLevel()-food));
 			return;
 		}

@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scoreboard.ScoreboardManager;
 
+import com.ho_bot.command.Ho_Cmd;
 import com.ho_bot.event.StaminaEvent;
 import com.ho_bot.file.ConfigFile;
 import com.ho_bot.timer.foodTimer;
@@ -27,10 +28,12 @@ public class Hotamina extends JavaPlugin{
 		getConfig().options().copyDefaults(true);
         saveConfig();
         
+        getCommand("Hotamina").setExecutor(new Ho_Cmd());
+        
         configF.reloadConfig();
 		
 		staminaTimer staminaT = new staminaTimer();
-		staminaT.runTaskTimer(this, 0L, 2L);
+		staminaT.runTaskTimer(this, 0L, 10L);
 		
 		foodTimer foodT = new foodTimer();
 		foodT.runTaskTimer(this, 0L, 20L);

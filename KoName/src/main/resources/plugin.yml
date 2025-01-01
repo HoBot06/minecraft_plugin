@@ -1,0 +1,14 @@
+name: KoName
+main: com.ho_bot.KoName.Ko_Main
+version: 1.0.1
+api-version: 1.20
+depend:
+- NickAPI
+
+commands:
+    KONAME:
+        description: KONAME
+    닉네임:
+        description: 닉네임
+    칭호:
+        description: 칭호

@@ -26,7 +26,7 @@ public class VarDlc extends DLC_Donation{
 	@Override
 	public void active(UUID uuid, String playername, String sender, String platform, int cash, String cmd) {
 		String[] cmd_s = cmd.split(" ");
-		new BukkitRunnable() {
+		new BukkitRunnable() { 
 			
 			@Override
 			public void run() {

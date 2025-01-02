@@ -10,6 +10,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
 
+import com.ho_bot.HoName.manager.NameTag;
 import com.ho_bot.HoName.manager.NickManager;
 
 public class HN_Cmd implements TabExecutor{
@@ -21,7 +22,7 @@ public class HN_Cmd implements TabExecutor{
 		if(args[0].equalsIgnoreCase("닉네임")) {
 			Player p = Bukkit.getPlayer(args[1]);
 			String nick = args[2];
-			nickManager.changeName(p, nick);
+			foo(p, nick);
 			sender.sendMessage("닉네임 설정");
 		}
 		if(args[0].equalsIgnoreCase("칭호")) {
@@ -47,6 +48,11 @@ public class HN_Cmd implements TabExecutor{
 			}
 		}
 		return null;
+	}
+	
+	private void foo(Player player, String name) {
+	     //NameTag.of(name).applyTo(player);
+		nickManager.changePlayerNameTag(player, name);
 	}
 
 }

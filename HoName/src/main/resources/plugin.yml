@@ -3,7 +3,8 @@ main: com.ho_bot.HoName.main.HoName
 version: 1.0.0
 api-version: 1.20
 
-depend: [ProtocolLib]
+depend: 
+- NickAPI
 
 commands:
     HoName:

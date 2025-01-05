@@ -1,6 +1,8 @@
 package com.ho_bot.HB_Rune.main;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.ho_bot.HB_Rune.cmd.HB_Cmd;

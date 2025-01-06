@@ -1,5 +1,8 @@
 package com.ho_bot.HB_Rune.rune;
 
+import java.util.List;
+
+import org.bukkit.Material;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -10,6 +13,10 @@ public class Rune {
 	
 	public String id;
 	public RuneType type;
+	
+	public String name;
+	public Material material;
+	public List<String> lore;
 	
 	public float P_potion_val = 0;
 	public float P_potion_per = 1;

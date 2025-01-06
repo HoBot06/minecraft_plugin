@@ -12,5 +12,11 @@ public class VarUtil {
 	
 	public static HashMap<UUID, CombineRune> player_rune = new HashMap<>();
 	public static List<Rune> runelist = new ArrayList<>();
+	
+	public enum RuneType{
+		Active,
+		Passive,
+		Power;
+	}
 
 }

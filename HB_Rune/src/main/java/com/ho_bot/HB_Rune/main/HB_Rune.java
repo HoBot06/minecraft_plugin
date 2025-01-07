@@ -1,13 +1,10 @@
 package com.ho_bot.HB_Rune.main;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.ho_bot.HB_Rune.cmd.HB_Cmd;
 import com.ho_bot.HB_Rune.event.HB_Event;
-import com.ho_bot.HB_Rune.rune.Rune;
 
 public class HB_Rune extends JavaPlugin {
 	
@@ -20,8 +17,8 @@ public class HB_Rune extends JavaPlugin {
 		HB_Event.setPlugin(this);
         getServer().getPluginManager().registerEvents(new HB_Event(), this);
         
-        getCommand("rune").setExecutor(new HB_Cmd());
-        getCommand("rune").setTabCompleter(new HB_Cmd());
+        getCommand("룬").setExecutor(new HB_Cmd());
+        getCommand("룬").setTabCompleter(new HB_Cmd());
         
         getConfig().options().copyDefaults(true);
         saveConfig();

@@ -17,6 +17,7 @@ import com.ho_bot.HB_Rune.rune.PowerRune;
 import com.ho_bot.HB_Rune.rune.Rune;
 import com.ho_bot.HB_Rune.util.RuneUtil;
 import com.ho_bot.HB_Rune.util.VarUtil;
+import com.ho_bot.HB_Rune.util.VarUtil.AbilityType;
 import com.ho_bot.HB_Rune.util.VarUtil.RuneType;
 import com.ho_bot.HB_Rune.util.YmlUtil;
 
@@ -35,31 +36,43 @@ public class RuneFile {
 			Map<String, Object> item_map = (Map<String, Object>) rune_map.get("아이템");
 			Map<String, Object> ability_map = (Map<String, Object>) rune_map.get("능력");
 			String type = (String) rune_map.get("타입");
-			Rune P_rune = new Rune();
+			Rune rune = new Rune();
 			if(type.equalsIgnoreCase("발화룬")) {
-				P_rune = new PassiveRune(f.getName().replace(".yml", ""));
-				P_rune.type = RuneType.Passive;
+				rune = new PassiveRune(f.getName().replace(".yml", ""));
+				rune.type = RuneType.Passive;
 			}
 			if(type.equalsIgnoreCase("파워룬")) {
-				P_rune = new ActiveRune(f.getName().replace(".yml", ""));
-				P_rune.type = RuneType.Active;
+				rune = new ActiveRune(f.getName().replace(".yml", ""));
+				rune.type = RuneType.Active;
 			}
 			if(type.equalsIgnoreCase("증폭룬")) {
-				P_rune = new PowerRune(f.getName().replace(".yml", ""));
-				P_rune.type = RuneType.Power;
+				rune = new PowerRune(f.getName().replace(".yml", ""));
+				rune.type = RuneType.Power;
 			}
-			returnAbility(P_rune, ability_map);
-			P_rune.name = (String) item_map.get("이름");
-			P_rune.material = Material.getMaterial((String) item_map.get("종류"));
-			P_rune.lore = (List<String>) item_map.get("설명");
-			VarUtil.runelist.add(P_rune);
+			returnAbility(rune, ability_map);
+			rune.name = (String) item_map.get("이름");
+			rune.material = Material.getMaterial((String) item_map.get("종류"));
+			rune.lore = (List<String>) item_map.get("설명");
+			VarUtil.runelist.add(rune);
 		}
 	}
 	
 	private void returnAbility(Rune rune, Map<String, Object> abilitymap) {
+		if(abilitymap.containsKey("타입")) rune.abilityType = AbilityType.valueOfName((String) abilitymap.get("타입"));
+		
+		//발화룬
+		if(abilitymap.containsKey("쿨타임")) rune.cooldown = (float) abilitymap.get("쿨타임");
+		if(abilitymap.containsKey("쿨타임메세지")) rune.cooldown_msg = (String) abilitymap.get("쿨타임메세지");
+		
+		//파워룬
+		if(abilitymap.containsKey("효과")) rune.abilityEffet = (String) abilitymap.get("효과");
+		if(abilitymap.containsKey("파워")) rune.power = (int) abilitymap.get("파워");
+		if(abilitymap.containsKey("지속시간")) rune.duration = (float) abilitymap.get("타입");
+		
+		//증폭룬
+		if(abilitymap.containsKey("증폭")) rune.amp_val = (float) abilitymap.get("증폭");
+		if(abilitymap.containsKey("증폭(%)")) rune.amp_per = (float) abilitymap.get("증폭(%)");
 		return;
 	}
-	
-	//private 
 
 }

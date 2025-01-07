@@ -15,10 +15,12 @@ public class CombineRune extends Rune{
 	
 	public void addRune(Rune rune) {
 		if(rune.type == RuneType.Power) {
-			this.P_potion_per += rune.P_potion_per;
-			this.P_potion_val += rune.P_potion_val;
+			this.amp_per += rune.amp_per;
+			this.amp_val += rune.amp_val;
 		}
-		runelist.add(rune);
+		else {
+			runelist.add(rune);
+		}
 	}
 	
 	public void EntityDamageByEntityEvent(EntityDamageByEntityEvent event) {
@@ -27,7 +29,7 @@ public class CombineRune extends Rune{
 			if(passiveR.EntityDamageByEntity(event)) {
 				for(Rune activeR : runelist) {
 					if(activeR.type != RuneType.Active) continue;
-					activeR.active();
+					activeR.active(amp_val, amp_per);
 				}
 			}
 		}

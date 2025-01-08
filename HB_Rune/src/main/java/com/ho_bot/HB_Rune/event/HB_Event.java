@@ -5,7 +5,9 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
 
+import com.ho_bot.HB_Rune.file.PlayerRuneFile;
 import com.ho_bot.HB_Rune.main.HB_Rune;
 import com.ho_bot.HB_Rune.util.RuneUtil;
 
@@ -19,6 +21,12 @@ public class HB_Event implements Listener {
     }
 	
 	private RuneUtil runeU = new RuneUtil();
+	private PlayerRuneFile PRF = new PlayerRuneFile();
+	
+	@EventHandler
+	public void onJoin(PlayerJoinEvent event) {
+		PRF.createPlayerFile(event.getPlayer().getUniqueId());
+	}
 	
 	@EventHandler
 	public void EntityDamageEvent(EntityDamageEvent event) {

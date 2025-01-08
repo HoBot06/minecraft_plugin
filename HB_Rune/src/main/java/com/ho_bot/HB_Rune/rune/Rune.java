@@ -3,6 +3,7 @@ package com.ho_bot.HB_Rune.rune;
 import java.util.List;
 
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -28,7 +29,7 @@ public class Rune {
 	public float amp_val;
 	public float amp_per;
 	
-	public void active(float amp_val, float amp_per) {};
+	public void active(Player player, float amp_val, float amp_per) {};
 	
 	public boolean EntityDamage(EntityDamageEvent event) { return false; };
 	public boolean EntityDamageByEntity(EntityDamageByEntityEvent event) { return false; };

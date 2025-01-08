@@ -3,6 +3,7 @@ package com.ho_bot.HB_Rune.rune;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
 import com.ho_bot.HB_Rune.util.VarUtil.RuneType;
@@ -29,7 +30,7 @@ public class CombineRune extends Rune{
 			if(passiveR.EntityDamageByEntity(event)) {
 				for(Rune activeR : runelist) {
 					if(activeR.type != RuneType.Active) continue;
-					activeR.active(amp_val, amp_per);
+					activeR.active((Player) event.getDamager(), amp_val, amp_per);
 				}
 			}
 		}

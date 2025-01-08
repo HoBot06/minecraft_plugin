@@ -5,10 +5,13 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import com.ho_bot.HB_Rune.cmd.HB_Cmd;
 import com.ho_bot.HB_Rune.event.HB_Event;
+import com.ho_bot.HB_Rune.file.RuneFile;
 
 public class HB_Rune extends JavaPlugin {
 	
 	public static HB_Rune inst;
+	
+	private RuneFile runeF = new RuneFile();
 	
 	public void onEnable() {
 		inst = this;
@@ -23,6 +26,7 @@ public class HB_Rune extends JavaPlugin {
         getConfig().options().copyDefaults(true);
         saveConfig();
         
+        runeF.reloadRuneFile();
 	}
 	
 	public void onDisable() {

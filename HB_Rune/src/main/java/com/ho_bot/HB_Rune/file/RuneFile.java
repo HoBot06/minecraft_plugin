@@ -2,7 +2,6 @@ package com.ho_bot.HB_Rune.file;
 
 import java.io.File;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -27,33 +26,37 @@ public class RuneFile {
 	private RuneUtil runeU = new RuneUtil();
 	
 	@SuppressWarnings("unchecked")
-	public void reloadRuneFile() throws IOException {
+	public void reloadRuneFile() {
 		File file = new File(HB_Rune.inst.getDataFolder() + File.separator + "Rune");
 		for(File f : file.listFiles()) {
-			FileReader fr = new FileReader(f, Charsets.UTF_8);
-			Map<String, Object> map = new Yaml().load(fr);
-			Map<String, Object> rune_map = (Map<String, Object>) map.get("룬");
-			Map<String, Object> item_map = (Map<String, Object>) rune_map.get("아이템");
-			Map<String, Object> ability_map = (Map<String, Object>) rune_map.get("능력");
-			String type = (String) rune_map.get("타입");
-			Rune rune = new Rune();
-			if(type.equalsIgnoreCase("발화룬")) {
-				rune = new PassiveRune(f.getName().replace(".yml", ""));
-				rune.type = RuneType.Passive;
+			try {
+				FileReader fr = new FileReader(f, Charsets.UTF_8);
+				Map<String, Object> map = new Yaml().load(fr);
+				Map<String, Object> rune_map = (Map<String, Object>) map.get("룬");
+				Map<String, Object> item_map = (Map<String, Object>) rune_map.get("아이템");
+				Map<String, Object> ability_map = (Map<String, Object>) rune_map.get("능력");
+				String type = (String) rune_map.get("타입");
+				Rune rune = new Rune();
+				if(type.equalsIgnoreCase("발화룬")) {
+					rune = new PassiveRune(f.getName().replace(".yml", ""));
+					rune.type = RuneType.Passive;
+				}
+				if(type.equalsIgnoreCase("파워룬")) {
+					rune = new ActiveRune(f.getName().replace(".yml", ""));
+					rune.type = RuneType.Active;
+				}
+				if(type.equalsIgnoreCase("증폭룬")) {
+					rune = new PowerRune(f.getName().replace(".yml", ""));
+					rune.type = RuneType.Power;
+				}
+				returnAbility(rune, ability_map);
+				rune.name = (String) item_map.get("이름");
+				rune.material = Material.getMaterial((String) item_map.get("종류"));
+				rune.lore = (List<String>) item_map.get("설명");
+				VarUtil.runelist.add(rune);
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-			if(type.equalsIgnoreCase("파워룬")) {
-				rune = new ActiveRune(f.getName().replace(".yml", ""));
-				rune.type = RuneType.Active;
-			}
-			if(type.equalsIgnoreCase("증폭룬")) {
-				rune = new PowerRune(f.getName().replace(".yml", ""));
-				rune.type = RuneType.Power;
-			}
-			returnAbility(rune, ability_map);
-			rune.name = (String) item_map.get("이름");
-			rune.material = Material.getMaterial((String) item_map.get("종류"));
-			rune.lore = (List<String>) item_map.get("설명");
-			VarUtil.runelist.add(rune);
 		}
 	}
 	

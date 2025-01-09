@@ -1,7 +1,9 @@
 package com.ho_bot.HB_Rune.rune;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
@@ -28,6 +30,18 @@ public class Rune {
 	public int power;
 	public int amp_val;
 	public double amp_per;
+	
+	public String getName() {
+		return name.replace('&', ChatColor.COLOR_CHAR);
+	}
+	
+	public List<String> getLore() {
+		List<String> lore = new ArrayList<>();
+		for(String s : this.lore) {
+			lore.add(s.replace('&', ChatColor.COLOR_CHAR));
+		}
+		return lore;
+	}
 	
 	public void active(Player player, int amp_val, double amp_per) {};
 	

@@ -15,6 +15,7 @@ import com.ho_bot.HB_Rune.rune.Rune;
 public class VarUtil {
 	
 	public static HashMap<UUID, CombineRune> player_rune = new HashMap<>();
+	public static HashMap<UUID, Integer> player_cool = new HashMap<>();
 	public static List<Rune> runelist = new ArrayList<>();
 	
 	public enum RuneType{

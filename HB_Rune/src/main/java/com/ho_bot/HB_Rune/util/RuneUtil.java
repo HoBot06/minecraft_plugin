@@ -34,8 +34,8 @@ public class RuneUtil {
 	public ItemStack getItemStack(Rune rune) {
 		ItemStack item = new ItemStack(rune.material);
 		ItemMeta item_m = item.getItemMeta();
-		item_m.setDisplayName(rune.name);
-		item_m.setLore(rune.lore);
+		item_m.setDisplayName(rune.getName());
+		item_m.setLore(rune.getLore());
 		NamespacedKey id_key = new NamespacedKey(HB_Rune.inst, "id");
 		item_m.getPersistentDataContainer().set(id_key, PersistentDataType.STRING, rune.id);
 		item.setItemMeta(item_m);

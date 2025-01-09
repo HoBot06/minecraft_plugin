@@ -8,10 +8,12 @@ import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
 
 import com.ho_bot.HB_Rune.inv.RuneInv;
+import com.ho_bot.HB_Rune.inv.RuneSetupInv;
 
 public class HB_Cmd implements TabExecutor{
 	
 	private RuneInv runeI = new RuneInv();
+	private RuneSetupInv runeSi = new RuneSetupInv();
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -21,7 +23,7 @@ public class HB_Cmd implements TabExecutor{
 					runeI.OpenRuneBagInv(p);
 				}
 				if(args[0].equalsIgnoreCase("설정")) {
-					
+					runeSi.OpenRuneSettingInv(p);
 				}
 			}
 		}

@@ -14,6 +14,7 @@ import com.ho_bot.HB_Rune.rune.ActiveRune;
 import com.ho_bot.HB_Rune.rune.PassiveRune;
 import com.ho_bot.HB_Rune.rune.PowerRune;
 import com.ho_bot.HB_Rune.rune.Rune;
+import com.ho_bot.HB_Rune.util.LogUtil;
 import com.ho_bot.HB_Rune.util.RuneUtil;
 import com.ho_bot.HB_Rune.util.VarUtil;
 import com.ho_bot.HB_Rune.util.VarUtil.AbilityType;
@@ -28,6 +29,10 @@ public class RuneFile {
 	@SuppressWarnings("unchecked")
 	public void reloadRuneFile() {
 		File file = new File(HB_Rune.inst.getDataFolder() + File.separator + "Rune");
+		if(!file.exists()) {
+			file.mkdirs();
+			return;
+		}
 		for(File f : file.listFiles()) {
 			try {
 				FileReader fr = new FileReader(f, Charsets.UTF_8);
@@ -58,23 +63,24 @@ public class RuneFile {
 				e.printStackTrace();
 			}
 		}
+		LogUtil.info(VarUtil.runelist.size() + "개 룬 인식됨");
 	}
 	
 	private void returnAbility(Rune rune, Map<String, Object> abilitymap) {
 		if(abilitymap.containsKey("타입")) rune.abilityType = AbilityType.valueOfName((String) abilitymap.get("타입"));
 		
 		//발화룬
-		if(abilitymap.containsKey("쿨타임")) rune.cooldown = (float) abilitymap.get("쿨타임");
+		if(abilitymap.containsKey("쿨타임")) rune.cooldown = (int) abilitymap.get("쿨타임");
 		if(abilitymap.containsKey("쿨타임메세지")) rune.cooldown_msg = (String) abilitymap.get("쿨타임메세지");
 		
 		//파워룬
 		if(abilitymap.containsKey("효과")) rune.abilityEffet = (String) abilitymap.get("효과");
 		if(abilitymap.containsKey("파워")) rune.power = (int) abilitymap.get("파워");
-		if(abilitymap.containsKey("지속시간")) rune.duration = (float) abilitymap.get("타입");
+		if(abilitymap.containsKey("지속시간")) rune.duration = (int) abilitymap.get("지속시간");
 		
 		//증폭룬
-		if(abilitymap.containsKey("증폭")) rune.amp_val = (float) abilitymap.get("증폭");
-		if(abilitymap.containsKey("증폭(%)")) rune.amp_per = (float) abilitymap.get("증폭(%)");
+		if(abilitymap.containsKey("증폭")) rune.amp_val = (int) abilitymap.get("증폭");
+		if(abilitymap.containsKey("증폭(%)")) rune.amp_per = (double) abilitymap.get("증폭(%)");
 		return;
 	}
 

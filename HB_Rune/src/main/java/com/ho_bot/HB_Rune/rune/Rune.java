@@ -6,7 +6,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 
 import com.ho_bot.HB_Rune.util.VarUtil.AbilityType;
 import com.ho_bot.HB_Rune.util.VarUtil.RuneType;
@@ -22,17 +22,16 @@ public class Rune {
 	
 	public AbilityType abilityType;
 	public String abilityEffet;
-	public float cooldown;
+	public int cooldown;
 	public String cooldown_msg;
-	public float duration;
+	public int duration;
 	public int power;
-	public float amp_val;
-	public float amp_per;
+	public int amp_val;
+	public double amp_per;
 	
-	public void active(Player player, float amp_val, float amp_per) {};
+	public void active(Player player, int amp_val, double amp_per) {};
 	
-	public boolean EntityDamage(EntityDamageEvent event) { return false; };
-	public boolean EntityDamageByEntity(EntityDamageByEntityEvent event) { return false; };
-	public boolean PlayerJoin(PlayerJoinEvent event) { return false; };
-
+	public boolean EntityDamage(EntityDamageEvent event) { return false; }
+	public boolean EntityDamageByEntity(EntityDamageByEntityEvent event) { return false; }
+	public boolean PlayerInteract(PlayerInteractEvent event) { return false; }
 }

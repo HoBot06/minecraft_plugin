@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 
 import com.ho_bot.HB_Rune.util.VarUtil.RuneType;
 
@@ -34,7 +36,32 @@ public class CombineRune extends Rune{
 				}
 			}
 		}
-		return;
-		
+		return;	
+	}
+	
+	public void EntityDamageEvent(EntityDamageEvent event) {
+		for(Rune passiveR : runelist) {
+			if(passiveR.type != RuneType.Passive) continue;
+			if(passiveR.EntityDamage(event)) {
+				for(Rune activeR : runelist) {
+					if(activeR.type != RuneType.Active) continue;
+					activeR.active((Player) event.getEntity(), amp_val, amp_per);
+				}
+			}
+		}
+		return;	
+	}
+	
+	public void PlayerInteractEvent(PlayerInteractEvent event) {
+		for(Rune passiveR : runelist) {
+			if(passiveR.type != RuneType.Passive) continue;
+			if(passiveR.PlayerInteract(event)) {
+				for(Rune activeR : runelist) {
+					if(activeR.type != RuneType.Active) continue;
+					activeR.active(event.getPlayer(), amp_val, amp_per);
+				}
+			}
+		}
+		return;	
 	}
 }

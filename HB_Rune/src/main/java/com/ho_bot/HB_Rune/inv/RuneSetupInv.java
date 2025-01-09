@@ -51,7 +51,7 @@ public class RuneSetupInv {
 		if(activeR_id != null) {
 			Rune activeR = runeU.getRune(activeR_id);
 			ItemStack activeI = runeU.getItemStack(activeR);
-			G.Stack(activeI, 2, inv);
+			G.Stack(activeI, 4, inv);
 		}
 		else {
 			G.Stack("파워룬", Material.GREEN_DYE, 1, Arrays.asList("클릭시 설정"), 4, inv);
@@ -59,7 +59,7 @@ public class RuneSetupInv {
 		if(powerR_id != null) {
 			Rune powerR = runeU.getRune(powerR_id);
 			ItemStack powerI = runeU.getItemStack(powerR);
-			G.Stack(powerI, 2, inv);
+			G.Stack(powerI, 6, inv);
 		}
 		else {
 			G.Stack("증폭룬", Material.BLUE_DYE, 1, Arrays.asList("클릭시 설정"), 6, inv);

@@ -25,8 +25,10 @@ public class VarUtil {
 	
 	public enum AbilityType{
 		//발화관련
-		Damaged("데미지받음"),
-		LeftClick("좌클릭시"),
+		giveDamage("데미지줌"),
+		takeDamage("데미지받음"),
+		LeftClick("좌클릭"),
+		RightClick("우클릭"),
 		//파워관련
 		Potion("포션");
 		

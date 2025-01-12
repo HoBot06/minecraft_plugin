@@ -75,7 +75,8 @@ public class RuneFile {
 		
 		//파워룬
 		if(abilitymap.containsKey("효과")) rune.abilityEffet = (String) abilitymap.get("효과");
-		if(abilitymap.containsKey("파워")) rune.power = (int) abilitymap.get("파워");
+		if(abilitymap.containsKey("파워")) rune.power_val = (int) abilitymap.get("파워");
+		if(abilitymap.containsKey("파워(%)")) rune.power_per = (double) abilitymap.get("파워(%)");
 		if(abilitymap.containsKey("지속시간")) rune.duration = (int) abilitymap.get("지속시간");
 		
 		//증폭룬

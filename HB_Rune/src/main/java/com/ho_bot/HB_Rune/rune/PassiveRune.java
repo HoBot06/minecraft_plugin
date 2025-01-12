@@ -4,6 +4,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.entity.EntityDeathEvent;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 import com.ho_bot.HB_Rune.util.VarUtil.AbilityType;
@@ -38,6 +40,19 @@ public class PassiveRune extends Rune {
 			if(event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) return true;
 		}
 		return false;
+	}
+	
+	@Override
+	public boolean EntityDeath(EntityDeathEvent event) {
+		if(this.abilityType != AbilityType.KillEntity) return false;
+		if(event.getEntity().getKiller() instanceof Player) return true;
+		return false;
+	}
+	
+	@Override
+	public boolean PlayerDeath(PlayerDeathEvent event) {
+		if(this.abilityType != AbilityType.DeathPlayer) return false;
+		return true;
 	}
 	
 	

@@ -5,6 +5,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -12,19 +13,9 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import com.ho_bot.HB_Rune.file.PlayerRuneFile;
 import com.ho_bot.HB_Rune.inv.RuneInv;
 import com.ho_bot.HB_Rune.inv.RuneSetupInv;
-import com.ho_bot.HB_Rune.main.HB_Rune;
-import com.ho_bot.HB_Rune.util.LogUtil;
 import com.ho_bot.HB_Rune.util.RuneUtil;
-import com.ho_bot.HB_Rune.util.VarUtil;
 
-public class HB_Event implements Listener {
-	
-	public static HB_Rune plugin;
-
-	public static void setPlugin(HB_Rune MainPlugin)
-    {
-        plugin = MainPlugin;
-    }
+public class minecraftEvent implements Listener {
 	
 	private RuneUtil runeU = new RuneUtil();
 	private PlayerRuneFile PRF = new PlayerRuneFile();
@@ -56,8 +47,12 @@ public class HB_Event implements Listener {
 	@EventHandler
 	public void EntityDamageByEntityEvent(EntityDamageByEntityEvent event) {
 		if(!(event.getDamager() instanceof Player p)) return;
-		LogUtil.info(VarUtil.player_rune + ":rune");
 		runeU.getPlayerRune(p.getUniqueId()).EntityDamageByEntityEvent(event);
+	}
+	
+	@EventHandler
+	public void EntityDeath(EntityDeathEvent event) {
+		
 	}
 
 }

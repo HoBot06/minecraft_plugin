@@ -8,6 +8,8 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.entity.EntityDeathEvent;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 import com.ho_bot.HB_Rune.util.VarUtil.AbilityType;
@@ -27,7 +29,8 @@ public class Rune {
 	public int cooldown;
 	public String cooldown_msg;
 	public int duration;
-	public int power;
+	public int power_val;
+	public double power_per;
 	public int amp_val;
 	public double amp_per;
 	
@@ -48,4 +51,6 @@ public class Rune {
 	public boolean EntityDamage(EntityDamageEvent event) { return false; }
 	public boolean EntityDamageByEntity(EntityDamageByEntityEvent event) { return false; }
 	public boolean PlayerInteract(PlayerInteractEvent event) { return false; }
+	public boolean EntityDeath(EntityDeathEvent event) { return false; }
+	public boolean PlayerDeath(PlayerDeathEvent event) { return false; }
 }

@@ -23,15 +23,25 @@ public class VarUtil {
 		Passive,
 		Power;
 	}
-	
+	//공격력증가(근접공격)/마력증가(원거리공격)/보스공격력/일반몹 공격력/크리티컬 증가/ 버프시간증가/체력증가.?.
 	public enum AbilityType{
 		//발화관련
+		Timer("타이머"),
 		giveDamage("데미지줌"),
 		takeDamage("데미지받음"),
 		LeftClick("좌클릭"),
 		RightClick("우클릭"),
+		KillEntity("킬"),
+		DeathPlayer("죽을시"),
 		//파워관련
-		Potion("포션");
+		Potion("포션"),
+		Exp("경험치"),
+		Damage("데미지"),
+		Crit_chance("치명타확률"),
+		Crit_hit("치명타데미지"),
+		Heal("회복"),
+		
+		mythicExp("미몹경험치");
 		
 		private static final Map<String, AbilityType> abilityMap = 
 				Stream.of(values()).collect(Collectors.toMap(AbilityType::toString, Function.identity()));

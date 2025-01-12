@@ -21,7 +21,7 @@ public class ActiveRune extends Rune{
 		PotionEffectType potion = null;
 		if(this.abilityEffet.equalsIgnoreCase("신속")) potion = PotionEffectType.SPEED;
 		
-		player.addPotionEffect(new PotionEffect(potion, (int) plusAmp(duration, amp_val, amp_per), power));
+		player.addPotionEffect(new PotionEffect(potion, (int) plusAmp(duration, amp_val, amp_per), power_val));
 	}
 	
 	private <T> double plusAmp(T t, int amp_val, double amp_per) {

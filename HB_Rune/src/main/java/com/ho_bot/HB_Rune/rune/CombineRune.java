@@ -3,10 +3,10 @@ package com.ho_bot.HB_Rune.rune;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 import com.ho_bot.HB_Rune.util.VarUtil.RuneType;
@@ -27,13 +27,26 @@ public class CombineRune extends Rune{
 		}
 	}
 	
+	public void RuneTimerEvent() {
+		for(Rune passiveR : runelist) {
+			if(passiveR.type != RuneType.Passive) continue;
+			if(passiveR.RuneTimer()) {
+				for(Rune activeR : runelist) {
+					if(activeR.type != RuneType.Active) continue;
+					//activeR.active((Player) event.getDamager(), amp_val, amp_per);
+				}
+			}
+		}
+		return;	
+	}
+	
 	public void EntityDamageByEntityEvent(EntityDamageByEntityEvent event) {
 		for(Rune passiveR : runelist) {
 			if(passiveR.type != RuneType.Passive) continue;
 			if(passiveR.EntityDamageByEntity(event)) {
 				for(Rune activeR : runelist) {
 					if(activeR.type != RuneType.Active) continue;
-					activeR.active((Player) event.getDamager(), amp_val, amp_per);
+					activeR.active(event, amp_val, amp_per);
 				}
 			}
 		}
@@ -46,7 +59,7 @@ public class CombineRune extends Rune{
 			if(passiveR.EntityDamage(event)) {
 				for(Rune activeR : runelist) {
 					if(activeR.type != RuneType.Active) continue;
-					activeR.active((Player) event.getEntity(), amp_val, amp_per);
+					activeR.active(event, amp_val, amp_per);
 				}
 			}
 		}
@@ -59,7 +72,7 @@ public class CombineRune extends Rune{
 			if(passiveR.PlayerInteract(event)) {
 				for(Rune activeR : runelist) {
 					if(activeR.type != RuneType.Active) continue;
-					activeR.active(event.getPlayer(), amp_val, amp_per);
+					activeR.active(event, amp_val, amp_per);
 				}
 			}
 		}
@@ -73,6 +86,19 @@ public class CombineRune extends Rune{
 				for(Rune activeR : runelist) {
 					if(activeR.type != RuneType.Active) continue;
 					//activeR.active(event, amp_val, amp_per);
+				}
+			}
+		}
+		return;	
+	}
+	
+	public void PlayerDeathEvent(PlayerDeathEvent event) {
+		for(Rune passiveR : runelist) {
+			if(passiveR.type != RuneType.Passive) continue;
+			if(passiveR.PlayerDeath(event)) {
+				for(Rune activeR : runelist) {
+					if(activeR.type != RuneType.Active) continue;
+					activeR.active(event, amp_val, amp_per);
 				}
 			}
 		}

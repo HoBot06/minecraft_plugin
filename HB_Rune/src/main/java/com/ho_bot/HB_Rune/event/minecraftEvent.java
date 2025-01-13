@@ -6,8 +6,10 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 import com.ho_bot.HB_Rune.file.PlayerRuneFile;
@@ -40,19 +42,36 @@ public class minecraftEvent implements Listener {
 	}
 	
 	@EventHandler
+	public void inte(PlayerInteractEvent event) {
+		if(!runeU.hasPlayerRune(event.getPlayer().getUniqueId())) return;
+		runeU.getPlayerRune(event.getPlayer().getUniqueId()).PlayerInteractEvent(event);
+	}
+	
+	@EventHandler
 	public void EntityDamageEvent(EntityDamageEvent event) {
-		
+		if(!(event.getEntity() instanceof Player p)) return;
+		if(!runeU.hasPlayerRune(p.getUniqueId())) return;
+		runeU.getPlayerRune(p.getUniqueId()).EntityDamageEvent(event);
 	}
 	
 	@EventHandler
 	public void EntityDamageByEntityEvent(EntityDamageByEntityEvent event) {
 		if(!(event.getDamager() instanceof Player p)) return;
+		if(!runeU.hasPlayerRune(p.getUniqueId())) return;
 		runeU.getPlayerRune(p.getUniqueId()).EntityDamageByEntityEvent(event);
 	}
 	
 	@EventHandler
-	public void EntityDeath(EntityDeathEvent event) {
-		
+	public void EntityDeathEvent(EntityDeathEvent event) {
+		if(event.getEntity().getKiller() == null) return;
+		if(!runeU.hasPlayerRune(event.getEntity().getKiller().getUniqueId())) return;
+		runeU.getPlayerRune(event.getEntity().getKiller().getUniqueId()).EntityDeathEvent(event);
+	}
+	
+	@EventHandler
+	public void PlayerDeathEvent(PlayerDeathEvent event) {
+		if(!runeU.hasPlayerRune(event.getEntity().getUniqueId())) return;
+		runeU.getPlayerRune(event.getEntity().getUniqueId()).PlayerDeathEvent(event);
 	}
 
 }

@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
@@ -46,11 +45,16 @@ public class Rune {
 		return lore;
 	}
 	
-	public void active(Player player, int amp_val, double amp_per) {};
+	public void active(EntityDamageEvent event, int amp_val, double amp_per) {};
+	public void active(EntityDamageByEntityEvent event, int amp_val, double amp_per) {};
+	public void active(PlayerInteractEvent event, int amp_val, double amp_per) {};
+	public void active(EntityDeathEvent event, int amp_val, double amp_per) {};
+	public void active(PlayerDeathEvent event, int amp_val, double amp_per) {};
 	
 	public boolean EntityDamage(EntityDamageEvent event) { return false; }
 	public boolean EntityDamageByEntity(EntityDamageByEntityEvent event) { return false; }
 	public boolean PlayerInteract(PlayerInteractEvent event) { return false; }
 	public boolean EntityDeath(EntityDeathEvent event) { return false; }
 	public boolean PlayerDeath(PlayerDeathEvent event) { return false; }
+	public boolean RuneTimer() { return false; }
 }

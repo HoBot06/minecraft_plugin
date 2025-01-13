@@ -17,6 +17,12 @@ public class PassiveRune extends Rune {
 	}
 	
 	@Override
+	public boolean RuneTimer() {
+		if(this.abilityType != AbilityType.Timer) return false;
+		return true;
+	}
+	
+	@Override
 	public boolean EntityDamage(EntityDamageEvent event) {
 		if(this.abilityType != AbilityType.takeDamage) return false;
 		if(event.getEntity() instanceof Player) return true;
@@ -45,7 +51,7 @@ public class PassiveRune extends Rune {
 	@Override
 	public boolean EntityDeath(EntityDeathEvent event) {
 		if(this.abilityType != AbilityType.KillEntity) return false;
-		if(event.getEntity().getKiller() instanceof Player) return true;
+		if(event.getEntity().getKiller() != null) return true;
 		return false;
 	}
 	

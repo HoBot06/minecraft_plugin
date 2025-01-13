@@ -47,6 +47,11 @@ public class RuneUtil {
 		return item.getItemMeta().getPersistentDataContainer().get(id_key, PersistentDataType.STRING);
 	}
 	
+	public boolean hasPlayerRune(UUID playeruuid) {
+		if(getPlayerRune(playeruuid) == null) return false;
+		return true;
+	}
+	
 	public boolean isRuneItemStack(ItemStack item) {
 		if(item.getItemMeta() == null) return false;
 		if(item.getItemMeta().getPersistentDataContainer() == null) return false;

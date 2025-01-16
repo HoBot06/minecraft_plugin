@@ -37,8 +37,7 @@ public class VarUtil {
 		Potion("포션"),
 		Exp("경험치"),
 		Damage("데미지"),
-		Crit_chance("치명타확률"),
-		Crit_hit("치명타데미지"),
+		Crit("치명타"),
 		Heal("회복"),
 		
 		mythicExp("미몹경험치");

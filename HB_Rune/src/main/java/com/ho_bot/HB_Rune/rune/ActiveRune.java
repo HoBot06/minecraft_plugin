@@ -29,9 +29,8 @@ public class ActiveRune extends Rune{
 		Player player = (Player) event.getDamager();
 		if(this.abilityType == AbilityType.Potion) Potion(player, amp_val, amp_per);
 		if(this.abilityType == AbilityType.Exp) return;
-		if(this.abilityType == AbilityType.Damage);
-		if(this.abilityType == AbilityType.Crit_chance);
-		if(this.abilityType == AbilityType.Crit_hit);
+		if(this.abilityType == AbilityType.Damage) Damage(event, amp_val, amp_per);
+		if(this.abilityType == AbilityType.Crit);
 		if(this.abilityType == AbilityType.Heal) Heal(player, amp_val, amp_per);
 	}
 	
@@ -45,9 +44,8 @@ public class ActiveRune extends Rune{
 		Player player = event.getEntity().getKiller();
 		if(this.abilityType == AbilityType.Potion) Potion(player, amp_val, amp_per);
 		if(this.abilityType == AbilityType.Exp) Exp(event, amp_val, amp_val);
-		if(this.abilityType == AbilityType.Damage);
-		if(this.abilityType == AbilityType.Crit_chance);
-		if(this.abilityType == AbilityType.Crit_hit);
+		if(this.abilityType == AbilityType.Damage) return;
+		if(this.abilityType == AbilityType.Crit) return;
 		if(this.abilityType == AbilityType.Heal) Heal(player, amp_val, amp_per);
 	}
 	
@@ -59,6 +57,16 @@ public class ActiveRune extends Rune{
 	private void Potion(Player player, int amp_val, double amp_per) {
 		PotionEffectType potion = PotionEffectType.getByName(this.abilityEffet);
 		player.addPotionEffect(new PotionEffect(potion, (int) plusAmp(duration, amp_val, amp_per), power_val));
+	}
+	
+	private void Damage(EntityDamageByEntityEvent event, int amp_val, double amp_per) {
+		double damage = power_val * (1d+(power_per/100d));
+		damage = plusAmp(damage, amp_val, amp_per);
+		event.setDamage(event.getDamage() + damage);
+	}
+	
+	private void Crit(EntityDamageByEntityEvent event, int amp_val, double amp_per) {
+		
 	}
 	
 	private void Exp(EntityDeathEvent event, int amp_val, double amp_per) {

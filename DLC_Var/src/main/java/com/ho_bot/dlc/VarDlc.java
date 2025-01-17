@@ -30,6 +30,7 @@ public class VarDlc extends DLC_Donation{
 	}
 	
 	private void isOp(UUID uuid, String playername, String sender, String platform, int cash, String cmd) {
+		if(Bukkit.getPlayer(uuid) == null) return;
 		if(!Bukkit.getPlayer(uuid).isOp()) return;
 		Map<String, DLC_Donation> dlc_list = DLCUtil.getDlclist();
 		String s_cmd = cmd.replace(":isop ", "");

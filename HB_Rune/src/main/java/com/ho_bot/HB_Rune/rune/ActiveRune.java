@@ -21,7 +21,12 @@ public class ActiveRune extends Rune{
 	
 	@Override
 	public void active(EntityDamageEvent event, int amp_val, double amp_per) {
-		
+		Player player = (Player) event.getEntity();
+		if(this.abilityType == AbilityType.Potion) Potion(player, amp_val, amp_per);
+		if(this.abilityType == AbilityType.Exp) return;
+		if(this.abilityType == AbilityType.Damage) return;
+		if(this.abilityType == AbilityType.Crit) return;
+		if(this.abilityType == AbilityType.Heal) Heal(player, amp_val, amp_per);
 	}
 	
 	@Override
@@ -30,13 +35,18 @@ public class ActiveRune extends Rune{
 		if(this.abilityType == AbilityType.Potion) Potion(player, amp_val, amp_per);
 		if(this.abilityType == AbilityType.Exp) return;
 		if(this.abilityType == AbilityType.Damage) Damage(event, amp_val, amp_per);
-		if(this.abilityType == AbilityType.Crit);
+		if(this.abilityType == AbilityType.Crit) Crit(event, amp_val, amp_per);
 		if(this.abilityType == AbilityType.Heal) Heal(player, amp_val, amp_per);
 	}
 	
 	@Override
 	public void active(PlayerInteractEvent event, int amp_val, double amp_per) {
-		
+		Player player = event.getPlayer();
+		if(this.abilityType == AbilityType.Potion) Potion(player, amp_val, amp_per);
+		if(this.abilityType == AbilityType.Exp) return;
+		if(this.abilityType == AbilityType.Damage) return;
+		if(this.abilityType == AbilityType.Crit) return;
+		if(this.abilityType == AbilityType.Heal) Heal(player, amp_val, amp_per);
 	}
 	
 	@Override
@@ -51,7 +61,7 @@ public class ActiveRune extends Rune{
 	
 	@Override
 	public void active(PlayerDeathEvent event, int amp_val, double amp_per) {
-		
+		return;
 	}
 	
 	private void Potion(Player player, int amp_val, double amp_per) {

@@ -85,7 +85,7 @@ public class CombineRune extends Rune{
 			if(passiveR.EntityDeath(event)) {
 				for(Rune activeR : runelist) {
 					if(activeR.type != RuneType.Active) continue;
-					//activeR.active(event, amp_val, amp_per);
+					activeR.active(event, amp_val, amp_per);
 				}
 			}
 		}

@@ -1,12 +1,15 @@
 package com.ho_bot.DontBreak.event;
 
+import java.util.Iterator;
 import java.util.Map.Entry;
 
 import org.bukkit.Location;
+import org.bukkit.block.Block;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 import com.ho_bot.DontBreak.area.Area;
@@ -33,6 +36,20 @@ public class DB_Event implements Listener {
 			Location blockLoc = event.getBlock().getLocation();
 			if(LocationUtil.isIn(entry.getValue().loc1, entry.getValue().loc2, blockLoc)) {
 				event.setCancelled(true);
+			}
+		}
+	}
+	
+	@EventHandler
+	public void onExplosion(EntityExplodeEvent event) {
+		Iterator<Block> iterator = event.blockList().iterator();
+		while(iterator.hasNext()) {
+			Block block = iterator.next();
+			for(Entry<String, Area> entry : VarUtil.areaMap.entrySet()) {
+				Location blockLoc = block.getLocation();
+				if(LocationUtil.isIn(entry.getValue().loc1, entry.getValue().loc2, blockLoc)) {
+					iterator.remove();
+				}
 			}
 		}
 	}

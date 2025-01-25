@@ -38,7 +38,7 @@ public class PassiveRune extends Rune {
 	
 	@Override
 	public boolean PlayerInteract(PlayerInteractEvent event) {
-		if(this.abilityType != AbilityType.RightClick && this.abilityType == AbilityType.LeftClick) return false;
+		if(this.abilityType != AbilityType.RightClick && this.abilityType != AbilityType.LeftClick) return false;
 		if(this.abilityType == AbilityType.LeftClick) {
 			if(event.getAction() == Action.LEFT_CLICK_AIR || event.getAction() == Action.LEFT_CLICK_BLOCK) return true;
 		}

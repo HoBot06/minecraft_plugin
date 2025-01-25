@@ -84,5 +84,7 @@ public class RuneFile {
 		if(abilitymap.containsKey("증폭(%)")) rune.amp_per = (double) abilitymap.get("증폭(%)");
 		return;
 	}
+	
+	
 
 }

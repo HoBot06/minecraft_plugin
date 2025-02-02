@@ -1,6 +1,6 @@
 name: HB_Rune
 main: com.ho_bot.HB_Rune.main.HB_Rune
-version: 1.0.0
+version: 1.0.0-BETA
 api-version: 1.20
 
 softdepend: [MythicMobs]

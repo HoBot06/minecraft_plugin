@@ -8,6 +8,7 @@ import com.ho_bot.HB_Rune.cmd.HB_Cmd;
 import com.ho_bot.HB_Rune.event.minecraftEvent;
 import com.ho_bot.HB_Rune.event.mythicEvent;
 import com.ho_bot.HB_Rune.file.RuneFile;
+import com.ho_bot.HB_Rune.timer.CooldownTimer;
 import com.ho_bot.HB_Rune.util.LogUtil;
 
 public class HB_Rune extends JavaPlugin {
@@ -15,6 +16,7 @@ public class HB_Rune extends JavaPlugin {
 	public static HB_Rune inst;
 	
 	private RuneFile runeF = new RuneFile();
+	private CooldownTimer CT = new CooldownTimer();
 	
 	public void onEnable() {
 		inst = this;
@@ -37,6 +39,8 @@ public class HB_Rune extends JavaPlugin {
         saveConfig();
         
         runeF.reloadRuneFile();
+        
+        CT.runTaskTimer(this, 0L, 1L);
 	}
 	
 	public void onDisable() {

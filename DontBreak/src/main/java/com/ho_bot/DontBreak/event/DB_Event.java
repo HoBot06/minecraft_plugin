@@ -1,6 +1,8 @@
 package com.ho_bot.DontBreak.event;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map.Entry;
 
 import org.bukkit.Location;
@@ -43,12 +45,16 @@ public class DB_Event implements Listener {
 	@EventHandler
 	public void onExplosion(EntityExplodeEvent event) {
 		Iterator<Block> iterator = event.blockList().iterator();
+		List<Block> blocklist = new ArrayList<>();
 		while(iterator.hasNext()) {
 			Block block = iterator.next();
 			for(Entry<String, Area> entry : VarUtil.areaMap.entrySet()) {
 				Location blockLoc = block.getLocation();
 				if(LocationUtil.isIn(entry.getValue().loc1, entry.getValue().loc2, blockLoc)) {
-					iterator.remove();
+					if(!blocklist.contains(block)) {
+						blocklist.add(block);
+						iterator.remove();
+					}
 				}
 			}
 		}

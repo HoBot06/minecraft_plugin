@@ -11,8 +11,8 @@ public class NameUtil {
 	private PlayerFile playerF = new PlayerFile();
 	
 	public void setForceNick(Player player, String newName) {
-		NickAPI.nick(player, newName);
-		NickAPI.setGameProfileName(player, newName);
+		NickAPI.setNick(player, newName);
+		NickAPI.setProfileName(player, newName);
 		NickAPI.refreshPlayer(player);
 		
 		player.setDisplayName(newName);
@@ -20,8 +20,8 @@ public class NameUtil {
 	}
 	
 	public void setNick(Player player, String newName) {
-		NickAPI.nick(player, newName);
-		NickAPI.setGameProfileName(player, newName);
+		NickAPI.setNick(player, newName);
+		NickAPI.setProfileName(player, newName);
 		NickAPI.refreshPlayer(player);
 		
 		player.setDisplayName(newName);
@@ -34,7 +34,7 @@ public class NameUtil {
 	
 	public void resetPlayer(Player player) {
 		NickAPI.resetNick(player);
-		NickAPI.resetGameProfileName(player);
+		NickAPI.resetProfileName(player);
 		NickAPI.refreshPlayer(player);
 		
 		player.setDisplayName(player.getName());

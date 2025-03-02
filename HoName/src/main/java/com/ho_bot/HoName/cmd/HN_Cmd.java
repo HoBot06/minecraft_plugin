@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
@@ -28,14 +29,14 @@ public class HN_Cmd implements TabExecutor{
 		try {
 			if(args[0].equalsIgnoreCase("닉네임")) {
 				Player p = Bukkit.getPlayer(args[1]);
-				String nick = args[2];
+				String nick = args[2].replace('&', ChatColor.COLOR_CHAR);
 				playerF.setPlayerNick(p, nick);
 				nameU.reloadNick(p);
 				sender.sendMessage("닉네임 설정");
 			}
 			if(args[0].equalsIgnoreCase("칭호")) {
 				Player p = Bukkit.getPlayer(args[1]);
-				String prefix = args[2];
+				String prefix = args[2].replace('&', ChatColor.COLOR_CHAR);
 				playerF.setPlayerPrefix(p, prefix);
 				nameU.reloadNick(p);
 				sender.sendMessage("닉네임 설정");

@@ -11,6 +11,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
@@ -87,6 +88,20 @@ public class DB_Event implements Listener {
 			event.getPlayer().sendMessage("[Pos2] X: " + area.loc2.getX() + " Y: " + area.loc2.getY() + " Z: " + area.loc2.getZ()
 											+ " World: " + area.loc2.getWorld().toString());
 			event.setCancelled(true);
+		}
+	}
+	
+	@EventHandler
+	public void onPlace(BlockPlaceEvent event) {
+		if(event.getBlock()==null) return;
+		if(VarUtil.opBreak) {
+			if(event.getPlayer().isOp()) return;
+		}
+		for(Entry<String, Area> entry : VarUtil.areaMap.entrySet()) {
+			Location blockLoc = event.getBlock().getLocation();
+			if(LocationUtil.isIn(entry.getValue().loc1, entry.getValue().loc2, blockLoc)) {
+				event.setCancelled(true);
+			}
 		}
 	}
 

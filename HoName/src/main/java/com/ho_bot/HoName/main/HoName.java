@@ -1,9 +1,5 @@
 package com.ho_bot.HoName.main;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.ho_bot.HoName.cmd.HN_Cmd;
@@ -27,7 +23,7 @@ public class HoName extends JavaPlugin {
         getCommand("HoName").setTabCompleter(new HN_Cmd());
         
         getConfig().options().copyDefaults(true);
-        saveConfig();
+        saveDefaultConfig();
         
         configF.reloadConfig();
 	}

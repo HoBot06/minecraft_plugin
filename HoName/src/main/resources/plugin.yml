@@ -1,6 +1,6 @@
 name: HoName
 main: com.ho_bot.HoName.main.HoName
-version: 1.0.0
+version: 1.1.0
 api-version: 1.16
 
 depend: 

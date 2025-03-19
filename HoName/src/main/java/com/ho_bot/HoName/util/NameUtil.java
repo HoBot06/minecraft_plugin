@@ -12,7 +12,9 @@ public class NameUtil {
 	
 	public void setForceNick(Player player, String newName) {
 		NickAPI.setNick(player, newName);
-		NickAPI.setProfileName(player, newName);
+		if(VarUtil.profileNick) {
+			NickAPI.setProfileName(player, newName);
+		}
 		NickAPI.refreshPlayer(player);
 		
 		player.setDisplayName(newName);
@@ -21,7 +23,9 @@ public class NameUtil {
 	
 	public void setNick(Player player, String newName) {
 		NickAPI.setNick(player, newName);
-		NickAPI.setProfileName(player, newName);
+		if(VarUtil.profileNick) {
+			NickAPI.setProfileName(player, newName);
+		}
 		NickAPI.refreshPlayer(player);
 		
 		player.setDisplayName(newName);

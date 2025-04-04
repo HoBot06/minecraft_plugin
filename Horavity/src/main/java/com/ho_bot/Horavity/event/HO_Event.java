@@ -26,7 +26,7 @@ public class HO_Event implements Listener{
 		if(event.getItem() != null) {
 			if(event.getItem().getType() == Material.BLAZE_ROD) {
 				if(event.getHand() == EquipmentSlot.HAND) {
-					if(VarUtil.gravity_map.containsKey(event.getPlayer().getUniqueId())) {
+					if(VarUtil.is_Grab.getOrDefault(event.getPlayer().getUniqueId(), false)) {
 						gravityU.grab_off(event.getPlayer());
 					}
 					else {

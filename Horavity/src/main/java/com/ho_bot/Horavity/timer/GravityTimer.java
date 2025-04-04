@@ -1,11 +1,9 @@
 package com.ho_bot.Horavity.timer;
 
-import java.util.Map.Entry;
-import java.util.UUID;
-
-import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.entity.BlockDisplay;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import com.ho_bot.Horavity.util.DirectionUtil;
@@ -15,11 +13,29 @@ public class GravityTimer extends BukkitRunnable{
 	
 	public DirectionUtil directionU = new DirectionUtil();
 
+	public Entity entity;
+	public Player player;
+	
+	public GravityTimer(Player player, Entity entity) {
+		this.player = player;
+		this.entity = entity;
+	}
+	
 	@Override
 	public void run() {
-		for(Entry<UUID, Entity> entry : VarUtil.gravity_map.entrySet()) {
-			VarUtil.gravity_map.get(entry.getKey()).teleport(directionU.getControl_Loc(Bukkit.getPlayer(entry.getKey()), VarUtil.gravity_range, VarUtil.gravity_not_block));
+		if(!VarUtil.is_Grab.getOrDefault(player.getUniqueId(), false)) {
+			Location loc = entity.getLocation().getBlock().getLocation();
+			if(entity instanceof BlockDisplay) {
+				entity.getWorld().getBlockAt(loc).setBlockData(((BlockDisplay) entity).getBlock());
+				entity.remove();
+			}
+			else {
+				entity.teleport(loc);
+			}
+			cancel();
+			return;
 		}
+		entity.teleport(directionU.getControl_Loc(player, VarUtil.gravity_range, VarUtil.gravity_not_block));
 	}
 	
 	

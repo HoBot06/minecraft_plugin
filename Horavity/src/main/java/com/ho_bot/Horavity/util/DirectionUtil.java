@@ -6,7 +6,6 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
@@ -38,14 +37,16 @@ public class DirectionUtil {
         Location playerLocation = player.getLocation();
         Vector direction = playerLocation.getDirection();
         Location targetLocation = playerLocation.add(direction.multiply(distance));
+        targetLocation.setPitch(0);
+        targetLocation.setYaw(0);
 
         return targetLocation;
     }
 	
 	public Location getControl_Loc(Player player, int range, Set<Material> materials) {
 		Block block = player.getTargetBlock(materials, range);
-		if(block != null) {
-			Location blockloc = block.getLocation().subtract(player.getLocation().getDirection().multiply(1.5f));
+		if(block != null && block.getType() != Material.AIR) {
+			Location blockloc = block.getLocation().subtract(player.getLocation().getDirection());
 			return blockloc;
 		}
 		else {

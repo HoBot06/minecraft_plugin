@@ -13,6 +13,7 @@ public class VarUtil {
 	public static int f_desFood = 0;
 	public static int s_desFood = 0;
 	public static int healFood = 0;
+	public static int hungerFood = 0;
 	public static String foodmsg = "";
 	
 	public static HashMap<UUID, Float> Player_Stamina = new HashMap<>();

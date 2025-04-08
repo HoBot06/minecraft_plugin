@@ -8,6 +8,7 @@ import com.ho_bot.command.Ho_Cmd;
 import com.ho_bot.event.StaminaEvent;
 import com.ho_bot.file.ConfigFile;
 import com.ho_bot.timer.foodTimer;
+import com.ho_bot.timer.hungerTimer;
 import com.ho_bot.timer.staminaTimer;
 
 public class Hotamina extends JavaPlugin{
@@ -26,17 +27,20 @@ public class Hotamina extends JavaPlugin{
 		getServer().getPluginManager().registerEvents(new StaminaEvent(), this);
 		
 		getConfig().options().copyDefaults(true);
-        saveConfig();
+        saveDefaultConfig();
         
         getCommand("Hotamina").setExecutor(new Ho_Cmd());
         
         configF.reloadConfig();
 		
 		staminaTimer staminaT = new staminaTimer();
-		staminaT.runTaskTimer(this, 0L, 10L);
+		staminaT.runTaskTimerAsynchronously(this, 0L, 10L);
 		
 		foodTimer foodT = new foodTimer();
-		foodT.runTaskTimer(this, 0L, 20L);
+		foodT.runTaskTimerAsynchronously(this, 0L, 20L);
+		
+		hungerTimer hungerT = new hungerTimer();
+		hungerT.runTaskTimerAsynchronously(this, 0L, 1L);
 	}
 
 }

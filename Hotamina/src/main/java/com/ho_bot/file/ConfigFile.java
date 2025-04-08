@@ -28,6 +28,7 @@ public class ConfigFile {
 		VarUtil.s_desFood = getConfig().getInt("2단계배고픔감소수치");
 		VarUtil.foodmsg = getConfig().getString("배고픔메세지");
 		VarUtil.healFood = getConfig().getInt("회복수치");
+		VarUtil.hungerFood = getConfig().getInt("배고픔감소시간", 100);
 	}
 
 }

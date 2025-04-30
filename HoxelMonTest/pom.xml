@@ -1,0 +1,20 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>Ho_Bot</groupId>
+  <artifactId>HoxelMonTest</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <repositories>
+   		<repository>
+        	<id>mohist-repo</id>
+        	<url>https://maven.mohistmc.com/</url>
+   		</repository>
+    </repositories>
+    <dependencies>
+    	<dependency>
+			<groupId>com.mohistmc</groupId>
+			<artifactId>mohistdev</artifactId>
+			<version>1.16.5</version>
+			<scope>provided</scope>
+    	</dependency>
+    </dependencies>
+</project>

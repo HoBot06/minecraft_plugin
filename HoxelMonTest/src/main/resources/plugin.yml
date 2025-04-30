@@ -1,0 +1,8 @@
+name: HoxelMonTest
+main: com.ho_bot.main.HoxelMonTest
+version: 1.0.0
+api-version: 1.16
+
+commands:
+    hoxelmon:
+        description: hoxelmon

@@ -14,9 +14,6 @@ import org.bukkit.entity.Player;
 import com.ho_bot.HoName.file.ConfigFile;
 import com.ho_bot.HoName.file.PlayerFile;
 import com.ho_bot.HoName.util.NameUtil;
-import com.ho_bot.HoName.util.VarUtil;
-
-import xyz.haoshoku.nick.api.NickAPI;
 
 public class HN_Cmd implements TabExecutor{
 	

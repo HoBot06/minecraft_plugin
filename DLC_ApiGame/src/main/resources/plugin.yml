@@ -1,0 +1,11 @@
+name: DLC_ApiGame
+main: com.ho_bot.ApiGame.main.DLC_ApiGame
+version: 1.0.0
+api-version: 1.16
+
+depend: 
+- Honation_Public
+
+commands:
+    ApiGame:
+        description: DLC_ApiGame

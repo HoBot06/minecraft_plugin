@@ -1,0 +1,6 @@
+스코어보드:
+    제목: 다이아게임
+    내용:
+    - '%playername% : %제출한다이아%/%남은다이아%'
+    - '%displayname%'
+    - '%customname%'

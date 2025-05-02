@@ -40,7 +40,7 @@ public class DLC_Cmd implements TabExecutor{
 			else {
 				VarUtil.turnBoard = true;
 				BoardTimer boardT = new BoardTimer();
-				boardT.runTaskTimerAsynchronously(DLC_ApiGame.inst, 0, VarUtil.config_board.time);
+				boardT.runTaskTimerAsynchronously(DLC_ApiGame.inst, 0, VarUtil.apiGameConfig.time);
 				sender.sendMessage("보드가 켜졌습니다");
 				return false;
 			}

@@ -6,12 +6,14 @@ import java.util.List;
 import org.bukkit.entity.Player;
 
 import com.ho_bot.ApiGame.classes.BoardClass;
+import com.ho_bot.ApiGame.file.player.PlayerDiaFile;
 
 public class ReplaceUtil {
 	
+	private PlayerDiaFile pdf = new PlayerDiaFile();
+	
 	public String replaceBoard(String str, BoardClass board) {
-		str=str.replace("%남은다이아%", board.remain_dia+"");
-		str=str.replace("%제출한다이아%", board.complete_dia+"");
+		
 		return str;
 	}
 	
@@ -27,6 +29,8 @@ public class ReplaceUtil {
 		str=str.replace("%playername%", player.getName());
 		str=str.replace("%displayname%", player.getDisplayName());
 		str=str.replace("%customname%", player.getCustomName());
+		str=str.replace("%남은다이아%", pdf.getRemainDia(player.getUniqueId())+"");
+		str=str.replace("%제출한다이아%", pdf.getCompleteDia(player.getUniqueId())+"");
 		return str;
 	}
 	

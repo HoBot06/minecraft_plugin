@@ -1,6 +1,10 @@
+#종류 - 우클릭, 버리기
+제출:
+    활성화: true
+    종류: 우클릭
 스코어보드:
     제목: 다이아게임
     내용:
     - '%playername% : %제출한다이아%/%남은다이아%'
-    - '%displayname%'
-    - '%customname%'
+    - '%displayname% : 디스플레이이름'
+    - '%customname% : 커스텀이름'

@@ -4,10 +4,10 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scoreboard.ScoreboardManager;
 
-import com.ho_bot.ApiGame.classes.board.diaBoard;
 import com.ho_bot.ApiGame.cmd.DLC_Cmd;
 import com.ho_bot.ApiGame.dlc.DLC;
 import com.ho_bot.ApiGame.event.DLC_Event;
+import com.ho_bot.ApiGame.event.Dia_Event;
 import com.ho_bot.ApiGame.file.ConfigFile;
 import com.ho_bot.ApiGame.file.DiaFile;
 import com.ho_bot.ApiGame.timer.BoardTimer;
@@ -32,6 +32,7 @@ public class DLC_ApiGame extends JavaPlugin {
 		Bukkit.getConsoleSender().sendMessage("DLC_ApiGame " + getDescription().getVersion() + " Online");
 		
         getServer().getPluginManager().registerEvents(new DLC_Event(), this);
+        getServer().getPluginManager().registerEvents(new Dia_Event(), this);
         
         getConfig().options().copyDefaults(true);
         saveDefaultConfig();
@@ -45,9 +46,9 @@ public class DLC_ApiGame extends JavaPlugin {
         
         configF.reloadConfig();
         
-        if(VarUtil.config_board.able) {
+        if(VarUtil.apiGameConfig.able) {
         	VarUtil.turnBoard = true;
-        	boardT.runTaskTimerAsynchronously(inst, 0, VarUtil.config_board.time);
+        	boardT.runTaskTimerAsynchronously(inst, 0, VarUtil.apiGameConfig.time);
         }
 	}
 

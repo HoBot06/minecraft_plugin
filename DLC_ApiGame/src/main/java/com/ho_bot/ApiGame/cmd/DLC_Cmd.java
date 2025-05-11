@@ -1,5 +1,6 @@
 package com.ho_bot.ApiGame.cmd;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.bukkit.command.Command;
@@ -21,12 +22,15 @@ public class DLC_Cmd implements TabExecutor{
 
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
-		// TODO Auto-generated method stub
+		if(args.length == 1) {
+			return Arrays.asList("reload", "보드켜기", "보드끄기");
+		}
 		return null;
 	}
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+		if(!sender.isOp()) return false;
 		if(args[0].equalsIgnoreCase("reload")) {
 			//무조건 config가 나중에
 			diaF.reloadDiaFile();

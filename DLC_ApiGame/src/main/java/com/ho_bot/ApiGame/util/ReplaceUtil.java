@@ -28,7 +28,9 @@ public class ReplaceUtil {
 	public String replacePlayer(String str, Player player) {
 		str=str.replace("%playername%", player.getName());
 		str=str.replace("%displayname%", player.getDisplayName());
-		str=str.replace("%customname%", player.getCustomName());
+		if(player.getCustomName() != null) {
+			str=str.replace("%customname%", player.getCustomName());
+		}
 		str=str.replace("%남은다이아%", pdf.getRemainDia(player.getUniqueId())+"");
 		str=str.replace("%제출한다이아%", pdf.getCompleteDia(player.getUniqueId())+"");
 		return str;

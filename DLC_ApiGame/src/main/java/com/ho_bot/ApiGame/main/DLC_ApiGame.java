@@ -10,6 +10,7 @@ import com.ho_bot.ApiGame.event.DLC_Event;
 import com.ho_bot.ApiGame.event.Dia_Event;
 import com.ho_bot.ApiGame.file.ConfigFile;
 import com.ho_bot.ApiGame.file.DiaFile;
+import com.ho_bot.ApiGame.file.RoulFile;
 import com.ho_bot.ApiGame.timer.BoardTimer;
 import com.ho_bot.ApiGame.util.VarUtil;
 import com.ho_bot.util.DLCUtil;
@@ -22,6 +23,7 @@ public class DLC_ApiGame extends JavaPlugin {
 	
 	private ConfigFile configF = new ConfigFile();
 	private DiaFile diaF = new DiaFile();
+	private RoulFile roulF = new RoulFile();
 	
 	private BoardTimer boardT = new BoardTimer();
 	
@@ -43,6 +45,7 @@ public class DLC_ApiGame extends JavaPlugin {
         DLCUtil.addDlc(key, new DLC(key));
         
         diaF.reloadDiaFile();
+        roulF.reloadRoul();
         
         configF.reloadConfig();
         

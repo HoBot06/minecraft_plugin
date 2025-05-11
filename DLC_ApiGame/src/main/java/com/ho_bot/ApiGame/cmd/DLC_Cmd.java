@@ -8,6 +8,7 @@ import org.bukkit.command.TabExecutor;
 
 import com.ho_bot.ApiGame.file.ConfigFile;
 import com.ho_bot.ApiGame.file.DiaFile;
+import com.ho_bot.ApiGame.file.RoulFile;
 import com.ho_bot.ApiGame.main.DLC_ApiGame;
 import com.ho_bot.ApiGame.timer.BoardTimer;
 import com.ho_bot.ApiGame.util.VarUtil;
@@ -16,6 +17,7 @@ public class DLC_Cmd implements TabExecutor{
 	
 	private ConfigFile configF = new ConfigFile();
 	private DiaFile diaF = new DiaFile();
+	private RoulFile roulF = new RoulFile();
 
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
@@ -28,7 +30,7 @@ public class DLC_Cmd implements TabExecutor{
 		if(args[0].equalsIgnoreCase("reload")) {
 			//무조건 config가 나중에
 			diaF.reloadDiaFile();
-			
+			roulF.reloadRoul();
 			configF.reloadConfig();
 			sender.sendMessage("콘피그 리로드 완료");
 		}
@@ -57,9 +59,7 @@ public class DLC_Cmd implements TabExecutor{
 			}
 		}
 		if(args[0].equalsIgnoreCase("test")) {
-			for(String s : VarUtil.dia_Board.lore) {
-				sender.sendMessage(s);
-			}
+			
 		}
 		return false;
 	}

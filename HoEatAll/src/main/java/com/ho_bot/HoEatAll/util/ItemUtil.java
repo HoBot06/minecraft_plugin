@@ -9,7 +9,10 @@ public class ItemUtil {
 	
 	public ItemStack setFood(ItemStack item, boolean canAlwaysEat, float saturation, int nutrition, float second) {
 		String component = item.getItemMeta().getAsComponentString();
-		component = component.substring(1, component.length()-1)+",";
+		component = component.substring(1, component.length()-1);
+		if(component!="") {
+			component = component+",";
+		}
 		ItemStack consume = 
 				Bukkit.getItemFactory().createItemStack(item.getType().name().toLowerCase()+"["+component+
 						"consumable={consume_seconds:"+second+",animation:\"eat\"}]");
